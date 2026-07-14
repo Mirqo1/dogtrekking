@@ -145,3 +145,48 @@ h3 {
     outline: none;
     transition: border-color 0.3s;
 }
+
+/* --- RESPONZIVITA --- */
+
+/* Pre tablety a mobily (obrazovky užšie ako 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        grid-template-columns: 1fr; /* Všetko pôjde pod seba */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        grid-column: 1; /* Logo na prvej pozícii */
+        font-size: 32px; /* Logo bude na mobile trochu menšie */
+    }
+
+    .search-box {
+        grid-column: 1; /* Vyhľadávanie pod logom */
+        justify-self: center; /* Vyhľadávanie na stred */
+    }
+
+    table {
+        width: 100%; /* Tabuľka na celú šírku obrazovky */
+    }
+
+    /* Zmenšenie stĺpcov v tabuľke, aby sa zmestili na mobil */
+    table td:nth-child(1) { width: 15%; } 
+    table td:nth-child(2) { width: 25%; }
+    table td:nth-child(3) { width: 30%; }
+    table td:nth-child(4) { display: none; } /* Miesto na mobile skryjeme, aby sa to zmestilo */
+    table td:nth-child(5) { width: 30%; }
+}
+
+/* Pre veľmi malé mobily (obrazovky užšie ako 480px) */
+@media (max-width: 480px) {
+    .hero-buttons {
+        flex-direction: column; /* Tlačidlá pôjdu pod seba */
+        gap: 10px;
+    }
+    
+    table td {
+        font-size: 12px; /* Zmenšíme písmo v tabuľke */
+        padding: 8px 4px;
+    }
+}
