@@ -26,7 +26,6 @@ async function showPage(page, updateHistory = true) {
                 <h2 style="text-align:center;">Posledné články</h2>
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
-            // Načítame a hneď vykreslíme
             await loadArticles(); 
 
         } else if (target === 'calendar') {
@@ -57,7 +56,6 @@ async function showPage(page, updateHistory = true) {
     }
 }
 
-// Články - logika
 let currentPage = 0;
 const articlesPerPage = 3;
 let allArticles = [];
@@ -68,7 +66,8 @@ async function loadArticles() {
         allArticles = await res.json();
         renderArticles();
     } catch (e) {
-        document.getElementById('articles-list').innerHTML = "Nepodarilo sa načítať články.";
+        const list = document.getElementById('articles-list');
+        if (list) list.innerHTML = "Nepodarilo sa načítať články.";
     }
 }
 
@@ -81,6 +80,7 @@ function renderArticles() {
     const container = document.getElementById('articles-list');
     if (!container) return;
 
+    const totalPages = Math.ceil(allArticles.length / articlesPerPage);
     const start = currentPage * articlesPerPage;
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
@@ -88,8 +88,9 @@ function renderArticles() {
         `<div class="card"><h3>${a.title}</h3><p>${a.body}</p></div>`
     ).join('') + `
     <div class="pagination">
-        <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>← Staršie</button>
-        <button onclick="changePage(1)" ${(start + articlesPerPage >= allArticles.length) ? 'disabled' : ''}>Novšie →</button>
+        <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>&lt;</button>
+        <span class="page-info">${currentPage + 1} / ${totalPages}</span>
+        <button onclick="changePage(1)" ${(currentPage + 1 >= totalPages) ? 'disabled' : ''}>&gt;</button>
     </div>`;
 }
 
