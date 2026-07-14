@@ -19,3 +19,29 @@ body { font-family: 'Inter', sans-serif; margin: 0; color: #333; }
 .card { border: 1px solid #eee; padding: 20px; border-radius: 8px; }
 
 footer { text-align: center; border-top: 1px solid #eee; margin-top: 40px; }
+
+/* Hlavička - zmenené na grid pre perfektné vycentrovanie */
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Tri stĺpce: ľavý prázdny, stred logo, pravý vyhľadávanie */
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid var(--primary-yellow);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    grid-column: 2; /* Logo bude v stredovom stĺpci */
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search-box {
+    grid-column: 3; /* Vyhľadávanie bude v pravom stĺpci */
+    justify-self: end; /* Zarovná vyhľadávanie úplne doprava */
+}
+
+/* Zvyšok CSS zostáva nezmenený */
