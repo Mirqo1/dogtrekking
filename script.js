@@ -14,22 +14,27 @@ async function showPage(page, updateHistory = true) {
     app.innerHTML = "Načítavam...";
 
     try {
-        if (target === 'home') {
-            app.innerHTML = `
-                <section class="hero">
-                    <div class="hero-text">
-                        <h1>Dogtrekking</h1>
-                        <p><strong>Slovensko</strong></p>
-                        <p>Dogtrekking je vytrvalostný kynologický šport, pri ktorom psovod so psom prekonávajú dlhú trasu v teréne.</p>
-                        <div class="hero-buttons">
-                            <a href="/about" onclick="showPage('about'); return false;" class="btn-white">O dogtrekkingu</a>
-                            <a href="/calendar" onclick="showPage('calendar'); return false;" class="btn-yellow">Kalendár akcií</a>
-                        </div>
-                    </div>
-                    <div class="hero-image"><img src="img/dogtrekking-hero.jpg" alt="Dogtrekking"></div>
-                </section>
-                <h2 style="text-align:center;">Posledné články</h2>
-                <div class="articles-grid" id="articles-list">Načítavam...</div>`;
+// ... vo vnútri showPage funkcie, sekcia 'home'
+if (target === 'home') {
+    app.innerHTML = `
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Dogtrekking</h1>
+                <p><strong>Slovensko</strong></p>
+                <p>Dogtrekking je vytrvalostný kynologický šport...</p>
+                <div class="hero-buttons">
+                    <a href="/about" onclick="showPage('about'); return false;" class="btn-white">O dogtrekkingu</a>
+                    <a href="/calendar" onclick="showPage('calendar'); return false;" class="btn-yellow">Kalendár akcií</a>
+                </div>
+            </div>
+            <div class="hero-image"><img src="img/dogtrekking-hero.jpg" alt="Dogtrekking"></div>
+        </section>
+        <h2 style="text-align:center;">Posledné články</h2>
+        <div class="articles-grid" id="articles-list">Načítavam...</div>`;
+    
+    // ZAVOLÁME NAČÍTANIE ČLÁNKOV TU
+    loadArticles(); 
+}
             
             const res = await fetch('data/articles.json');
             const data = await res.json();
