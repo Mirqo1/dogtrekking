@@ -29,3 +29,4 @@ main {
     max-width: 800px;
     margin: auto;
 }
+.card { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px; background: #f9f9f9; }
