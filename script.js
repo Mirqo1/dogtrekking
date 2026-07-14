@@ -72,6 +72,11 @@ async function loadArticles() {
 
 window.changePage = function(direction) {
     currentPage += direction;
+    
+    // Zmena URL adresy bez znovunačítania stránky
+    const pageNum = currentPage + 1;
+    history.pushState({page: 'home', pageNum: pageNum}, "", `/home?page=${pageNum}`);
+    
     renderArticles();
 };
 
@@ -93,6 +98,15 @@ function renderArticles() {
     </div>`;
 }
 
+// Kontrola URL parametrov pri štarte
+const urlParams = new URLSearchParams(window.location.search);
+const pageParam = urlParams.get('page');
+
+if (pageParam) {
+    currentPage = parseInt(pageParam) - 1;
+}
+
 // Inicializácia
 const initialPage = window.location.pathname.replace('/', '') || 'home';
 showPage(initialPage, false);
+
