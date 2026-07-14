@@ -1,4 +1,22 @@
 [
-  { "id": 1, "title": "Vitajte na novom webe!", "date": "2026-07-14", "body": "Toto je oficiálny web slovenského dogtrekkingu." },
-  { "id": 2, "title": "Ako začať s dogtrekkingom?", "date": "2026-07-10", "body": "Dogtrekking je úžasný šport so psom v prírode..." }
+    {
+    "title": "Dalsi článok o dogtrekkingu",
+    "date": "13.07.2026",
+    "body": "Toto je text nového článku, ktorý som pridal na vrch zoznamu."
+  },
+    {
+    "title": "Daky článok o dogtrekkingu",
+    "date": "12.07.2026",
+    "body": "Toto je text nového článku, ktorý som pridal na vrch zoznamu."
+  },
+  {
+    "title": "Nový článok o dogtrekkingu",
+    "date": "11.07.2026",
+    "body": "Toto je text nového článku, ktorý som pridal na vrch zoznamu."
+  },
+  {
+    "title": "Starší článok",
+    "date": "10.07.2026",
+    "body": "Obsah staršieho článku."
+  }
 ]
