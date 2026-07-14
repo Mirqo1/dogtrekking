@@ -219,3 +219,35 @@ h3 {
     background-color: var(--primary-yellow);
     color: var(--main-black);
 }
+
+/* Kontajner pre články */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 stĺpce rovnakej šírky */
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Responzivita: pri menších obrazovkách prepne na 1 stĺpec (pod sebou) */
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Štýl navigačných šípok */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--primary-yellow);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
