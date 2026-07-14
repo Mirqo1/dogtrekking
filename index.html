@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dogtrekking Slovensko</title>
-    
-    <!-- Sem vlož link na Google Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
-    
     <script>
       (function(){
         var redirect = sessionStorage.redirect;
@@ -22,15 +19,15 @@
 </head>
 <body>
     <header>
-        <h1>Dogtrekking.sk</h1>
+        <!-- Nahraď "logo.png" cestou k tvojmu obrázku -->
+        <img src="img/logo.png" alt="Dogtrekking Logo" style="max-width: 300px; display: block; margin: 0 auto;">
         <nav>
-  <ul>
-    <!-- Odkazy musia smerovať na reálne cesty, nie na # -->
-    <li><a href="/" onclick="showPage('home'); return false;">Domov</a></li>
-    <li><a href="/about" onclick="showPage('about'); return false;">Čo je Dogtrekking</a></li>
-    <li><a href="/calendar" onclick="showPage('calendar'); return false;">Kalendár</a></li>
-  </ul>
-</nav>
+            <ul>
+                <li><a href="/" onclick="showPage('home'); return false;">Domov</a></li>
+                <li><a href="/about" onclick="showPage('about'); return false;">Čo je Dogtrekking</a></li>
+                <li><a href="/calendar" onclick="showPage('calendar'); return false;">Kalendár</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main id="app">
