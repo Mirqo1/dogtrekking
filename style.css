@@ -1,8 +1,83 @@
-body { font-family: 'Inter', sans-serif; line-height: 1.5; margin: 0; padding: 0; }
-nav ul { list-style: none; display: flex; justify-content: center; gap: 20px; padding: 20px; background: #333; }
-nav a { color: white; text-decoration: none; font-weight: bold; }
-main { max-width: 900px; margin: auto; padding: 20px; }
+:root {
+    --primary-yellow: #f2bd2c;
+    --main-black: #1a1a1a;
+    --bg-light: #ffffff;
+    --text-color: #333333;
+}
 
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-table th, table td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
-.btn-link { padding: 6px 12px; background: #f2bd2c; color: black; text-decoration: none; border-radius: 4px; }
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+}
+
+header {
+    background-color: #ffffff;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-yellow);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Zabezpečí, že sa na mobile zalomia */
+}
+
+nav a {
+    background-color: var(--main-black);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+}
+
+main {
+    padding: 40px 20px;
+    max-width: 1100px; /* Zväčšená šírka */
+    margin: auto;
+    min-height: 60vh;
+}
+
+/* Nadpisy na stred bez čiar */
+h2, h3 {
+    text-align: center;
+    color: var(--main-black);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-bottom: 40px;
+}
+
+table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Mobilná responzivita pre tabuľku */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    td { text-align: center; }
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-yellow);
+    color: var(--main-black);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
