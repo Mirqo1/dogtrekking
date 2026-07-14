@@ -1,7 +1,6 @@
 [
-  { "month": "August", "country": "CZ", "date": "15.08.2026", "name": "Hruboskalský canicross", "location": "Hrubá Skála", "url": "https://mushingmaniacs.com/" },
-  { "month": "August", "country": "CZ", "date": "23.08.2026", "name": "Běžím Krušnohořím - Stříbrná", "location": "Stříbrná", "url": "https://mushingmaniacs.com/" },
-  { "month": "September", "country": "SK", "date": "12.09.2026", "name": "Pezinská baba", "location": "Pezinok", "url": "https://mushing.sk/" },
-  { "month": "September", "country": "SK", "date": "26.09.2026", "name": "Fončorda dogmaratón", "location": "Banská Bystrica", "url": "https://vsetkybehy.sk/podujatie/foncorda-dogmaraton-2026" },
-  { "month": "Október", "country": "SK", "date": "03.10.2026", "name": "Oravský Háj", "location": "Oravský Háj", "url": "https://mushing.sk/" }
+  { "month": "August", "country": "CZ", "date": "16.08.2026", "name": "Běžím Krušnohořím", "location": "Stříbrná", "url": "https://www.bezimkrusnohorim.cz/" },
+  { "month": "August", "country": "CZ", "date": "29.08.2026", "name": "Dogtrekking Šumava", "location": "Šumava", "url": "https://www.dogtrekking.info/" },
+  { "month": "September", "country": "CZ", "date": "12.09.2026", "name": "Dogtrekking Beskydy", "location": "Beskydy", "url": "https://www.dogtrekking.info/" },
+  { "month": "Október", "country": "CZ", "date": "10.10.2026", "name": "Dogtrekking Kokořínsko", "location": "Kokořínsko", "url": "https://www.dogtrekking.info/" }
 ]
