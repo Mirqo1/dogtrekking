@@ -93,8 +93,16 @@ async function loadArticles() {
     renderArticles();
 }
 
+// Táto funkcia už existuje v tvojom kóde, len ju uprav takto:
+window.changePage = function(direction) {
+    currentPage += direction;
+    renderArticles();
+};
+
 function renderArticles() {
     const container = document.getElementById('articles-list');
+    if (!container) return; // Ochrana, ak nie sme na home
+
     const start = currentPage * articlesPerPage;
     const end = start + articlesPerPage;
     const paginatedItems = allArticles.slice(start, end);
