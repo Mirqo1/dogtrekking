@@ -2,29 +2,22 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogtrekking.sk</title>
+    <title>Dogtrekking</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="logo" onclick="showPage('home')" style="cursor:pointer;">
-            <span class="yellow">DOG</span><span class="black">TREKKING</span><span class="yellow">.SK</span>
-        </div>
-        <div class="search-box">
-            <input type="text" placeholder="Vyhľadávanie...">
-        </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Domov</a></li>
+                <li><a href="#" onclick="showPage('calendar')">Kalendár</a></li>
+                <li><a href="#" onclick="showPage('about')">O nás</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main id="app">
-        <!-- Sem sa načíta obsah -->
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Oficiálny web slovenského dogtrekkingu</p>
-    </footer>
+    <main id="app"></main>
 
     <script src="script.js"></script>
 </body>
