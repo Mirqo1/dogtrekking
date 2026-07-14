@@ -3,41 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogtrekking Slovensko</title>
-    <!-- Google Fonts -->
+    <title>Dogtrekking.sk</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script>
-      (function(){
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect != "/") {
-          history.replaceState(null, null, redirect);
-        }
-      })();
-    </script>
 </head>
 <body>
-    <header>
-        <!-- Nahraď "logo.png" cestou k tvojmu obrázku -->
-        <img src="img/logo.png" alt="Dogtrekking Logo" style="max-width: 300px; display: block; margin: 0 auto;">
-        <nav>
-            <ul>
-                <li><a href="/" onclick="showPage('home'); return false;">Domov</a></li>
-                <li><a href="/about" onclick="showPage('about'); return false;">Čo je Dogtrekking</a></li>
-                <li><a href="/calendar" onclick="showPage('calendar'); return false;">Kalendár</a></li>
-            </ul>
-        </nav>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="yellow">DOG</span><span class="black">TREKKING</span><span class="yellow">.SK</span>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Vyhľadávanie...">
+        </div>
     </header>
 
-    <main id="app">
-        <!-- Sem bude JS vkladať obsah -->
+    <main>
+        <!-- HERO sekcia -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Dogtrekking</h1>
+                <p>Slovensko</p>
+                <p>Dogtrekking je vytrvalostný kynologický šport, pri ktorom psovod so psom prekonávajú dlhú trasu v teréne podľa mapy.</p>
+                <div class="hero-buttons">
+                    <a href="/about" class="btn-white">O dogtrekkingu</a>
+                    <a href="/calendar" class="btn-yellow">Kalendár akcií</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="path/to/your/dogtrekking-image.jpg" alt="Dogtrekking">
+            </div>
+        </section>
+
+        <!-- 3 články -->
+        <section class="articles">
+            <div class="card">Článok 1</div>
+            <div class="card">Článok 2</div>
+            <div class="card">Článok 3</div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Oficiálny web slovenského dogtrekkingu</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
