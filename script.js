@@ -73,9 +73,10 @@ async function loadArticles() {
 window.changePage = function(direction) {
     currentPage += direction;
     
-    // Zmena URL adresy bez znovunačítania stránky
-    const pageNum = currentPage + 1;
-    history.pushState({page: 'home', pageNum: pageNum}, "", `/home?page=${pageNum}`);
+    // Ak je strana 1, URL je "/", inak "/page-2"
+    const newPath = (currentPage === 0) ? '/' : `/page-${currentPage + 1}`;
+    
+    history.pushState({page: 'home', pageNum: currentPage + 1}, "", newPath);
     
     renderArticles();
 };
@@ -98,15 +99,17 @@ function renderArticles() {
     </div>`;
 }
 
-// Kontrola URL parametrov pri štarte
-const urlParams = new URLSearchParams(window.location.search);
-const pageParam = urlParams.get('page');
+// Kontrola URL pri štarte
+const path = window.location.pathname;
+let initialPage = 'home';
+let startPage = 0;
 
-if (pageParam) {
-    currentPage = parseInt(pageParam) - 1;
+if (path.startsWith('/page-')) {
+    startPage = parseInt(path.replace('/page-', '')) - 1;
 }
 
-// Inicializácia
-const initialPage = window.location.pathname.replace('/', '') || 'home';
-showPage(initialPage, false);
+// Nastavíme globálnu premennú
+currentPage = startPage;
 
+// Inicializácia
+showPage(initialPage, false);
