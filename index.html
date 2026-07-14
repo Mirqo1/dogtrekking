@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dogtrekking Slovensko</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != "/") {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
 </head>
 <body>
     <header>
