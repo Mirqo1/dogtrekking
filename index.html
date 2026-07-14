@@ -1,8 +1,31 @@
-<nav>
-  <a href="#" onclick="loadContent('home')">Domov</a>
-  <a href="#" onclick="loadContent('about')">Čo je Dogtrekking</a>
-  <a href="#" onclick="loadContent('calendar')">Kalendár</a>
-</nav>
-<main id="content">
-  <!-- Sem sa bude vkladať obsah cez JS -->
-</main>
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogtrekking Slovensko</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Dogtrekking.sk</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Domov</a></li>
+                <li><a href="#" onclick="showPage('about')">Čo je Dogtrekking</a></li>
+                <li><a href="#" onclick="showPage('calendar')">Kalendár</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="app">
+        <!-- Sem bude JS vkladať obsah -->
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Oficiálny web slovenského dogtrekkingu</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
