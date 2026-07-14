@@ -1,3 +1,10 @@
+:root {
+    --primary-yellow: #f2bd2c; /* Presná farba z tvojho loga */
+    --main-black: #1a1a1a;     /* Jemne zjemnená čierna pre lepší pocit */
+    --bg-light: #ffffff;
+    --text-color: #333333;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
