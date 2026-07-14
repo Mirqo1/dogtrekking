@@ -203,7 +203,7 @@ h3 {
     text-align: center;    /* Text bude vždy v strede */
     display: inline-block;
     text-decoration: none;
-    border-radius: 30px;   /* Zaoblenie */
+    /*border-radius: 30px;   /* Zaoblenie */
     font-weight: bold;
     margin: 0 10px;        /* Medzera medzi tlačidlami */
     transition: transform 0.2s;
