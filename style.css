@@ -252,9 +252,9 @@ h3 {
     align-items: center;
     gap: 20px;
     margin-top: 30px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
-    font-color: #666;
+    font-color: #888;
     color: #444;
 }
 
@@ -265,7 +265,7 @@ h3 {
     border: none;
     background-color: #f4f4f4; /* Svetlosivý podklad krúžku */
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
