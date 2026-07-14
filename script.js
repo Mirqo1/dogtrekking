@@ -46,19 +46,19 @@ async function showPage(page, updateHistory = true) {
             }, {});
 
             let html = `<h2>Kalendár akcií</h2>`;
-            for (const month in grouped) {
-                html += `<h3>${month}</h3><table><tbody>` 
-                + grouped[month].map(e => `
-                    <tr>
-                        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
-                        <td>${e.date}</td>
-                        <td>${e.name}</td>
-                        <td>${e.location}</td>
-                        <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-                    </tr>
-                `).join('') + `</tbody></table>`;
-            }
-            app.innerHTML = html;
+for (const month in grouped) {
+    html += `<h3>${month}</h3><table><tbody>` 
+    + grouped[month].map(e => `
+        <tr>
+            <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
+            <td>${e.date}</td>
+            <td style="text-align: left; font-weight: bold;">${e.name}</td> <!-- Názov zarovnaný vľavo vyzerá lepšie -->
+            <td>${e.location}</td>
+            <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
+        </tr>
+    `).join('') + `</tbody></table>`;
+}
+app.innerHTML = html;
 
         } else if (target === 'about') {
             app.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
