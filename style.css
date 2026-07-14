@@ -62,3 +62,33 @@ footer { text-align: center; border-top: 1px solid #eee; margin-top: 40px; }
 .search-box input:focus {
     border-color: var(--primary-yellow); /* Zmení farbu okraja na žltú pri aktivácii */
 }
+
+/* Centrovanie tabuľky a štýl riadkov */
+table {
+    width: 90%;            /* Trochu užšia ako celá šírka pre lepší vzhľad */
+    margin: 20px auto;     /* Vycentrovanie na stred */
+    border-collapse: collapse; 
+    text-align: center;    /* Obsah stĺpcov na stred */
+}
+
+table th, table td {
+    padding: 15px 10px;    /* Medzery medzi stĺpcami */
+    border-bottom: 1px solid #eee;
+}
+
+/* Štýl tlačidla "Viac info" */
+.btn-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-yellow);
+    color: var(--main-black);
+    text-decoration: none;
+    border-radius: 20px;   /* Zaoblené tlačidlo */
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-link:hover {
+    background-color: #dcb028; /* Jemná zmena farby pri prejdení myšou */
+}
