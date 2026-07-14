@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dogtrekking Slovensko</title>
+    
+    <!-- Sem vlož link na Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
+    
     <script>
-  (function(){
-    var redirect = sessionStorage.redirect;
-    delete sessionStorage.redirect;
-    if (redirect && redirect != "/") {
-      history.replaceState(null, null, redirect);
-    }
-  })();
-</script>
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != "/") {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
 </head>
 <body>
     <header>
