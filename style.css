@@ -74,5 +74,30 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+
+    .btn-link {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--primary-yellow);
+    color: var(--main-black);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.btn-link:hover {
+    opacity: 0.8;
+}
+
+/* Úprava pre lepšiu čitateľnosť na mobile */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; }
+    td { display: flex; justify-content: space-between; border: none; }
+    td::before { content: attr(data-label); font-weight: bold; }
+}
     border-top: 2px solid var(--primary-yellow);
 }
