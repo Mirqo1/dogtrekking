@@ -2,22 +2,41 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>Dogtrekking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogtrekking Slovensko</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != "/") {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
 </head>
 <body>
     <header>
+        <!-- Nahraď "logo.png" cestou k tvojmu obrázku -->
+        <img src="img/logo.png" alt="Dogtrekking Logo" style="max-width: 300px; display: block; margin: 0 auto;">
         <nav>
             <ul>
-                <li><a href="#" onclick="showPage('home')">Domov</a></li>
-                <li><a href="#" onclick="showPage('calendar')">Kalendár</a></li>
-                <li><a href="#" onclick="showPage('about')">O nás</a></li>
+                <li><a href="/" onclick="showPage('home'); return false;">Domov</a></li>
+                <li><a href="/about" onclick="showPage('about'); return false;">Čo je Dogtrekking</a></li>
+                <li><a href="/calendar" onclick="showPage('calendar'); return false;">Kalendár</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="app"></main>
+    <main id="app">
+        <!-- Sem bude JS vkladať obsah -->
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Oficiálny web slovenského dogtrekkingu</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
