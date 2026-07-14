@@ -45,3 +45,20 @@ footer { text-align: center; border-top: 1px solid #eee; margin-top: 40px; }
 }
 
 /* Zvyšok CSS zostáva nezmenený */
+
+
+/* Styling pre vyhľadávacie pole */
+.search-box input {
+    width: 250px;           /* Zväčší šírku poľa */
+    padding: 12px 20px;     /* Zväčší vnútorný priestor (pohodlnejšie písanie) */
+    border: 2px solid #ddd; /* Jemný okraj */
+    border-radius: 30px;    /* Zaoblené rohy (pilulkový tvar) */
+    font-size: 16px;        /* Väčší text */
+    outline: none;          /* Odstráni modrý obrys pri kliknutí */
+    transition: border-color 0.3s;
+}
+
+/* Efekt pri kliknutí do vyhľadávania */
+.search-box input:focus {
+    border-color: var(--primary-yellow); /* Zmení farbu okraja na žltú pri aktivácii */
+}
