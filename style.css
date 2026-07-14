@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Inter je oveľa lepšie čitateľný a kompaktnejší */
-    line-height: 1.5; /* Mierne zmenšené riadkovanie pre hustejší text */
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
     color: var(--text-color);
@@ -34,10 +34,11 @@ nav a {
     background-color: var(--main-black);
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 8px 8px 0 0;
     font-weight: bold;
     transition: background-color 0.3s;
+    font-size: 0.95rem;
 }
 
 nav a:hover {
@@ -59,13 +60,38 @@ h2 {
     margin-bottom: 20px;
 }
 
-.card {
-    border: 1px solid #ddd;
-    border-left: 5px solid var(--primary-yellow);
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    background-color: #f9f9f9;
+/* Kalendár - Tabuľka */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-bottom: 30px;
+}
+
+table td {
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+table thead {
+    display: none;
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-yellow);
+    color: var(--main-black);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-link:hover {
+    background-color: #dcb028;
 }
 
 footer {
@@ -74,30 +100,5 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
-
-    .btn-link {
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: var(--primary-yellow);
-    color: var(--main-black);
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: opacity 0.3s;
-}
-
-.btn-link:hover {
-    opacity: 0.8;
-}
-
-/* Úprava pre lepšiu čitateľnosť na mobile */
-@media (max-width: 600px) {
-    table, thead, tbody, th, td, tr { display: block; }
-    thead { display: none; }
-    tr { margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; }
-    td { display: flex; justify-content: space-between; border: none; }
-    td::before { content: attr(data-label); font-weight: bold; }
-}
     border-top: 2px solid var(--primary-yellow);
 }
