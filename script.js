@@ -77,3 +77,33 @@ window.addEventListener('popstate', (event) => {
 // Inicializácia pri prvom načítaní stránky
 const initialPage = window.location.pathname.replace('/', '') || 'home';
 showPage(initialPage, false);
+
+let currentPage = 0;
+const articlesPerPage = 3;
+let allArticles = [];
+
+async function loadArticles() {
+    const res = await fetch('data/articles.json');
+    allArticles = await res.json();
+    renderArticles();
+}
+
+function renderArticles() {
+    const container = document.getElementById('articles-list');
+    const start = currentPage * articlesPerPage;
+    const end = start + articlesPerPage;
+    const paginatedItems = allArticles.slice(start, end);
+
+    container.innerHTML = paginatedItems.map(a => 
+        `<div class="card"><h3>${a.title}</h3><p>${a.body}</p></div>`
+    ).join('') + `
+    <div class="pagination">
+        <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>← Staršie</button>
+        <button onclick="changePage(1)" ${(end >= allArticles.length) ? 'disabled' : ''}>Novšie →</button>
+    </div>`;
+}
+
+function changePage(direction) {
+    currentPage += direction;
+    renderArticles();
+}
