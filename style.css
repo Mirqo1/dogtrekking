@@ -92,3 +92,25 @@ table th, table td {
 .btn-link:hover {
     background-color: #dcb028; /* Jemná zmena farby pri prejdení myšou */
 }
+
+table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+    border-collapse: collapse;
+    table-layout: fixed; /* Kľúčové: vynúti fixnú šírku stĺpcov */
+}
+
+table td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    word-wrap: break-word; /* Zabezpečí zalomenie dlhých názvov */
+}
+
+/* Definícia šírok stĺpcov (spolu musí byť 100%) */
+table td:nth-child(1) { width: 10%; } /* Vlajka */
+table td:nth-child(2) { width: 20%; } /* Dátum */
+table td:nth-child(3) { width: 35%; } /* Názov akcie */
+table td:nth-child(4) { width: 20%; } /* Miesto */
+table td:nth-child(5) { width: 15%; } /* Tlačidlo */
