@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif; /* Inter je oveľa lepšie čitateľný a kompaktnejší */
+    line-height: 1.5; /* Mierne zmenšené riadkovanie pre hustejší text */
     margin: 0;
     padding: 0;
     color: var(--text-color);
