@@ -3,26 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogtrekking.sk</title>
+    <title>Dogtrekking Slovensko</title>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- SCRIPT PRE ZACHYTENIE URL PRI REFRESHI -->
+    <script>
+      (function(){
+        // Ak sme boli presmerovaní z 404.html, obnovíme pôvodnú cestu
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != "/") {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
 </head>
 <body>
+
     <header class="navbar">
+        <!-- Logo na stred, kliknutie smeruje na domov -->
         <div class="logo" onclick="showPage('home')" style="cursor:pointer;">
             <span class="yellow">DOG</span><span class="black">TREKKING</span><span class="yellow">.SK</span>
         </div>
+        
+        <!-- Vyhľadávanie vpravo -->
         <div class="search-box">
             <input type="text" placeholder="Vyhľadávanie...">
         </div>
     </header>
 
-    <main id="app"></main>
+    <!-- Hlavná časť, do ktorej JS vkladá obsah -->
+    <main id="app">
+        <!-- Obsah sa načíta automaticky po spustení script.js -->
+    </main>
 
     <footer>
         <p>&copy; 2026 Oficiálny web slovenského dogtrekkingu</p>
     </footer>
 
+    <!-- JS súbor, ktorý obsluhuje logiku stránky -->
     <script src="script.js"></script>
 </body>
 </html>
