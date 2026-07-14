@@ -1,6 +1,8 @@
 [
   { "month": "August", "country": "CZ", "date": "16.08.2026", "name": "Běžím Krušnohořím", "location": "Stříbrná", "url": "https://www.bezimkrusnohorim.cz/" },
   { "month": "August", "country": "CZ", "date": "29.08.2026", "name": "Dogtrekking Šumava", "location": "Šumava", "url": "https://www.dogtrekking.info/" },
-  { "month": "September", "country": "CZ", "date": "12.09.2026", "name": "Dogtrekking Beskydy", "location": "Beskydy", "url": "https://www.dogtrekking.info/" },
-  { "month": "Október", "country": "CZ", "date": "10.10.2026", "name": "Dogtrekking Kokořínsko", "location": "Kokořínsko", "url": "https://www.dogtrekking.info/" }
+  { "month": "September", "country": "CZ", "date": "05.09.2026", "name": "Dogtrekking Beskydy", "location": "Beskydy", "url": "https://www.dogtrekking.info/" },
+  { "month": "September", "country": "CZ", "date": "12.09.2026", "name": "Dogtrekking Jeseníky", "location": "Jeseníky", "url": "https://www.dogtrekking.info/" },
+  { "month": "Október", "country": "CZ", "date": "10.10.2026", "name": "Dogtrekking Kokořínsko", "location": "Kokořínsko", "url": "https://www.dogtrekking.info/" },
+  { "month": "November", "country": "CZ", "date": "07.11.2026", "name": "Dogtrekking Ralsko", "location": "Ralsko", "url": "https://www.dogtrekking.info/" }
 ]
