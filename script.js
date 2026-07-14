@@ -52,7 +52,7 @@ for (const month in grouped) {
         <tr>
             <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
             <td>${e.date}</td>
-            <td style="text-align: left; font-weight: bold;">${e.name}</td> <!-- Názov zarovnaný vľavo vyzerá lepšie -->
+            <td style="text-align: center; font-weight: bold;">${e.name}</td> <!-- Zmenené na center -->
             <td>${e.location}</td>
             <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
         </tr>
