@@ -23,7 +23,6 @@ async function showPage(page, updateHistory = true) {
                     </div>
                     <div class="hero-image"><img src="img/dogtrekking-hero.jpg" alt="Dogtrekking"></div>
                 </section>
-                <h2 style="text-align:center;">Posledné články</h2>
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
             await loadArticles(); 
