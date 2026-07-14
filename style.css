@@ -198,22 +198,21 @@ h3 {
 }
 
 .hero-buttons a {
-    min-width: 180px;      /* Tlačidlá budú mať vždy aspoň 180px */
-    padding: 15px 25px;    /* Vnútorný priestor */
-    text-align: center;    /* Text bude vždy v strede */
     display: inline-block;
+    min-width: 220px;      /* Zvýšil som pre istotu */
+    padding: 15px 25px;
+    text-align: center;
     text-decoration: none;
-    /*border-radius: 30px;   /* Zaoblenie */
     font-weight: bold;
-    margin: 0 10px;        /* Medzera medzi tlačidlami */
-    transition: transform 0.2s;
+    margin: 0 10px;
+    box-sizing: border-box; /* Kľúčové: započíta border do veľkosti */
+    border: 2px solid var(--primary-yellow); /* Obe budú mať rovnaký border */
 }
 
-/* Prípadné špecifické doladenie */
+/* Teraz len meníme farbu pozadia */
 .btn-white {
     background-color: white;
     color: var(--main-black);
-    border: 2px solid var(--primary-yellow);
 }
 
 .btn-yellow {
