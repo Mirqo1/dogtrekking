@@ -220,3 +220,12 @@ h3 {
     background-color: var(--primary-yellow);
     color: var(--main-black);
 }
+
+footer {
+    background-color: #f4f4f4; /* Jemne sivé pozadie */
+    color: #666;               /* Farba textu (tmavšia sivá pre čitateľnosť) */
+    text-align: center;        /* Zarovnanie textu na stred */
+    padding: 30px 20px;        /* Vnútorný priestor, aby nepôsobila stiesnene */
+    margin-top: 50px;          /* Medzera nad pätičkou */
+    border-top: 1px solid #ddd; /* Jemný horný okraj pre lepšie oddelenie */
+}
