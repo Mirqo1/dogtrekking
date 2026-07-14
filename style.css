@@ -5,21 +5,29 @@
 
 body { font-family: 'Inter', sans-serif; margin: 0; color: #333; }
 
-/* Obalenie obsahu, aby nebol roztiahnutý na celú šírku */
+/* Štandardná šírka pre všetko */
 .navbar, main, footer { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
+/* Hlavička */
 .navbar { display: flex; align-items: center; justify-content: space-between; }
 .logo { font-weight: bold; font-size: 28px; text-align: center; flex: 1; }
 .yellow { color: var(--primary-yellow); }
 .black { color: var(--main-black); }
 
-/* Štýl tlačidiel (pre funkčnosť v JS) */
-.btn-yellow { background: var(--primary-yellow); padding: 10px 20px; text-decoration: none; color: black; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 10px; }
-.btn-white { border: 1px solid #333; padding: 10px 20px; text-decoration: none; color: black; border-radius: 4px; display: inline-block; margin-top: 10px; }
+/* HERO sekcia */
+.hero { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; }
+.hero-text { flex: 1; }
+.hero-image { flex: 1; text-align: right; }
+.hero-image img { max-width: 100%; border-radius: 8px; }
 
-/* Pätička */
-footer { text-align: center; border-top: 1px solid #eee; margin-top: 40px; }
+/* Tlačidlá */
+.btn-yellow { background: var(--primary-yellow); padding: 12px 24px; text-decoration: none; color: black; font-weight: bold; border-radius: 4px; display: inline-block; margin-right: 10px; }
+.btn-white { border: 1px solid #333; padding: 12px 24px; text-decoration: none; color: black; border-radius: 4px; display: inline-block; }
 
 /* Články */
-.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
-.card { border: 1px solid #eee; padding: 20px; border-radius: 8px; }
+.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { border: 1px solid #eee; padding: 20px; border-radius: 8px; transition: 0.3s; }
+.card:hover { border-color: var(--primary-yellow); }
+
+/* Pätička */
+footer { text-align: center; border-top: 1px solid #eee; margin-top: 40px; color: #888; }
