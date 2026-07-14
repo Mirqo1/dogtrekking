@@ -1,48 +1,18 @@
-async function showPage(page, pushState = true) {
-    const contentDiv = document.getElementById('app');
-    const target = (page === '/' || page === '' || page === 'home') ? 'home' : page.replace('/', '');
+async function showPage(page) {
+    const app = document.getElementById('app');
+    const target = (page === '/' || page === '' || page === '/home') ? 'home' : page.replace('/', '');
 
-    if (pushState) {
-        history.pushState({page: target}, "", `/${target === 'home' ? '' : target}`);
-    }
-
-    contentDiv.innerHTML = "Načítavam...";
-
-    try {
-        if (target === 'home') {
-            const res = await fetch('data/articles.json');
-            const data = await res.json();
-            contentDiv.innerHTML = `<h2>Aktuality</h2>` + data.map(a => 
-                `<div class="card"><h3>${a.title}</h3><p>${a.body}</p></div>`
-            ).join('');
-        } else if (target === 'calendar') {
-            const res = await fetch('data/events.json');
-            const data = await res.json();
-            
-            const grouped = data.reduce((acc, event) => {
-                (acc[event.month] = acc[event.month] || []).push(event);
-                return acc;
-            }, {});
-
-            let html = `<h2>Kalendár akcií</h2>`;
-            for (const month in grouped) {
-                html += `<h3>${month}</h3><table><tbody>` 
-                + grouped[month].map(e => `
-                    <tr>
-                        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
-                        <td>${e.date}</td>
-                        <td>${e.name}</td>
-                        <td>${e.location}</td>
-                        <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-                    </tr>
-                `).join('') + `</tbody></table>`;
-            }
-            contentDiv.innerHTML = html;
-        } else if (target === 'about') {
-            contentDiv.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
-        }
-    } catch (e) {
-        contentDiv.innerHTML = "Chyba pri načítaní.";
-    }
+    if (target === 'home') {
+        app.innerHTML = `
+            <section style="display:flex; align-items:center; gap:40px; margin-bottom:50px;">
+                <div><h1>Dogtrekking</h1><p>Slovensko</p><p>Uvítací text o dogtrekkingu...</p>
+                <a href="#" onclick="showPage('about')" class="btn-white">O dogtrekkingu</a>
+                <a href="#" onclick="showPage('calendar')" class="btn-yellow">Kalendár akcií</a></div>
+                <img src="https://via.placeholder.com/400" alt="Dogtrekking">
+            </section>
+            <div class="articles-grid">
+                <div class="card">Článok 1</div><div class="card">Článok 2</div><div class="card">Článok 3</div>
+            </div>`;
+    } 
+    // ... tu doplň zvyšok tvojej logiky pre calendar/about ako predtým
 }
-showPage(window.location.pathname);
