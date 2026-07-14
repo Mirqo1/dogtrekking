@@ -13,7 +13,7 @@ async function showPage(page, pushState = true) {
             const res = await fetch('data/articles.json');
             const data = await res.json();
             contentDiv.innerHTML = `<h2>Aktuality</h2>` + data.map(a => 
-                `<div class="card"><h3>${a.title}</h3><small>${a.date}</small><p>${a.body}</p></div>`
+                `<div class="card"><h3>${a.title}</h3><p>${a.body}</p></div>`
             ).join('');
         } else if (target === 'calendar') {
             const res = await fetch('data/events.json');
@@ -39,11 +39,10 @@ async function showPage(page, pushState = true) {
             }
             contentDiv.innerHTML = html;
         } else if (target === 'about') {
-            contentDiv.innerHTML = `<h2>Čo je Dogtrekking</h2><p>Dogtrekking je vytrvalostný kynologický šport.</p>`;
+            contentDiv.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
         }
     } catch (e) {
         contentDiv.innerHTML = "Chyba pri načítaní.";
     }
 }
-
 showPage(window.location.pathname);
