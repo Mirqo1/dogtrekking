@@ -223,16 +223,28 @@ h3 {
 /* Kontajner na celú šírku */
 .footer-container {
     background-color: #f4f4f4; 
-    width: 100%;
-    margin-top: 50px;
+    width: 100%; /* Toto zabezpečí 100% šírku */
+    margin-top: 40px; /* Menší odstup zhora */
     border-top: 1px solid #ddd;
 }
 
-/* Vnútorný obsah, ktorý drží šírku webu */
+/* Vnútorný obsah */
 .footer-content {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 15px 20px; /* Zmenšený vertikálny padding (15px namiesto 30px) */
     text-align: center;
     color: #666;
+    font-size: 13px; /* Menší font pre pätičku */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden; /* Zabráni horizontálnemu posuvníku */
 }
