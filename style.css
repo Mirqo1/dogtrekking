@@ -251,3 +251,35 @@ h3 {
     border-radius: 5px;
     font-weight: bold;
 }
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Pagination - šípky */
+.pagination {
+    grid-column: 1 / -1; /* Roztiahne šípky cez všetky 3 stĺpce */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: var(--primary-yellow);
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.pagination button:disabled { background: #ccc; cursor: not-allowed; }
+
+/* Responzivita */
+@media (max-width: 768px) {
+    .articles-grid { grid-template-columns: 1fr; }
+}
