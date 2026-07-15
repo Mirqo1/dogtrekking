@@ -558,51 +558,42 @@ h3 {
 }
 
 .footer-container {
-    background: #fdfdfd;
-    padding: 30px 20px;
-    border-top: 2px solid var(--primary-yellow);
+    padding: 30px 20px 20px 20px;
+    border-top: 2px solid var(--primary-yellow); /* Žltá čiara ostáva */
     margin-top: 60px;
+    background: transparent; /* Zrušené sivé pozadie */
 }
 
 .footer-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dva hlavné stĺpce */
     max-width: 1100px;
     margin: 0 auto;
     gap: 20px;
 }
 
-.footer-left, .footer-right {
-    flex: 1;
-}
+.footer-left { text-align: left; }
+.footer-right { text-align: right; }
 
-.footer-right {
-    text-align: right;
-}
-
-.footer-left p, .footer-right a {
-    margin-bottom: 10px;
+/* Odkazy pod seba */
+.footer-left a, .footer-right a {
     display: block;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-.copyright {
-    margin-top: 15px;
-    font-size: 12px;
-    color: #999;
+/* Stredový copyright o riadok nižšie */
+.footer-bottom {
+    grid-column: 1 / -1; /* Roztiahne na celú šírku */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
 }
 
-/* RESPONZIVITA - na mobile všetko na stred a pod seba */
-@media (max-width: 768px) {
-    .footer-grid {
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer-right {
-        text-align: center;
-        margin-top: 20px;
-    }
-    .footer-left p, .footer-right a {
-        display: inline; /* Aby boli linky v jednom riadku na mobile */
-    }
+/* Responzivita pre mobil */
+@media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-left, .footer-right { text-align: center; }
 }
