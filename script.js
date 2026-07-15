@@ -129,3 +129,21 @@ async function startApp() {
 }
 
 startApp();
+
+// TENTO KÓD VLOŽ ÚPLNE NA KONIEC SÚBORU
+window.addEventListener('popstate', (event) => {
+    const path = window.location.pathname.substring(1);
+    // Ak sme dali späť na hlavnú stránku (prázdna cesta alebo home)
+    if (!path || path === 'home') {
+        showPage('home', false);
+    } 
+    // Ak sme dali späť na stránku s článkami (napr. page-2)
+    else if (path.startsWith('page-')) {
+        currentPage = parseInt(path.replace('page-', '')) - 1;
+        showPage('home', false);
+    }
+    // Inak zobrazíme to, čo je v ceste (článok alebo iná stránka)
+    else {
+        showPage(path, false);
+    }
+});
