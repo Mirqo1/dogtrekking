@@ -434,25 +434,3 @@ h3 {
         table-layout: auto !important;
     }
 }
-
-/* Obal tabuľky zabezpečí, že ak je tabuľka širšia ako obrazovka, vytvorí scrollbar */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Pre plynulý scroll na iOS */
-}
-
-/* Tabuľka nesmie meniť rozloženie stĺpcov */
-table {
-    width: 100%;
-    min-width: 700px; /* Toto zabezpečí, že sa tabuľka na mobile nezúži tak, aby sa prekrývala */
-    border-collapse: collapse;
-    table-layout: fixed; /* Zabezpečí pevné rozstupy */
-}
-
-/* Stĺpce budú držať šírku, namiesto skrývania sa posunú v rámci kontajnera */
-table th, table td {
-    overflow: hidden;
-    white-space: nowrap; /* Zabezpečí, že text neposunie riadok */
-    text-overflow: ellipsis; /* Ak je text dlhý, pridá bodky */
-}
