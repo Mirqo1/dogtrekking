@@ -452,3 +452,21 @@ td, th {
     padding: 10px;
     white-space: nowrap; /* Zabezpečí, že sa text nebude nečakane lámať do nových riadkov */
 }
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Toto povolí posúvanie do strán na mobile */
+    -webkit-overflow-scrolling: touch; /* Pre plynulé posúvanie na iPhone */
+}
+
+.calendar-table {
+    width: 100%;
+    min-width: 600px; /* Toto fixuje tabuľku na minimálnu šírku, aby sa nestláčala */
+    border-collapse: collapse;
+}
+
+.calendar-table th, .calendar-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
