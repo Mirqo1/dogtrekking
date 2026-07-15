@@ -37,7 +37,6 @@ async function showPage(page, updateHistory = true) {
                     </div>
                     <div class="hero-image"><img src="img/dogtrekking-hero.jpg" alt="Dogtrekking"></div>
                 </section>
-                <input type="text" id="search-bar" placeholder="Hľadať článok..." oninput="filterArticles()" style="width:100%; padding:10px; margin: 20px 0;">
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
             if (allArticles.length === 0) await loadArticles();
@@ -87,24 +86,27 @@ async function loadArticles() {
 }
 
 function filterArticles() {
-    const searchTerm = document.getElementById('search-bar').value.toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Odstráni diakritiku z hľadaného výrazu
+    const searchBar = document.getElementById('search-bar');
+    if (!searchBar) return;
+    
+    const searchTerm = searchBar.value.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
     
     const container = document.getElementById('articles-list');
     
-    const filtered = allArticles.filter(a => {
-        const titleNormalized = a.title.toLowerCase()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Odstráni diakritiku z názvu článku
-        return titleNormalized.includes(searchTerm);
-    });
-
-    // Ak je pole prázdne (používateľ vymazal text), vrátime späť stránkovanie
+    // Ak je pole prázdne, vrátime pôvodné zobrazenie stránkovania
     if (searchTerm === "") {
-        currentPage = 0;
         renderArticles();
         return;
     }
 
+    const filtered = allArticles.filter(a => {
+        const titleNormalized = a.title.toLowerCase()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return titleNormalized.includes(searchTerm);
+    });
+
+    // Zobrazenie výsledkov vyhľadávania (bez pagination)
     container.innerHTML = filtered.map(a => `
         <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
