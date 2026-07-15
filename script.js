@@ -67,15 +67,20 @@ async function showPage(page, updateHistory = true) {
 
             for (const month in grouped) {
                 html += `<tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">${month}</td></tr>`;
-                html += grouped[month].map(e => `
-                    <tr onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
-                        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
-                        <td>${e.date}</td>
-                        <td style="font-weight: bold;">${e.name}</td>
-                        <td class="desktop-only">${e.location}</td>
-                        <td><span class="badge">${e.type}</span></td>
-                        <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-                    </tr>`).join('');
+                // ... vo vnútri mapovania dát ...
+html += grouped[month].map(e => `
+    <tr onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
+        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
+        <td>${e.date}</td>
+        <td style="font-weight: bold;">${e.name}</td>
+        
+        <!-- Tu je trik: Stĺpce Miesto a Info pridáme iba ak nie je mobil -->
+        <td class="desktop-only">${e.location}</td>
+        
+        <td><span class="badge">${e.type}</span></td>
+        
+        <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
+    </tr>`).join('');
             }
             html += `</tbody></table></div>`;
             app.innerHTML = html;
