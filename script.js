@@ -35,7 +35,7 @@ async function showPage(page, updateHistory = true) {
                             <a href="/kalendar" onclick="showPage('kalendar'); return false;" class="btn-yellow">Kalendár akcií</a>
                         </div>
                     </div>
-                    <div class="hero-image"><img src="/img/dogtrekking_background_home_01.webp" alt="Dogtrekking background"></div>
+                    <div class="hero-image"><img src="/img/dogtrekking_background_home_02.webp" alt="Dogtrekking background"></div>
                 </section>
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
