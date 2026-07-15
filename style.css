@@ -490,38 +490,35 @@ h3 {
     margin: 0 !important; 
 }
 
-/* Hlavná sekcia Hero */
-/* Hlavná sekcia Hero */
+/* Hlavná sekcia Hero - ponecháme flex, aby text držal šírku */
 .hero {
-    position: relative; /* Kľúčové: umožňuje obrázku "plávať" cez sekciu */
-    min-height: 350px;
     display: flex;
     align-items: center;
     margin: 40px 0;
-    overflow: hidden; /* Zabezpečí, aby obrázok nepretiekol mimo */
+    min-height: 350px;
+    overflow: hidden; /* Dôležité pre orezanie obrázka */
+    position: relative;
 }
 
-/* Textová časť - 50% šírky */
+/* Textová časť - 50% šírky, drží formát */
 .hero-text {
-    position: relative;
-    z-index: 2; /* Text je nad obrázkom */
-    width: 50%;
-    padding-right: 20px;
+    flex: 0 0 50%; /* Pevne 50% */
+    z-index: 2;
+    padding-right: 40px;
     box-sizing: border-box;
 }
 
-/* Obrázok - 70% šírky, "podlieza" pod text */
+/* Kontajner obrázka */
 .hero-image {
-    position: absolute; /* Odtrhnutý od layoutu */
-    top: 0;
-    right: 0;
-    width: 70%; /* Obrázok zaberá 70% */
-    height: 100%;
-    z-index: 1; /* Je pod textom */
+    flex: 0 0 70%; /* Obrázok 70% */
+    height: 350px;
+    margin-left: -20%; /* Potiahne obrázok o 20% doľava pod text (70% - 20% = 50% prekryv) */
+    position: relative;
+    z-index: 1;
     
-    /* Maska: postupný prechod z priehľadnej do čiernej */
-    mask-image: linear-gradient(to right, transparent, black 40%);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
+    /* Maska na plynulé strácanie sa */
+    mask-image: linear-gradient(to right, transparent, black 30%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
 }
 
 .hero-image img {
@@ -532,9 +529,9 @@ h3 {
     display: block;
 }
 
-/* Mobilná responzivita - obrázok na mobile radšej skryjeme */
+/* Mobilná responzivita */
 @media (max-width: 768px) {
-    .hero { display: block; }
-    .hero-text { width: 100%; padding-right: 0; }
+    .hero { flex-direction: column; }
+    .hero-text { flex: 0 0 100%; padding-right: 0; }
     .hero-image { display: none; }
 }
