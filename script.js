@@ -90,7 +90,11 @@ function renderArticles() {
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
     container.innerHTML = paginatedItems.map(a => 
-        `<div class="card"><h3>${a.title}</h3><p>${a.body}</p></div>`
+        `<a href="/article" class="card-link" onclick="showPage('article'); return false;">
+            <div class="card" style="background-image: url('${a.image}');">
+                <h3>${a.title}</h3>
+            </div>
+        </a>`
     ).join('') + `
     <div class="pagination">
         <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>&lt;</button>
