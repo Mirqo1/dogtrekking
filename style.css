@@ -490,32 +490,41 @@ h3 {
     margin: 0 !important; 
 }
 
+/* Hero sekcia - flex nastavenie */
 .hero {
     display: flex;
     align-items: center;
-    position: relative; /* Potrebné pre absolútne pozície prvkov */
-    overflow: hidden;   /* Zabezpečí, že obrázok nepretečie mimo stránku */
+    position: relative;
+    overflow: hidden; /* Zabezpečí, aby maska správne orezala obrázok */
     margin: 40px 0;
+    min-height: 400px;
 }
 
+/* Textová časť */
 .hero-text {
     flex: 1;
-    z-index: 2; /* Text bude nad obrázkom */
-    background: rgba(255, 255, 255, 0.7); /* Jemné podfarbenie textu, ak by bol obrázok príliš tmavý */
+    z-index: 2; /* Text je nad obrázkom */
     padding-right: 20px;
 }
 
+/* Kontajner obrázka s maskou */
 .hero-image {
-    flex: 0 0 50%; /* Obrázok zaberie polovicu šírky */
+    flex: 0 0 55%; /* Obrázok zaberie o niečo viac ako polovicu */
     position: relative;
-    /* Maska, ktorá vytvorí efekt "strácania sa" zľava doprava */
-    mask-image: linear-gradient(to right, transparent, black 30%);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+    /* Maska: zľava priehľadný (transparent) -> doprava viditeľný (black) */
+    mask-image: linear-gradient(to right, transparent, black 40%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
-    display: block;
-    margin-left: -50px; /* Obrázok sa posunie doľava pod text */
+    height: 100%;
+    object-fit: cover; /* Obrázok vyplní plochu bez skreslenia */
+    margin-left: -50px; /* Posunie obrázok pod text */
+}
+
+/* Mobilná responzivita - ak obrázok na mobile prekáža */
+@media (max-width: 768px) {
+    .hero { flex-direction: column; }
+    .hero-image { display: none; } /* Na mobile skryjeme, aby sa text lepšie čítal */
 }
