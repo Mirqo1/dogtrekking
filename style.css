@@ -276,6 +276,9 @@ h3 {
     .articles-grid {
         grid-template-columns: 1fr;
     }
+    .hero-image {
+        display: none; /* Alebo nastavte opacity: 0.3 pre jemný efekt na mobile */
+    }
 }
 
 /* Štýl navigačných šípok */
@@ -485,4 +488,34 @@ h3 {
 /* Reset marginu, aby tlačidlá neboli odsadené zbytočne */
 .hero-buttons a {
     margin: 0 !important; 
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    position: relative; /* Potrebné pre absolútne pozície prvkov */
+    overflow: hidden;   /* Zabezpečí, že obrázok nepretečie mimo stránku */
+    margin: 40px 0;
+}
+
+.hero-text {
+    flex: 1;
+    z-index: 2; /* Text bude nad obrázkom */
+    background: rgba(255, 255, 255, 0.7); /* Jemné podfarbenie textu, ak by bol obrázok príliš tmavý */
+    padding-right: 20px;
+}
+
+.hero-image {
+    flex: 0 0 50%; /* Obrázok zaberie polovicu šírky */
+    position: relative;
+    /* Maska, ktorá vytvorí efekt "strácania sa" zľava doprava */
+    mask-image: linear-gradient(to right, transparent, black 30%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: -50px; /* Obrázok sa posunie doľava pod text */
 }
