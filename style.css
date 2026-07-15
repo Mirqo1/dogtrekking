@@ -490,32 +490,44 @@ h3 {
     margin: 0 !important; 
 }
 
+/* Hlavná sekcia Hero */
 .hero {
     display: flex;
-    align-items: center;
-    position: relative; /* Potrebné pre absolútne pozície prvkov */
-    overflow: hidden;   /* Zabezpečí, že obrázok nepretečie mimo stránku */
+    align-items: center; /* Zarovná text a obrázok vertikálne na stred */
+    position: relative;
     margin: 40px 0;
+    min-height: 350px; /* Upravte podľa potreby výšky obrázka */
+    overflow: hidden;
 }
 
 .hero-text {
     flex: 1;
-    z-index: 2; /* Text bude nad obrázkom */
-    background: rgba(255, 255, 255, 0.7); /* Jemné podfarbenie textu, ak by bol obrázok príliš tmavý */
-    padding-right: 20px;
+    z-index: 2;
+    padding-right: 40px; /* Priestor medzi textom a obrázkom */
 }
 
+/* Kontajner obrázka */
 .hero-image {
-    flex: 0 0 50%; /* Obrázok zaberie polovicu šírky */
+    flex: 0 0 45%; /* Obrázok zaberie 45% šírky */
+    height: 350px; /* Pevná výška, aby sa obrázok neťahal */
     position: relative;
-    /* Maska, ktorá vytvorí efekt "strácania sa" zľava doprava */
+    /* Maska pre miznutie do stratena */
     mask-image: linear-gradient(to right, transparent, black 30%);
     -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: right; /* Zabezpečí, že uvidíte pravú stranu fotky (okraj webu) */
     display: block;
-    margin-left: -50px; /* Obrázok sa posunie doľava pod text */
+}
+
+/* Úprava tlačidiel, aby sedeli pod textom */
+.hero-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 30px;
 }
