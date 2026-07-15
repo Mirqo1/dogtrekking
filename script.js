@@ -7,12 +7,10 @@ async function showPage(page, updateHistory = true) {
         history.pushState({page: target}, "", `/${target === 'home' ? '' : target}`);
     }
 
-    // Skontrolujeme, či ide o detail článku (formát article/id)
+    // 1. OŠETRENIE DETAILU ČLÁNKU
     if (target.startsWith('article/')) {
         const id = target.replace('article/', '');
-        // Nájdeme článok podľa ID
         const article = allArticles.find(a => a.id === id);
-        
         if (article) {
             app.innerHTML = `
                 <article class="article-detail">
@@ -26,19 +24,8 @@ async function showPage(page, updateHistory = true) {
         }
     }
 
-// Počkáme na načítanie článkov, aby vyhľadávanie podľa ID fungovalo hneď
-async function initApp() {
-    await loadArticles(); // Toto naplní premennú allArticles
-    const path = window.location.pathname.substring(1);
-    showPage(path || 'home', false);
-}
-
-initApp();
-    
-}
-
+    // 2. OSTATNÝ OBSAH (HOME, CALENDAR, ABOUT)
     app.innerHTML = "Načítavam...";
-
     try {
         if (target === 'home') {
             app.innerHTML = `
@@ -56,7 +43,9 @@ initApp();
                 </section>
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
-            await loadArticles(); 
+            // Ak sú články už v pamäti, rovno ich vykreslíme, inak načítame
+            if (allArticles.length === 0) await loadArticles();
+            else renderArticles();
 
         } else if (target === 'calendar') {
             const res = await fetch('data/events.json');
@@ -86,6 +75,7 @@ initApp();
     }
 }
 
+// 3. GLOBÁLNE PREMENNÉ A FUNKCIE PRE ČLÁNKY
 let currentPage = 0;
 const articlesPerPage = 3;
 let allArticles = [];
@@ -103,12 +93,8 @@ async function loadArticles() {
 
 window.changePage = function(direction) {
     currentPage += direction;
-    
-    // Ak je strana 1, URL je "/", inak "/page-2"
     const newPath = (currentPage === 0) ? '/' : `/page-${currentPage + 1}`;
-    
     history.pushState({page: 'home', pageNum: currentPage + 1}, "", newPath);
-    
     renderArticles();
 };
 
@@ -134,17 +120,23 @@ function renderArticles() {
     </div>`;
 }
 
-// Kontrola URL pri štarte
-const path = window.location.pathname;
-let initialPage = 'home';
-let startPage = 0;
+// 4. INICIALIZÁCIA (Úplný koniec súboru)
+async function startApp() {
+    await loadArticles(); // Najprv stiahneme dáta
+    
+    const path = window.location.pathname;
+    let initialPage = 'home';
+    
+    // Ak URL obsahuje /page-X, nastavíme stránku
+    if (path.startsWith('/page-')) {
+        currentPage = parseInt(path.replace('/page-', '')) - 1;
+    } 
+    // Ak URL začína na /article/, nastavíme target na tento článok
+    else if (path.startsWith('/article/')) {
+        initialPage = path.substring(1); // odstráni lomku na začiatku
+    }
 
-if (path.startsWith('/page-')) {
-    startPage = parseInt(path.replace('/page-', '')) - 1;
+    showPage(initialPage, false);
 }
 
-// Nastavíme globálnu premennú
-currentPage = startPage;
-
-// Inicializácia
-showPage(initialPage, false);
+startApp();
