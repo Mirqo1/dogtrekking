@@ -387,3 +387,25 @@ h3 {
     width: 100%;              /* Zabezpečí, aby bol text na šírku karty */
     box-sizing: border-box;   /* Aby padding nerozbil šírku */
 }
+
+/* Obal pre tabuľku, aby sa dal posúvať do strán na mobile */
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Štýl pre typ akcie (DT/CC) */
+.badge {
+    background: #ffcc00;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* Na mobiloch skryjeme menej dôležité stĺpce, ak by tabuľka bola príliš široká */
+@media (max-width: 600px) {
+    table th:nth-child(4), table td:nth-child(4) {
+        display: none; /* Skryje stĺpec "Miesto" na mobile */
+    }
+}
