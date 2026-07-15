@@ -461,3 +461,8 @@ h3 {
 .social-links a:hover {
     text-decoration: underline;
 }
+
+/* Jemné podfarbenie riadku pre slovenské akcie */
+.sk-event td {
+    background-color: rgba(242, 189, 44, 0.1); /* Tvoja --primary-yellow s 10% priehľadnosťou */
+}
