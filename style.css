@@ -409,3 +409,25 @@ h3 {
         display: none; /* Skryje stĺpec "Miesto" na mobile */
     }
 }
+
+.table-container {
+    overflow-x: auto;
+}
+
+.badge {
+    padding: 2px 4px;
+    font-size: 0.75em;
+    border-radius: 4px;
+    background: #ffcc00;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+@media (max-width: 600px) {
+    .desktop-only {
+        display: none !important;
+    }
+    tr {
+        height: 50px;
+    }
+}
