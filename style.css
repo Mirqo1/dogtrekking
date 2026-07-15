@@ -556,3 +556,23 @@ h3 {
     color: var(--primary-yellow); /* Pri prejdení myšou sa text zafarbí na žlto */
     text-decoration: underline;
 }
+
+/* Predpokladám, že tvoj nadpis v Hero sekcii má triedu .hero-title a podnadpis .hero-subtitle */
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; /* Uprav podľa potreby */
+    font-weight: 700;
+    color: var(--main-black);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 300; /* Tenké písmo ako na inšpirácii */
+    color: #555;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
