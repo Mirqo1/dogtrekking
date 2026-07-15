@@ -86,14 +86,24 @@ async function loadArticles() {
     }
 }
 
-// Nová funkcia na vyhľadávanie
 function filterArticles() {
-    const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+    const searchTerm = document.getElementById('search-bar').value.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Odstráni diakritiku z hľadaného výrazu
+    
     const container = document.getElementById('articles-list');
     
-    const filtered = allArticles.filter(a => 
-        a.title.toLowerCase().includes(searchTerm)
-    );
+    const filtered = allArticles.filter(a => {
+        const titleNormalized = a.title.toLowerCase()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Odstráni diakritiku z názvu článku
+        return titleNormalized.includes(searchTerm);
+    });
+
+    // Ak je pole prázdne (používateľ vymazal text), vrátime späť stránkovanie
+    if (searchTerm === "") {
+        currentPage = 0;
+        renderArticles();
+        return;
+    }
 
     container.innerHTML = filtered.map(a => `
         <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
