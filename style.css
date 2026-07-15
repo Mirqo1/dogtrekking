@@ -490,33 +490,33 @@ h3 {
     margin: 0 !important; 
 }
 
-/* Hlavná sekcia Hero - ponecháme flex, aby text držal šírku */
+/* Kontajner Hero */
 .hero {
-    display: flex;
+    display: grid;
+    /* Grid rozdelíme na 10 stĺpcov po 10% */
+    grid-template-columns: repeat(10, 1fr);
     align-items: center;
     margin: 40px 0;
     min-height: 350px;
-    overflow: hidden; /* Dôležité pre orezanie obrázka */
     position: relative;
+    overflow: hidden;
 }
 
-/* Textová časť - 50% šírky, drží formát */
+/* Text zaberá stĺpce 1 až 5 (teda 50%) */
 .hero-text {
-    flex: 0 0 50%; /* Pevne 50% */
+    grid-column: 1 / 6; 
     z-index: 2;
     padding-right: 40px;
     box-sizing: border-box;
 }
 
-/* Kontajner obrázka */
+/* Obrázok začína v stĺpci 4 a končí v 11 (prekrýva text a siaha až po koniec) */
 .hero-image {
-    flex: 0 0 70%; /* Obrázok 70% */
+    grid-column: 4 / 11; 
     height: 350px;
-    margin-left: -20%; /* Potiahne obrázok o 20% doľava pod text (70% - 20% = 50% prekryv) */
-    position: relative;
     z-index: 1;
     
-    /* Maska na plynulé strácanie sa */
+    /* Maska pre plynulé strácanie sa doľava */
     mask-image: linear-gradient(to right, transparent, black 30%);
     -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
 }
@@ -524,14 +524,16 @@ h3 {
 .hero-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: contain zabezpečí, že obrázok bude celý a nebude orezaný */
+    object-fit: contain; 
+    /* object-position: right zarovná celý obrázok k pravej strane */
     object-position: right;
     display: block;
 }
 
 /* Mobilná responzivita */
 @media (max-width: 768px) {
-    .hero { flex-direction: column; }
-    .hero-text { flex: 0 0 100%; padding-right: 0; }
+    .hero { display: block; }
+    .hero-text { padding: 0; }
     .hero-image { display: none; }
 }
