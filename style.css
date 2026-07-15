@@ -437,27 +437,27 @@ h3 {
 
 .footer-container {
     text-align: center;
-    /* Zmeníme padding na 40px zhora a zdola, aby bol priestor rovnomerný */
-    padding: 40px 20px; 
+    padding: 20px;
     border-top: 1px solid #eee;
     margin-top: 40px;
 }
 
-.footer-content {
-    /* Vynulujeme margin, aby nám nekazil odsadenie */
-    margin: 0;
-}
-
 .social-links {
-    margin-bottom: 15px; /* Priestor medzi Facebook odkazmi a copyrightom */
+    margin-bottom: 10px;
 }
 
 .social-links p {
-    margin: 0 0 5px 0; /* Odstránime horný margin pre nápis "Sleduj nás" */
+    margin: 0 0 5px 0;
     font-weight: bold;
     color: var(--main-black);
 }
 
-.footer-container > p {
-    margin: 0; /* Odstránime predvolený margin pre copyright */
+.social-links a {
+    color: var(--primary-yellow);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
 }
