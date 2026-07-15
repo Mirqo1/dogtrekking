@@ -327,3 +327,17 @@ h3 {
 @media (max-width: 768px) {
     .articles-grid { grid-template-columns: 1fr; }
 }
+
+/* Štýl pre reklamný slot */
+.ad-slot {
+    background-color: #f9f9f9;
+    border: 2px dashed #ccc; /* Odlíšenie od článku */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+.ad-slot h3 {
+    color: #999 !important;
+}
