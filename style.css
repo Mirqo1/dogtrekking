@@ -341,3 +341,33 @@ h3 {
 .ad-slot h3 {
     color: #999 !important;
 }
+
+/* 1. Zabezpečenie, aby rámiky nezväčšovali boxy */
+.card, .ad-slot {
+    box-sizing: border-box; 
+    width: 100%; /* Alebo konkrétna šírka, akú používaš v grid-e */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    border-radius: 8px; /* Dôležité: musí byť rovnaké ako u .card */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2. Oprava reklamy, aby sedela presne */
+.ad-slot {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc; /* Zmeň z 2px dashed na 1px solid, aby sedel s .card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    /* Ak máš v .card nastavenú výšku (napr. 300px), pridaj ju aj sem */
+    height: 300px; 
+}
+
+/* 3. Ak máš v .card border, nastav ho aj pre .ad-slot rovnako */
+.card {
+    border: 1px solid #eee; /* Tvoj pôvodný border */
+}
