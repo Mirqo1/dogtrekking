@@ -423,24 +423,14 @@ h3 {
     display: inline-block;
 }
 
+/* Toto zabezpečí, že skryté stĺpce nebudú zaberať miesto */
 @media (max-width: 600px) {
     .desktop-only {
         display: none !important;
     }
-    tr {
-        height: 50px;
-    }
-}
-
-@media (max-width: 600px) {
-    /* Toto vynúti, aby tabuľka ignorovala skryté stĺpce */
+    
+    /* Vynúti, aby tabuľka nebola fixná, ale prispôsobila sa obsahu */
     table {
-        table-layout: fixed;
-        width: 100%;
-    }
-
-    /* Skryjeme nielen bunky, ale aj hlavičky */
-    .desktop-only {
-        display: none !important;
+        table-layout: auto !important;
     }
 }
