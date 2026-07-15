@@ -3,7 +3,6 @@ async function showPage(page, updateHistory = true) {
     let target = page.startsWith('/') ? page.substring(1) : page;
     if (target === '' || target === 'home') target = 'home';
 
-    // 1. SKÚSIME NÁJSŤ ČLÁNOK (podľa ID)
     const article = allArticles.find(a => a.id === target);
     if (article) {
         if (updateHistory) history.pushState({page: target}, "", `/${target}`);
@@ -18,7 +17,6 @@ async function showPage(page, updateHistory = true) {
         return;
     }
 
-    // 2. OSTATNÝ OBSAH
     if (updateHistory) {
         history.pushState({page: target}, "", `/${target === 'home' ? '' : target}`);
     }
@@ -39,6 +37,7 @@ async function showPage(page, updateHistory = true) {
                     </div>
                     <div class="hero-image"><img src="img/dogtrekking-hero.jpg" alt="Dogtrekking"></div>
                 </section>
+                <input type="text" id="search-bar" placeholder="Hľadať článok..." oninput="filterArticles()" style="width:100%; padding:10px; margin: 20px 0;">
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
             if (allArticles.length === 0) await loadArticles();
@@ -87,6 +86,24 @@ async function loadArticles() {
     }
 }
 
+// Nová funkcia na vyhľadávanie
+function filterArticles() {
+    const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+    const container = document.getElementById('articles-list');
+    
+    const filtered = allArticles.filter(a => 
+        a.title.toLowerCase().includes(searchTerm)
+    );
+
+    container.innerHTML = filtered.map(a => `
+        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
+            <div class="card" style="background-image: url('${a.image}');">
+                <h3>${a.title}</h3>
+            </div>
+        </a>`
+    ).join('');
+}
+
 window.changePage = function(direction) {
     currentPage += direction;
     const newPath = (currentPage === 0) ? '/' : `/page-${currentPage + 1}`;
@@ -98,14 +115,11 @@ function renderArticles() {
     const container = document.getElementById('articles-list');
     if (!container) return;
 
-    // Celkový počet strán počítame podľa počtu článkov (po 2 na stranu)
     const totalPages = Math.ceil(allArticles.length / 2);
     const start = currentPage * 2;
     const paginatedItems = allArticles.slice(start, start + 2);
 
     let contentHTML = "";
-    
-    // 1. Vložíme články, ktoré sú na aktuálnej strane
     paginatedItems.forEach(a => {
         contentHTML += `
         <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
@@ -115,7 +129,6 @@ function renderArticles() {
         </a>`;
     });
 
-    // 2. Vždy pridáme reklamu ako 3. box (ak je na stránke aspoň jeden článok)
     if (paginatedItems.length > 0) {
         contentHTML += `
         <div class="card ad-slot">
@@ -123,7 +136,6 @@ function renderArticles() {
         </div>`;
     }
 
-    // 3. Pagination
     container.innerHTML = contentHTML + `
     <div class="pagination">
         <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>&lt;</button>
