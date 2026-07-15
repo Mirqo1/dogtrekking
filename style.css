@@ -466,3 +466,23 @@ h3 {
 .sk-event td {
     background-color: rgba(242, 189, 44, 0.1); /* Tvoja --primary-yellow s 10% priehľadnosťou */
 }
+
+/* Uprava riadkovania v texte */
+.hero-text p {
+    line-height: 1.8; /* Zväčšuje medzeru medzi riadkami */
+    margin-bottom: 20px; /* Pridáva odstup pod odsekmi */
+}
+
+/* Zarovnanie tlačidiel doľava */
+.hero-buttons {
+    display: flex;
+    justify-content: flex-start; /* Zarovná tlačidlá vľavo */
+    flex-wrap: wrap; /* Zabezpečí, že sa tlačidlá na mobile zalomia pod seba */
+    gap: 15px; /* Medzera medzi tlačidlami */
+    margin-top: 20px;
+}
+
+/* Reset marginu, aby tlačidlá neboli odsadené zbytočne */
+.hero-buttons a {
+    margin: 0 !important; 
+}
