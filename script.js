@@ -103,9 +103,7 @@ function renderArticles() {
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
     let contentHTML = "";
-    
     paginatedItems.forEach((a, index) => {
-        // Vloží článok
         contentHTML += `
         <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
@@ -113,7 +111,6 @@ function renderArticles() {
             </div>
         </a>`;
 
-        // Reklama sa vloží po 3. článku, ale len ak ich máme na stránke dostatok
         if ((index + 1) === 3) {
             contentHTML += `
             <div class="card ad-slot">
@@ -121,14 +118,6 @@ function renderArticles() {
             </div>`;
         }
     });
-
-    container.innerHTML = contentHTML + `
-    <div class="pagination">
-        <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>&lt;</button>
-        <span class="page-info">${currentPage + 1} / ${totalPages}</span>
-        <button onclick="changePage(1)" ${(currentPage + 1 >= totalPages) ? 'disabled' : ''}>&gt;</button>
-    </div>`;
-}
 
     container.innerHTML = contentHTML + `
     <div class="pagination">
@@ -152,20 +141,14 @@ async function startApp() {
 
 startApp();
 
-// TENTO KÓD VLOŽ ÚPLNE NA KONIEC SÚBORU
 window.addEventListener('popstate', (event) => {
     const path = window.location.pathname.substring(1);
-    // Ak sme dali späť na hlavnú stránku (prázdna cesta alebo home)
     if (!path || path === 'home') {
         showPage('home', false);
-    } 
-    // Ak sme dali späť na stránku s článkami (napr. page-2)
-    else if (path.startsWith('page-')) {
+    } else if (path.startsWith('page-')) {
         currentPage = parseInt(path.replace('page-', '')) - 1;
         showPage('home', false);
-    }
-    // Inak zobrazíme to, čo je v ceste (článok alebo iná stránka)
-    else {
+    } else {
         showPage(path, false);
     }
 });
