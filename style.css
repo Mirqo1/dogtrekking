@@ -540,6 +540,9 @@ h3 {
 .legal-links {
     margin: 15px 0;
     font-size: 14px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Toto zabezpečí zalomenie na mobile */
 }
 
 .legal-links a {
@@ -553,3 +556,4 @@ h3 {
     color: var(--primary-yellow); /* Pri prejdení myšou sa text zafarbí na žlto */
     text-decoration: underline;
 }
+
