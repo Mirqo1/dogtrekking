@@ -102,10 +102,10 @@ function renderArticles() {
     const start = currentPage * articlesPerPage;
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
-    // Vytvoríme pole obsahu (články + reklamy)
     let contentHTML = "";
+    
     paginatedItems.forEach((a, index) => {
-        // Pridáme článok
+        // Vloží článok
         contentHTML += `
         <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
@@ -113,15 +113,22 @@ function renderArticles() {
             </div>
         </a>`;
 
-        // Ak je to 3. článok (index 2, 5, 8...), pridáme reklamu
-        // Poznámka: (index + 1) je poradie článku v zozname na stránke
-        if ((index + 1) % 3 === 0) {
+        // Reklama sa vloží po 3. článku, ale len ak ich máme na stránke dostatok
+        if ((index + 1) === 3) {
             contentHTML += `
             <div class="card ad-slot">
-                <h3>Reklama</h3>
+                <h3>Reklamný priestor</h3>
             </div>`;
         }
     });
+
+    container.innerHTML = contentHTML + `
+    <div class="pagination">
+        <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>&lt;</button>
+        <span class="page-info">${currentPage + 1} / ${totalPages}</span>
+        <button onclick="changePage(1)" ${(currentPage + 1 >= totalPages) ? 'disabled' : ''}>&gt;</button>
+    </div>`;
+}
 
     container.innerHTML = contentHTML + `
     <div class="pagination">
