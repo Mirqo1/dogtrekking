@@ -49,17 +49,35 @@ async function showPage(page, updateHistory = true) {
                 (acc[event.month] = acc[event.month] || []).push(event);
                 return acc;
             }, {});
-            let html = `<h2>Kalendár akcií</h2>`;
-            for (const month in grouped) {
-                html += `<h3>${month}</h3><table><tbody>` + grouped[month].map(e => `
-                    <tr>
-                        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
-                        <td>${e.date}</td>
-                        <td style="text-align: center; font-weight: bold;">${e.name}</td>
-                        <td>${e.location}</td>
-                        <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-                    </tr>`).join('') + `</tbody></table>`;
-            }
+            // Vo vnútri showPage pre target === 'calendar'
+let html = `<h2>Kalendár akcií</h2>
+<div class="table-container"> <!-- Obalíme tabuľku pre lepšiu responzívnosť -->
+    <table>
+        <thead>
+            <tr>
+                <th>Krajina</th>
+                <th>Dátum</th>
+                <th>Názov</th>
+                <th>Miesto</th>
+                <th>Typ</th> <!-- Nový stĺpec -->
+                <th>Info</th>
+            </tr>
+        </thead>
+        <tbody>`;
+
+for (const month in grouped) {
+    html += `<tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">${month}</td></tr>`;
+    html += grouped[month].map(e => `
+        <tr>
+            <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
+            <td>${e.date}</td>
+            <td style="font-weight: bold;">${e.name}</td>
+            <td>${e.location}</td>
+            <td><span class="badge">${e.type}</span></td> <!-- Nová hodnota -->
+            <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
+        </tr>`).join('');
+}
+html += `</tbody></table></div>`;
             app.innerHTML = html;
         } else {
             app.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
