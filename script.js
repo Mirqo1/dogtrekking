@@ -68,8 +68,12 @@ async function showPage(page, updateHistory = true) {
             for (const month in grouped) {
                 html += `<tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">${month}</td></tr>`;
                 // ... vo vnútri mapovania dát ...
-html += grouped[month].map(e => `
-    <tr onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
+html += grouped[month].map(e => {
+    // Tu kontrolujeme, či je krajina SK, ak áno, priradíme triedu 'sk-event'
+    const jeSlovensko = e.country === 'SK' ? 'sk-event' : '';
+    
+    return `
+    <tr class="${jeSlovensko}" onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
         <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
         <td>${e.date}</td>
         <td style="font-weight: bold;">${e.name}</td>
@@ -80,7 +84,8 @@ html += grouped[month].map(e => `
         <td><span class="badge">${e.type}</span></td>
         
         <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-    </tr>`).join('');
+    </tr>`;
+}).join('');
             }
             html += `</tbody></table></div>`;
             app.innerHTML = html;
