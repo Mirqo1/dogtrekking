@@ -3,28 +3,26 @@ async function showPage(page, updateHistory = true) {
     let target = page.startsWith('/') ? page.substring(1) : page;
     if (target === '' || target === 'home') target = 'home';
 
+    // 1. SKÚSIME NÁJSŤ ČLÁNOK (podľa ID)
+    const article = allArticles.find(a => a.id === target);
+    if (article) {
+        if (updateHistory) history.pushState({page: target}, "", `/${target}`);
+        app.innerHTML = `
+            <article class="article-detail">
+                <h1>${article.title}</h1>
+                <p><em>${article.date}</em></p>
+                <div class="article-body">${article.body}</div>
+                <br>
+                <a href="/" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+            </article>`;
+        return;
+    }
+
+    // 2. OSTATNÝ OBSAH
     if (updateHistory) {
         history.pushState({page: target}, "", `/${target === 'home' ? '' : target}`);
     }
 
-    // 1. OŠETRENIE DETAILU ČLÁNKU
-    if (target.startsWith('article/')) {
-        const id = target.replace('article/', '');
-        const article = allArticles.find(a => a.id === id);
-        if (article) {
-            app.innerHTML = `
-                <article class="article-detail">
-                    <h1>${article.title}</h1>
-                    <p><em>${article.date}</em></p>
-                    <div class="article-body">${article.body}</div>
-                    <br>
-                    <a href="/" onclick="showPage('home'); return false;">← Späť na zoznam</a>
-                </article>`;
-            return;
-        }
-    }
-
-    // 2. OSTATNÝ OBSAH (HOME, CALENDAR, ABOUT)
     app.innerHTML = "Načítavam...";
     try {
         if (target === 'home') {
@@ -43,7 +41,6 @@ async function showPage(page, updateHistory = true) {
                 </section>
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
-            // Ak sú články už v pamäti, rovno ich vykreslíme, inak načítame
             if (allArticles.length === 0) await loadArticles();
             else renderArticles();
 
@@ -75,7 +72,6 @@ async function showPage(page, updateHistory = true) {
     }
 }
 
-// 3. GLOBÁLNE PREMENNÉ A FUNKCIE PRE ČLÁNKY
 let currentPage = 0;
 const articlesPerPage = 3;
 let allArticles = [];
@@ -107,7 +103,7 @@ function renderArticles() {
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
     container.innerHTML = paginatedItems.map(a => `
-        <a href="/article/${a.id}" class="card-link" onclick="showPage('article/${a.id}'); return false;">
+        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
                 <h3>${a.title}</h3>
             </div>
@@ -120,23 +116,16 @@ function renderArticles() {
     </div>`;
 }
 
-// 4. INICIALIZÁCIA (Úplný koniec súboru)
 async function startApp() {
-    await loadArticles(); // Najprv stiahneme dáta
+    await loadArticles();
+    const path = window.location.pathname.substring(1); 
     
-    const path = window.location.pathname;
-    let initialPage = 'home';
-    
-    // Ak URL obsahuje /page-X, nastavíme stránku
-    if (path.startsWith('/page-')) {
-        currentPage = parseInt(path.replace('/page-', '')) - 1;
-    } 
-    // Ak URL začína na /article/, nastavíme target na tento článok
-    else if (path.startsWith('/article/')) {
-        initialPage = path.substring(1); // odstráni lomku na začiatku
+    if (path.startsWith('page-')) {
+        currentPage = parseInt(path.replace('page-', '')) - 1;
+        showPage('home', false);
+    } else {
+        showPage(path || 'home', false);
     }
-
-    showPage(initialPage, false);
 }
 
 startApp();
