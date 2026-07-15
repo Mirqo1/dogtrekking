@@ -1,10 +1,41 @@
 async function showPage(page, updateHistory = true) {
     const app = document.getElementById('app');
-    const target = (page === '/' || page === '' || page === 'home') ? 'home' : page.replace('/', '');
+    let target = page.startsWith('/') ? page.substring(1) : page;
+    if (target === '' || target === 'home') target = 'home';
 
     if (updateHistory) {
         history.pushState({page: target}, "", `/${target === 'home' ? '' : target}`);
     }
+
+    // Skontrolujeme, či ide o detail článku (formát article/id)
+    if (target.startsWith('article/')) {
+        const id = target.replace('article/', '');
+        // Nájdeme článok podľa ID
+        const article = allArticles.find(a => a.id === id);
+        
+        if (article) {
+            app.innerHTML = `
+                <article class="article-detail">
+                    <h1>${article.title}</h1>
+                    <p><em>${article.date}</em></p>
+                    <div class="article-body">${article.body}</div>
+                    <br>
+                    <a href="/" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+                </article>`;
+            return;
+        }
+    }
+
+// Počkáme na načítanie článkov, aby vyhľadávanie podľa ID fungovalo hneď
+async function initApp() {
+    await loadArticles(); // Toto naplní premennú allArticles
+    const path = window.location.pathname.substring(1);
+    showPage(path || 'home', false);
+}
+
+initApp();
+    
+}
 
     app.innerHTML = "Načítavam...";
 
