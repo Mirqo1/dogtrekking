@@ -535,3 +535,21 @@ h3 {
     .hero-text { flex: 0 0 100%; padding-right: 0; }
     .hero-image { display: none; }
 }
+
+/* Právne a kontaktné odkazy v pätičke */
+.legal-links {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.legal-links a {
+    color: #666; /* Trochu jemnejšia sivá farba, aby to nepôsobilo rušivo */
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.legal-links a:hover {
+    color: var(--primary-yellow); /* Pri prejdení myšou sa text zafarbí na žlto */
+    text-decoration: underline;
+}
