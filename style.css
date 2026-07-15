@@ -470,3 +470,31 @@ td, th {
     border-bottom: 1px solid #ddd;
     text-align: left;
 }
+
+/* Obal tabuľky */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Povolenie skrolovania na mobile */
+    margin-top: 20px;
+}
+
+/* Tabuľka musí mať pevnú minimálnu šírku, aby sa stĺpce neprekrývali */
+table {
+    width: 100%;
+    min-width: 800px; /* Zväčšil som na 800px, aby sa texty neprekrývali */
+    border-collapse: collapse;
+    table-layout: fixed; /* Kľúčové: stĺpce budú mať fixnú šírku a nebudú sa samovoľne meniť */
+}
+
+/* Definícia šírok stĺpcov pre stabilitu */
+th:nth-child(1) { width: 80px; }  /* Krajina */
+th:nth-child(2) { width: 150px; } /* Dátum */
+th:nth-child(3) { width: auto; }  /* Názov - ten sa roztiahne */
+th:nth-child(4) { width: 120px; } /* Miesto */
+th:nth-child(5) { width: 80px; }  /* Typ */
+th:nth-child(6) { width: 100px; } /* Info */
+
+td {
+    word-wrap: break-word; /* Ak je text dlhý, zalomí sa, neprekryje */
+    vertical-align: middle;
+}
