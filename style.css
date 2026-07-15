@@ -491,43 +491,50 @@ h3 {
 }
 
 /* Hlavná sekcia Hero */
+/* Hlavná sekcia Hero */
 .hero {
+    position: relative; /* Kľúčové: umožňuje obrázku "plávať" cez sekciu */
+    min-height: 350px;
     display: flex;
-    align-items: center; /* Zarovná text a obrázok vertikálne na stred */
-    position: relative;
+    align-items: center;
     margin: 40px 0;
-    min-height: 350px; /* Upravte podľa potreby výšky obrázka */
-    overflow: hidden;
+    overflow: hidden; /* Zabezpečí, aby obrázok nepretiekol mimo */
 }
 
+/* Textová časť - 50% šírky */
 .hero-text {
-    flex: 1;
-    z-index: 2;
-    padding-right: 40px; /* Priestor medzi textom a obrázkom */
+    position: relative;
+    z-index: 2; /* Text je nad obrázkom */
+    width: 50%;
+    padding-right: 20px;
+    box-sizing: border-box;
 }
 
-/* Kontajner obrázka */
+/* Obrázok - 70% šírky, "podlieza" pod text */
 .hero-image {
-    flex: 0 0 45%; /* Obrázok zaberie 45% šírky */
-    height: 350px; /* Pevná výška, aby sa obrázok neťahal */
-    position: relative;
-    /* Maska pre miznutie do stratena */
-    mask-image: linear-gradient(to right, transparent, black 30%);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+    position: absolute; /* Odtrhnutý od layoutu */
+    top: 0;
+    right: 0;
+    width: 70%; /* Obrázok zaberá 70% */
+    height: 100%;
+    z-index: 1; /* Je pod textom */
+    
+    /* Maska: postupný prechod z priehľadnej do čiernej */
+    mask-image: linear-gradient(to right, transparent, black 40%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right; /* Zabezpečí, že uvidíte pravú stranu fotky (okraj webu) */
+    object-position: right;
     display: block;
 }
 
-/* Úprava tlačidiel, aby sedeli pod textom */
-.hero-buttons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 15px;
-    margin-top: 30px;
+/* Mobilná responzivita - obrázok na mobile radšej skryjeme */
+@media (max-width: 768px) {
+    .hero { display: block; }
+    .hero-text { width: 100%; padding-right: 0; }
+    .hero-image { display: none; }
 }
