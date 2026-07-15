@@ -43,53 +43,50 @@ async function showPage(page, updateHistory = true) {
             else renderArticles();
 
         } else if (target === 'calendar') {
-            const res = await fetch('data/events.json');
-            const data = await res.json();
-            const grouped = data.reduce((acc, event) => {
-                (acc[event.month] = acc[event.month] || []).push(event);
-                return acc;
-            }, {});
+    try {
+        const res = await fetch('data/events.json');
+        if (!res.ok) throw new Error('Nepodarilo sa načítať súbor.');
+        
+        const data = await res.json();
+        console.log("Načítané dáta:", data); // Skontroluj konzolu v prehliadači!
 
-            let html = `<h2>Kalendár akcií</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Krajina</th>
-                            <th>Dátum</th>
-                            <th>Názov</th>
-                            <th class="desktop-only">Miesto</th>
-                            <th>Typ</th>
-                            <th class="desktop-only">Info</th>
-                        </tr>
-                    </thead>
-                    <tbody>`;
+        const grouped = data.reduce((acc, event) => {
+            (acc[event.month] = acc[event.month] || []).push(event);
+            return acc;
+        }, {});
 
-            for (const month in grouped) {
-                html += `<tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">${month}</td></tr>`;
-                // ... vo vnútri mapovania dát ...
-html += grouped[month].map(e => `
-    <tr onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
-        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
-        <td>${e.date}</td>
-        <td style="font-weight: bold;">${e.name}</td>
-        
-        <!-- Tu je trik: Stĺpce Miesto a Info pridáme iba ak nie je mobil -->
-        <td class="desktop-only">${e.location}</td>
-        
-        <td><span class="badge">${e.type}</span></td>
-        
-        <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-    </tr>`).join('');
-            }
-            html += `</tbody></table></div>`;
-            app.innerHTML = html;
-        } else {
-            app.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
+        let html = `<h2>Kalendár akcií</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Krajina</th>
+                        <th>Dátum</th>
+                        <th>Názov</th>
+                        <th>Miesto</th>
+                        <th>Typ</th>
+                        <th>Info</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+        for (const month in grouped) {
+            html += `<tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">${month}</td></tr>`;
+            html += grouped[month].map(e => `
+                <tr onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
+                    <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
+                    <td>${e.date}</td>
+                    <td style="font-weight: bold;">${e.name}</td>
+                    <td>${e.location}</td>
+                    <td><span class="badge">${e.type}</span></td>
+                    <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
+                </tr>`).join('');
         }
-    } catch (e) {
-        console.error("Chyba:", e);
-        app.innerHTML = "Chyba pri načítaní obsahu.";
+        html += `</tbody></table></div>`;
+        app.innerHTML = html;
+    } catch (err) {
+        console.error("Detail chyby:", err);
+        app.innerHTML = "Chyba pri spracovaní kalendára: " + err.message;
     }
 }
 
