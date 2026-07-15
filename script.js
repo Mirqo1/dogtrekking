@@ -54,25 +54,14 @@ async function showPage(page, updateHistory = true) {
             <div class="table-container">
                 <table>
                     <thead>
-                        // Hlavička
-<tr>
-    <th>Krajina</th>
-    <th>Dátum</th>
-    <th>Názov</th>
-    <th>Miesto</th>
-    <th>Typ</th>
-    <th>Info</th>
-</tr>
-
-// Telo
-<tr onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
-    <td><img ...></td>
-    <td>${e.date}</td>
-    <td style="font-weight: bold;">${e.name}</td>
-    <td>${e.location}</td>
-    <td><span class="badge">${e.type}</span></td>
-    <td><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-</tr>
+                        <tr>
+                            <th>Krajina</th>
+                            <th>Dátum</th>
+                            <th>Názov</th>
+                            <th class="desktop-only">Miesto</th>
+                            <th>Typ</th>
+                            <th class="desktop-only">Info</th>
+                        </tr>
                     </thead>
                     <tbody>`;
 
