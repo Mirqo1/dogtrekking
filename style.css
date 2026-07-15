@@ -434,15 +434,3 @@ h3 {
         table-layout: auto !important;
     }
 }
-
-/* Toto je kľúčové pre tvoj problém */
-.table-container {
-    overflow-x: auto; /* Povolí horizontálny scroll iba ak treba */
-    width: 100%;
-}
-
-table {
-    width: 100%;
-    min-width: 600px; /* Zaručí, že sa tabuľka nikdy nebude snažiť zmenšiť pod túto hranicu */
-    border-collapse: collapse;
-}
