@@ -371,3 +371,19 @@ h3 {
 .card {
     border: 1px solid #eee; /* Tvoj pôvodný border */
 }
+
+.card {
+    /* Uisti sa, že card má flexbox pre centrovanie obsahu */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Nadpis bude dole */
+    align-items: center;      /* Toto vycentruje nadpis vodorovne */
+    text-align: center;       /* Toto vycentruje text, ak by bol dlhší na viac riadkov */
+}
+
+.card h3 {
+    margin: 0;                /* Odstráni medzery, ktoré by mohli posúvať text */
+    padding: 15px;            /* Pridá priestor okolo textu */
+    width: 100%;              /* Zabezpečí, aby bol text na šírku karty */
+    box-sizing: border-box;   /* Aby padding nerozbil šírku */
+}
