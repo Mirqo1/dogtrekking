@@ -89,8 +89,8 @@ function renderArticles() {
     const start = currentPage * articlesPerPage;
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
-    container.innerHTML = paginatedItems.map(a => 
-        `<a href="/article" class="card-link" onclick="showPage('article'); return false;">
+    container.innerHTML = paginatedItems.map(a => `
+        <a href="/article/${a.id}" class="card-link" onclick="showPage('article/${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
                 <h3>${a.title}</h3>
             </div>
