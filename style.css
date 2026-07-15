@@ -469,7 +469,7 @@ h3 {
 
 /* Uprava riadkovania v texte */
 .hero-text p {
-    line-height: 1.8; /* Zväčšuje medzeru medzi riadkami */
+    line-height: 1.6; /* Zväčšuje medzeru medzi riadkami */
     margin-bottom: 20px; /* Pridáva odstup pod odsekmi */
 }
 
