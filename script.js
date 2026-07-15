@@ -100,24 +100,38 @@ function renderArticles() {
 
     const totalPages = Math.ceil(allArticles.length / articlesPerPage);
     const start = currentPage * articlesPerPage;
-    const paginatedItems = allArticles.slice(start, start + articlesPerPage);
+    // Zoberieme o 1 menej článkov, pretože 3. miesto zaberie reklama
+    const paginatedItems = allArticles.slice(start, start + (articlesPerPage - 1));
 
     let contentHTML = "";
-    paginatedItems.forEach((a, index) => {
+    
+    // Pridáme prvý a druhý článok
+    for (let i = 0; i < 2; i++) {
+        if (paginatedItems[i]) {
+            contentHTML += `
+            <a href="/${paginatedItems[i].id}" class="card-link" onclick="showPage('${paginatedItems[i].id}'); return false;">
+                <div class="card" style="background-image: url('${paginatedItems[i].image}');">
+                    <h3>${paginatedItems[i].title}</h3>
+                </div>
+            </a>`;
+        }
+    }
+
+    // Pridáme reklamu na tretiu pozíciu
+    contentHTML += `
+    <div class="card ad-slot">
+        <h3>Reklamný priestor</h3>
+    </div>`;
+
+    // Pridáme prípadný tretí článok (ak existuje)
+    if (paginatedItems[2]) {
         contentHTML += `
-        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
-            <div class="card" style="background-image: url('${a.image}');">
-                <h3>${a.title}</h3>
+        <a href="/${paginatedItems[2].id}" class="card-link" onclick="showPage('${paginatedItems[2].id}'); return false;">
+            <div class="card" style="background-image: url('${paginatedItems[2].image}');">
+                <h3>${paginatedItems[2].title}</h3>
             </div>
         </a>`;
-
-        if ((index + 1) === 3) {
-            contentHTML += `
-            <div class="card ad-slot">
-                <h3>Reklamný priestor</h3>
-            </div>`;
-        }
-    });
+    }
 
     container.innerHTML = contentHTML + `
     <div class="pagination">
