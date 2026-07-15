@@ -189,6 +189,38 @@ h3 {
     transition: border-color 0.3s;
 }
 
+/* --- RESPONZIVITA --- */
+
+/* Pre tablety a mobily (obrazovky užšie ako 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        grid-template-columns: 1fr; /* Všetko pôjde pod seba */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        grid-column: 1; /* Logo na prvej pozícii */
+        font-size: 32px; /* Logo bude na mobile trochu menšie */
+    }
+
+    .search-box {
+        grid-column: 1; /* Vyhľadávanie pod logom */
+        justify-self: center; /* Vyhľadávanie na stred */
+    }
+
+    table {
+        width: 100%; /* Tabuľka na celú šírku obrazovky */
+    }
+
+    /* Zmenšenie stĺpcov v tabuľke, aby sa zmestili na mobil */
+    table td:nth-child(1) { width: 15%; } 
+    table td:nth-child(2) { width: 25%; }
+    table td:nth-child(3) { width: 30%; }
+    table td:nth-child(4) { display: none; } /* Miesto na mobile skryjeme, aby sa to zmestilo */
+    table td:nth-child(5) { width: 30%; }
+}
+
 /* Pre veľmi malé mobily (obrazovky užšie ako 480px) */
 @media (max-width: 480px) {
     .hero-buttons {
@@ -371,6 +403,13 @@ h3 {
     font-weight: bold;
 }
 
+/* Na mobiloch skryjeme menej dôležité stĺpce, ak by tabuľka bola príliš široká */
+@media (max-width: 600px) {
+    table th:nth-child(4), table td:nth-child(4) {
+        display: none; /* Skryje stĺpec "Miesto" na mobile */
+    }
+}
+
 .table-container {
     overflow-x: auto;
 }
@@ -384,28 +423,14 @@ h3 {
     display: inline-block;
 }
 
-/* Kontajner, ktorý umožní scroll na mobile */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    margin: 0 auto 40px auto;
+/* Toto zabezpečí, že skryté stĺpce nebudú zaberať miesto */
+@media (max-width: 600px) {
+    .desktop-only {
+        display: none !important;
+    }
+    
+    /* Vynúti, aby tabuľka nebola fixná, ale prispôsobila sa obsahu */
+    table {
+        table-layout: auto !important;
+    }
 }
-
-/* Tabuľka sa bude správať prirodzene, nie fixne */
-table {
-    width: 100%;
-    min-width: 600px; /* Toto zabezpečí, že sa tabuľka nezúži do "zhluku" */
-    border-collapse: collapse;
-    table-layout: auto; /* Zmenené z 'fixed' na 'auto' */
-}
-
-table th, table td {
-    padding: 12px 10px;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-    white-space: nowrap; /* Text sa nebude zalamovať, kým to nebude nutné */
-}
-
-/* Zabezpečíme šírku len tam, kde je to potrebné */
-table td:nth-child(1) { width: 50px; } /* Vlajka */
-table td:nth-child(3) { width: 40%; text-align: left; } /* Názov akcie */
