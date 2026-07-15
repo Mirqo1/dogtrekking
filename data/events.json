@@ -1,14 +1,14 @@
 [
-  { "month": "Marec", "country": "CZ", "date": "26.03.-29.03.2026", "name": "Valašská Vlčica", "location": "Velehrad​", "url": "https://www.yantarni.cz/dogtrekking" },
-  { "month": "Apríl", "country": "CZ", "date": "10.04.-12.04.2026", "name": "Dogtrekking Krajinou Břidlice 2026", "location": "Moravský Beroun", "url": "https://www.ledovastopa.cz/dtkb26/" },
-  { "month": "Apríl", "country": "CZ", "date": "23.04.-26.04.2026", "name": "Krušnohorský dogtrekking 2026", "location": "Jablonné v Podještědí", "url": "https://dogtrekking.estranky.cz/" },
-  { "month": "Máj", "country": "SK", "date": "01.05.-03.05.2026", "name": "Červenokamenský Dogtrekking", "location": "Častá", "url": "https://www.mmdogmaraton.com/" },
-  { "month": "Máj", "country": "CZ", "date": "14.05.-17.05.2026", "name": "Rudolf jede za Cimrmanem 2026", "location": "Střižovice", "url": "https://www.postopachrudolfa.cz/" },
-  { "month": "Máj", "country": "CZ", "date": "28.05.-31.05.2026", "name": "V srdci Česka", "location": "Žďárské vrchy", "url": "https://slovackymusherklub.cz/" },
-  { "month": "Jún", "country": "CZ", "date": "18.06..-21.06.2026", "name": "Zde jsou lvi", "location": "Zámek Hošťálkovy", "url": "https://www.canisterapie.net/dogtrekking/" },
-  { "month": "Júl", "country": "CZ", "date": "17.07.-19.07.2026", "name": "Stopou Strejdy Šeráka", "location": "Lipová lázně", "url": "https://strejdaserak.cz/" },
-  { "month": "September", "country": "CZ", "date": "03.09.-06.09.2026", "name": "Fryštácký dogtrekking", "location": "Fryšták", "url": "https://frystak.dogtrekking.info/" },
-  { "month": "September", "country": "CZ", "date": "17.09.-20.09.2026", "name": "Dogtrekking po stopách Banshee", "location": "Varvažov", "url": "https://www.dogtrekking-banshee.cz/" },
-  { "month": "Október", "country": "CZ", "date": "01.10.-04.10.2026", "name": "Dogtrekking Za Šelmou", "location": "Mostek u Dvora Králové nad Labem", "url": "https://www.dogtrek-selma.cz/" },
-  { "month": "Október", "country": "CZ", "date": "15.10.-18.10.2026", "name": "Dogtrekking Šlapanický vlk", "location": "Šlapanice", "url": "https://slapanicky-vlk.kkslapanice.com/" }
+  { "month": "Marec", "country": "CZ", "date": "26.03.-29.03.2026", "name": "Valašská Vlčica", "location": "Velehrad​", "type": "DT", "url": "https://www.yantarni.cz/dogtrekking" },
+  { "month": "Apríl", "country": "CZ", "date": "10.04.-12.04.2026", "name": "Dogtrekking Krajinou Břidlice 2026", "location": "Moravský Beroun", "type": "DT", "url": "https://www.ledovastopa.cz/dtkb26/" },
+  { "month": "Apríl", "country": "CZ", "date": "23.04.-26.04.2026", "name": "Krušnohorský dogtrekking 2026", "location": "Jablonné v Podještědí", "type": "DT", "url": "https://dogtrekking.estranky.cz/" },
+  { "month": "Máj", "country": "SK", "date": "01.05.-03.05.2026", "name": "Červenokamenský Dogtrekking", "location": "Častá", "type": "DT", "url": "https://www.mmdogmaraton.com/" },
+  { "month": "Máj", "country": "CZ", "date": "14.05.-17.05.2026", "name": "Rudolf jede za Cimrmanem 2026", "location": "Střižovice", "type": "DT", "url": "https://www.postopachrudolfa.cz/" },
+  { "month": "Máj", "country": "CZ", "date": "28.05.-31.05.2026", "name": "V srdci Česka", "location": "Žďárské vrchy", "type": "DT", "url": "https://slovackymusherklub.cz/" },
+  { "month": "Jún", "country": "CZ", "date": "18.06..-21.06.2026", "name": "Zde jsou lvi", "location": "Zámek Hošťálkovy", "type": "DT", "url": "https://www.canisterapie.net/dogtrekking/" },
+  { "month": "Júl", "country": "CZ", "date": "17.07.-19.07.2026", "name": "Stopou Strejdy Šeráka", "location": "Lipová lázně", "type": "DT", "url": "https://strejdaserak.cz/" },
+  { "month": "September", "country": "CZ", "date": "03.09.-06.09.2026", "name": "Fryštácký dogtrekking", "location": "Fryšták", "type": "DT", "url": "https://frystak.dogtrekking.info/" },
+  { "month": "September", "country": "CZ", "date": "17.09.-20.09.2026", "name": "Dogtrekking po stopách Banshee", "location": "Varvažov", "type": "DT", "url": "https://www.dogtrekking-banshee.cz/" },
+  { "month": "Október", "country": "CZ", "date": "01.10.-04.10.2026", "name": "Dogtrekking Za Šelmou", "location": "Mostek u Dvora Králové nad Labem", "type": "DT", "url": "https://www.dogtrek-selma.cz/" },
+  { "month": "Október", "country": "CZ", "date": "15.10.-18.10.2026", "name": "Dogtrekking Šlapanický vlk", "location": "Šlapanice", "type": "DT", "url": "https://slapanicky-vlk.kkslapanice.com/" }
 ]
