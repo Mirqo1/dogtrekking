@@ -31,8 +31,8 @@ async function showPage(page, updateHistory = true) {
                         <p><strong>Slovensko</strong></p>
                         <p>Dogtrekking je vytrvalostný kynologický šport...</p>
                         <div class="hero-buttons">
-                            <a href="/about" onclick="showPage('about'); return false;" class="btn-white">O dogtrekkingu</a>
-                            <a href="/calendar" onclick="showPage('calendar'); return false;" class="btn-yellow">Kalendár akcií</a>
+                            <a href="/o-dogtrekkingu" onclick="showPage('about'); return false;" class="btn-white">O dogtrekkingu</a>
+                            <a href="/kalendar" onclick="showPage('calendar'); return false;" class="btn-yellow">Kalendár akcií</a>
                         </div>
                     </div>
                     <div class="hero-image"><img src="img/dogtrekking-hero.jpg" alt="Dogtrekking"></div>
