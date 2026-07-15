@@ -492,42 +492,42 @@ h3 {
 
 /* Hlavná sekcia Hero */
 .hero {
+    position: relative; /* Kľúčové pre absolútne pozície vnútri */
+    min-height: 400px;
     display: flex;
-    align-items: center; /* Zarovná text a obrázok vertikálne na stred */
-    position: relative;
+    align-items: center;
     margin: 40px 0;
-    min-height: 350px; /* Upravte podľa potreby výšky obrázka */
-    overflow: hidden;
+    overflow: hidden; /* Zabezpečí, že obrázok nepretečie */
 }
 
 .hero-text {
-    flex: 1;
-    z-index: 2;
-    padding-right: 40px; /* Priestor medzi textom a obrázkom */
+    position: relative;
+    z-index: 2; /* Text bude nad obrázkom */
+    width: 60%; /* Text zaberie 60% šírky */
 }
 
-/* Kontajner obrázka */
 .hero-image {
-    flex: 0 0 45%; /* Obrázok zaberie 45% šírky */
-    height: 350px; /* Pevná výška, aby sa obrázok neťahal */
-    position: relative;
-    /* Maska pre miznutie do stratena */
-    mask-image: linear-gradient(to right, transparent, black 30%);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+    position: absolute; /* Obrázok je "plávajúci" */
+    top: 0;
+    right: 0;
+    width: 60%; /* Obrázok zasahuje do 60% šírky webu */
+    height: 100%;
+    z-index: 1;
+    
+    /* Maska: zľava priehľadný, sprava plný */
+    mask-image: linear-gradient(to right, transparent, black 40%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right; /* Zabezpečí, že uvidíte pravú stranu fotky (okraj webu) */
-    display: block;
+    object-position: right;
 }
 
-/* Úprava tlačidiel, aby sedeli pod textom */
-.hero-buttons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 15px;
-    margin-top: 30px;
+/* Mobilná responzivita */
+@media (max-width: 768px) {
+    .hero-text { width: 100%; }
+    .hero-image { display: none; } /* Na mobile obrázok radšej skryjeme */
 }
