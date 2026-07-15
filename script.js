@@ -73,7 +73,7 @@ async function showPage(page, updateHistory = true) {
 }
 
 let currentPage = 0;
-const articlesPerPage = 3;
+const articlesPerPage = 2;
 let allArticles = [];
 
 async function loadArticles() {
