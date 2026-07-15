@@ -29,7 +29,7 @@ async function showPage(page, updateHistory = true) {
                     <div class="hero-text">
                         <h1>Dogtrekking</h1>
                         <p><strong>Slovensko</strong></p>
-                        <p>Dogtrekking je vytrvalostný kynologický šport...</p>
+                        <p>Dogtrekking je extrémny vytrvalostný šport človeka a psa, pri ktorom sa prekonávajú vzdialenosti okolo 100 kilometrov v danom časovom limite. Neľakajte sa – dogtrekking je v skutočnosti turistika so psom. Teda aspoň poväčšinou.</p>
                         <div class="hero-buttons">
                             <a href="/o-dogtrekkingu" onclick="showPage('o-dogtrekkingu'); return false;" class="btn-white">O dogtrekkingu</a>
                             <a href="/kalendar" onclick="showPage('kalendar'); return false;" class="btn-yellow">Kalendár akcií</a>
