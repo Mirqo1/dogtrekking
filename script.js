@@ -102,13 +102,28 @@ function renderArticles() {
     const start = currentPage * articlesPerPage;
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
-    container.innerHTML = paginatedItems.map(a => `
+    // Vytvoríme pole obsahu (články + reklamy)
+    let contentHTML = "";
+    paginatedItems.forEach((a, index) => {
+        // Pridáme článok
+        contentHTML += `
         <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
                 <h3>${a.title}</h3>
             </div>
-        </a>`
-    ).join('') + `
+        </a>`;
+
+        // Ak je to 3. článok (index 2, 5, 8...), pridáme reklamu
+        // Poznámka: (index + 1) je poradie článku v zozname na stránke
+        if ((index + 1) % 3 === 0) {
+            contentHTML += `
+            <div class="card ad-slot">
+                <h3>Reklama</h3>
+            </div>`;
+        }
+    });
+
+    container.innerHTML = contentHTML + `
     <div class="pagination">
         <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>&lt;</button>
         <span class="page-info">${currentPage + 1} / ${totalPages}</span>
