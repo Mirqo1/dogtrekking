@@ -434,3 +434,30 @@ h3 {
         table-layout: auto !important;
     }
 }
+
+.footer-container {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links p {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    color: var(--main-black);
+}
+
+.social-links a {
+    color: var(--primary-yellow);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
