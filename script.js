@@ -27,8 +27,8 @@ async function showPage(page, updateHistory = true) {
             app.innerHTML = `
                 <section class="hero">
                     <div class="hero-text">
-                        <h1>Dogtrekking</h1>
-                        <p><strong>Slovensko</strong></p>
+                        <h1 class="hero-title">Dogtrekking</h1>
+                        <h2 class="hero-subtitle">Slovensko</h2>
                         <p>Dogtrekking je extrémny vytrvalostný šport človeka a psa, pri ktorom sa prekonávajú vzdialenosti okolo 100 kilometrov v danom časovom limite. Neľakajte sa – dogtrekking je v skutočnosti turistika so psom. Teda aspoň poväčšinou.</p>
                         <div class="hero-buttons">
                             <a href="/o-dogtrekkingu" onclick="showPage('o-dogtrekkingu'); return false;" class="btn-white">O dogtrekkingu</a>
