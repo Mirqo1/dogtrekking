@@ -431,3 +431,16 @@ h3 {
         height: 50px;
     }
 }
+
+@media (max-width: 600px) {
+    /* Toto vynúti, aby tabuľka ignorovala skryté stĺpce */
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    /* Skryjeme nielen bunky, ale aj hlavičky */
+    .desktop-only {
+        display: none !important;
+    }
+}
