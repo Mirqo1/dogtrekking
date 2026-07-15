@@ -508,7 +508,7 @@ h3 {
 
 /* Kontajner obrázka */
 .hero-image {
-    flex: 0 0 70%; /* Obrázok zaberie 45% šírky */
+    flex: 0 0 45%; /* Obrázok zaberie 45% šírky */
     height: 350px; /* Pevná výška, aby sa obrázok neťahal */
     position: relative;
     /* Maska pre miznutie do stratena */
