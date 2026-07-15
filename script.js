@@ -73,7 +73,7 @@ async function showPage(page, updateHistory = true) {
 }
 
 let currentPage = 0;
-const articlesPerPage = 2;
+const articlesPerPage = 3;
 let allArticles = [];
 
 async function loadArticles() {
@@ -98,36 +98,40 @@ function renderArticles() {
     const container = document.getElementById('articles-list');
     if (!container) return;
 
-    // Počet strán počítame podľa počtu článkov (bez reklám)
-    const totalPages = Math.ceil(allArticles.length / 2); 
-    const start = currentPage * 2; // Na každej strane sú len 2 články
-    const paginatedItems = allArticles.slice(start, start + 2);
+    const totalPages = Math.ceil(allArticles.length / articlesPerPage);
+    const start = currentPage * articlesPerPage;
+    // Zoberieme o 1 menej článkov, pretože 3. miesto zaberie reklama
+    const paginatedItems = allArticles.slice(start, start + (articlesPerPage - 1));
 
     let contentHTML = "";
     
-    // 1. Vložíme články, ktoré patria na túto stranu (max 2)
-    paginatedItems.forEach(a => {
-        contentHTML += `
-        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
-            <div class="card" style="background-image: url('${a.image}');">
-                <h3>${a.title}</h3>
-            </div>
-        </a>`;
-    });
+    // Pridáme prvý a druhý článok
+    for (let i = 0; i < 2; i++) {
+        if (paginatedItems[i]) {
+            contentHTML += `
+            <a href="/${paginatedItems[i].id}" class="card-link" onclick="showPage('${paginatedItems[i].id}'); return false;">
+                <div class="card" style="background-image: url('${paginatedItems[i].image}');">
+                    <h3>${paginatedItems[i].title}</h3>
+                </div>
+            </a>`;
+        }
+    }
 
-    // 2. Vložíme reklamu ako 3. slot
+    // Pridáme reklamu na tretiu pozíciu
     contentHTML += `
     <div class="card ad-slot">
         <h3>Reklamný priestor</h3>
     </div>`;
 
-    container.innerHTML = contentHTML + `
-    <div class="pagination">
-        <button onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>&lt;</button>
-        <span class="page-info">${currentPage + 1} / ${totalPages}</span>
-        <button onclick="changePage(1)" ${(currentPage + 1 >= totalPages) ? 'disabled' : ''}>&gt;</button>
-    </div>`;
-}
+    // Pridáme prípadný tretí článok (ak existuje)
+    if (paginatedItems[2]) {
+        contentHTML += `
+        <a href="/${paginatedItems[2].id}" class="card-link" onclick="showPage('${paginatedItems[2].id}'); return false;">
+            <div class="card" style="background-image: url('${paginatedItems[2].image}');">
+                <h3>${paginatedItems[2].title}</h3>
+            </div>
+        </a>`;
+    }
 
     container.innerHTML = contentHTML + `
     <div class="pagination">
