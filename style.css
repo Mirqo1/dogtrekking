@@ -886,6 +886,16 @@ h3 {
     }
 }
 
+@media (max-width: 600px) {
+    /* Nájdi triedu svojho nadpisu, napr. .hero h1 alebo .hero-title */
+    .hero h1 {
+        font-size: 2rem !important; /* Zmenší písmo, aby sa zmestilo */
+        line-height: 1.2;
+        padding: 0 15px; /* Vnútorný odstup od krajov */
+        word-wrap: break-word; /* Ak je nadpis dlhý, zalomí ho */
+    }
+}
+
 body {
     overflow-x: hidden; /* Zamedzí horizontálnemu skrolovaniu, ak niečo prečnieva */
     width: 100%;
