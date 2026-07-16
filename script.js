@@ -5,6 +5,7 @@ async function showPage(page, updateHistory = true) {
     let target = page.startsWith('/') ? page.substring(1) : page;
     if (target === '' || target === 'home') target = 'home';
 
+    console.log("Aktuálny target:", target);
     // 2. Skontroluj statické stránky (pages.json)
     const pageData = allPages.find(p => p.id === target);
     if (pageData) {
@@ -124,6 +125,7 @@ async function loadPages() {
     try {
         const res = await fetch('data/pages.json');
         allPages = await res.json();
+        console.log("Stránky načítané:", allPages); // TU PRIDAJ TOTO
     } catch (e) {
         console.error("Chyba pri načítaní pages.json:", e);
     }
