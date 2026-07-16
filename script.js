@@ -208,9 +208,10 @@ function showArticle(id) {
     const article = allArticles.find(a => a.id === id);
     if (!article) return;
     
-    // Filtrovanie len vybraných článkov
+    // Filtrovanie len vybraných článkov pre bočný panel
     const featuredArticles = allArticles.filter(a => a.isFeatured === true);
 
+    // Spracovanie tela článku
     let bodyHTML = article.body.split('\n\n').map(segment => {
         if (segment.trim() === "[IMAGE_INSERT]") {
             return `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
@@ -223,7 +224,7 @@ function showArticle(id) {
             <article class="article-content">
                 <h1>${article.title}</h1>
                 ${bodyHTML}
-                <a href="/" class="btn-back" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+                <a href="/" class="btn-yellow" style="display:inline-block; margin-top:20px;" onclick="showPage('home'); return false;">← Späť na zoznam</a>
             </article>
             
             <aside class="sidebar">
@@ -231,8 +232,6 @@ function showArticle(id) {
                 ${featuredArticles.map(a => `
                     <a href="#" onclick="showPage('${a.id}'); return false;">${a.title}</a>
                 `).join('')}
-                
-                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
                 
                 <a href="#" class="btn-calendar" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
             </aside>
