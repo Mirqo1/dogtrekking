@@ -84,12 +84,17 @@ async function showPage(page, updateHistory = true) {
                 html += grouped[month].map(e => {
                     const jeSlovensko = e.country === 'SK' ? 'sk-event' : '';
                     
-                    // PRIDAJ TÚTO LOGIKU TU:
-                    let typeClass = 'badge';
-                    if (e.type === 'DT') typeClass += ' badge-dt';
-                    else if (e.type === 'CC') typeClass += ' badge-cc';
-                    else if (e.type === 'DM') typeClass += ' badge-dm';
-                    else if (e.type === 'DT/CC') typeClass += ' badge-dtcc';
+                    // Rozdelí typy podľa čiarky a očistí od medzier
+                    const typy = e.type.split(',').map(t => t.trim());
+                    
+                    // Vytvorí HTML pre všetky odznaky
+                    const badgeHTML = typy.map(t => {
+                        let colorClass = '';
+                        if (t === 'DT') colorClass = 'badge-dt';
+                        else if (t === 'CC') colorClass = 'badge-cc';
+                        else if (t === 'DM') colorClass = 'badge-dm';
+                        return `<span class="badge ${colorClass}">${t}</span>`;
+                    }).join(' ');
 
                     return `
                     <tr class="${jeSlovensko}" onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
@@ -97,7 +102,7 @@ async function showPage(page, updateHistory = true) {
                         <td>${e.date}</td>
                         <td style="font-weight: bold;">${e.name}</td>
                         <td class="desktop-only">${e.location}</td>
-                        <td><span class="${typeClass}">${e.type}</span></td>
+                        <td>${badgeHTML}</td>
                         <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
                     </tr>`;
                 }).join('');
