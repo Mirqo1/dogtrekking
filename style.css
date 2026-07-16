@@ -682,14 +682,6 @@ h3 {
     color: var(--main-black);
 }
 
-.sidebar a {
-    color: #555;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-    transition: color 0.3s;
-}
-
 .sidebar h3 {
     font-size: 16px;
     margin-bottom: 15px;
@@ -697,15 +689,6 @@ h3 {
     color: var(--main-black);
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
-}
-
-/* Štýl odkazov v bočnom paneli */
-.sidebar a {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 12px;
-    font-size: 15px;
 }
 
 /* Bočný panel - sivý podklad */
@@ -786,4 +769,33 @@ h3 {
     color: #d32f2f; /* červená farba ako na obrázku */
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Základný štýl pre všetky odkazy v sidebare (články) */
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+/* Špeciálny štýl pre Facebook tlačidlá */
+.fb-link {
+    display: block !important; /* Dôležité pre prepísanie predchádzajúcich pravidiel */
+    margin: 10px 0 !important;
+    padding: 10px !important;
+    background: white;
+    border-radius: 6px;
+    text-decoration: none !important;
+    color: var(--main-black) !important;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.fb-link:hover {
+    background: var(--primary-yellow) !important;
+    border-color: var(--primary-yellow);
 }
