@@ -763,3 +763,27 @@ h3 {
 .fb-link:hover {
     background: var(--primary-yellow);
 }
+
+.equipment-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+.eq-image {
+    width: 200px;
+    height: 150px;
+    background: #eee; /* placeholder, ak nemáš obrázok */
+    flex-shrink: 0;
+}
+.eq-text h3 {
+    margin-top: 0;
+}
+.price {
+    color: #333;
+}
+.price a {
+    color: #d32f2f; /* červená farba ako na obrázku */
+    text-decoration: none;
+    font-weight: bold;
+}
