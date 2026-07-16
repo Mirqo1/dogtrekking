@@ -1,9 +1,11 @@
 async function showPage(page, updateHistory = true) {
     const app = document.getElementById('app');
     
-    // 1. Najprv musíme definovať target, aby sme ho mohli použiť
-    let target = page.startsWith('/') ? page.substring(1) : page;
-    if (target === '' || target === 'home') target = 'home';
+    // 1. Očistíme vstup: odstránime lomku, príponu .html a ošetríme home
+    let target = page.replace('.html', ''); // Toto odstráni príponu, ak tam je
+    target = target.startsWith('/') ? target.substring(1) : target;
+    
+    if (target === '' || target === 'home' || target === 'index') target = 'home';
 
     console.log("Aktuálny target:", target);
     // 2. Skontroluj statické stránky (pages.json)
@@ -45,8 +47,8 @@ async function showPage(page, updateHistory = true) {
                         <h2 class="hero-subtitle">Slovensko</h2>
                         <p>Dogtrekking je extrémny vytrvalostný šport človeka a psa, pri ktorom sa prekonávajú vzdialenosti okolo 100 kilometrov v danom časovom limite. Neľakajte sa – dogtrekking je v skutočnosti turistika so psom. Teda aspoň poväčšinou.</p>
                         <div class="hero-buttons">
-                            <a href="/o-dogtrekkingu" onclick="showPage('o-dogtrekkingu'); return false;" class="btn-white">O dogtrekkingu</a>
-                            <a href="/kalendar" onclick="showPage('kalendar'); return false;" class="btn-yellow">Kalendár akcií</a>
+                            <a href="/o-dogtrekkingu" onclick="('o-dogtrekkingu'); return false;" class="btn-white">O dogtrekkingu</a>
+                            <a href="/kalendar" onclick="('kalendar'); return false;" class="btn-yellow">Kalendár akcií</a>
                         </div>
                     </div>
                     <div class="hero-image"><img src="/img/dogtrekking_background_home_02.webp" alt="Dogtrekking background"></div>
@@ -167,7 +169,7 @@ function filterArticles() {
 
     // Zobrazenie výsledkov vyhľadávania (bez pagination)
     container.innerHTML = filtered.map(a => `
-        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
+        <a href="/${a.id}" class="card-link" onclick="('${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
                 <h3>${a.title}</h3>
             </div>
@@ -193,7 +195,7 @@ function renderArticles() {
     let contentHTML = "";
     paginatedItems.forEach(a => {
         contentHTML += `
-        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
+        <a href="/${a.id}" class="card-link" onclick="('${a.id}'); return false;">
             <div class="card" style="background-image: url('${a.image}');">
                 <h3>${a.title}</h3>
             </div>
@@ -221,7 +223,7 @@ async function startApp() {
     
     if (path.startsWith('page-')) {
         currentPage = parseInt(path.replace('page-', '')) - 1;
-        showPage('home', false);
+        ('home', false);
     } else {
         showPage(path || 'home', false);
     }
