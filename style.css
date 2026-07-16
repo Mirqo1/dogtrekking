@@ -845,6 +845,6 @@ h3 {
 
 /* Špeciálne odsadenie len pre tlačidlá "Späť" */
 .btn-back-nav {
-    margin-top: 50px !important; /* Toto ti vytvorí tú 50px medzeru */
+    margin-top: 20px !important; /* Toto ti vytvorí tú 50px medzeru */
     display: inline-block;        /* Nutné, aby margin fungoval */
 }
