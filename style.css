@@ -808,3 +808,14 @@ h3 {
     margin: 40px auto;
     padding: 0; /* Zmenené z 20px na 0 */
 }
+
+.gear-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.gear-img {
+    width: 150px;
+    border-radius: 8px;
+}
