@@ -282,8 +282,8 @@ function getSidebarHTML() {
         </div>
 
         <div class="social-links" style="margin-top: 30px; text-align: center;">
-    <p style="font-weight: bold; margin-bottom: 5px;">Sleduj nás na Facebooku</p>
-    <a href="https://www.facebook.com/dogtrekking.sk" target="_blank" class="fb-link">Stránka</a>
-    <a href="https://www.facebook.com/groups/95459999453" target="_blank" class="fb-link">Skupina</a>
-</div>`;
+        <p style="font-weight: bold; margin-bottom: 5px;">Sleduj nás na Facebooku</p>
+        <a href="https://www.facebook.com/dogtrekking.sk" target="_blank" class="fb-link">Stránka</a>
+        <a href="https://www.facebook.com/groups/95459999453" target="_blank" class="fb-link">Skupina</a>
+    </div>`;
 }
