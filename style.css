@@ -580,9 +580,10 @@ h3 {
 /* Rozloženie článku na dva stĺpce */
 .article-page-wrapper {
     display: grid;
-    grid-template-columns: 1fr 300px; /* Hlavný stĺpec 1fr, bočný 300px */
+    /* 1fr znamená "zober zvyšný priestor", 300px je ideálna šírka sidebaru */
+    grid-template-columns: minmax(60%, 1fr) minmax(250px, 300px); 
     gap: 40px;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
@@ -849,4 +850,17 @@ h3 {
     display: inline-block;        /* Nutné, aby margin fungoval */
     padding-left: 50px !important;  /* Pôvodných 20 + 20 navyše */
     padding-right: 60px !important; /* Pôvodných 20 + 20 navyše */
+}
+
+@media (max-width: 900px) {
+    .article-page-wrapper {
+        grid-template-columns: 1fr; /* Všetko pod seba */
+        gap: 20px;
+    }
+    
+    .sidebar {
+        /* Sidebar bude na mobile vyzerať lepšie, ak nebude mať sticky pozíciu */
+        position: static !important;
+        margin-top: 20px;
+    }
 }
