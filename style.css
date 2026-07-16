@@ -785,3 +785,19 @@ h3 {
 .sidebar .btn-calendar:hover {
     background-color: #dcb028; /* Voliteľné: stmavenie pri prejdení myšou */
 }
+
+/* Bočný panel - sivý podklad */
+.sidebar {
+    background: #f4f4f4;
+    padding: 25px;
+    border-radius: 8px;
+    height: fit-content;
+    border: none;
+}
+
+/* Zabezpečíme, aby sa tlačidlo v sidebar správalo rovnako ako na úvodnej */
+.sidebar .btn-yellow {
+    display: inline-block;
+    margin-top: 15px;
+    text-align: center;
+}
