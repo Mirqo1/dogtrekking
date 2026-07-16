@@ -1,8 +1,15 @@
 async function showPage(page, updateHistory = true) {
+    const app = document.getElementById('app');
+    
+    // 1. Najprv musíme definovať target, aby sme ho mohli použiť
+    let target = page.startsWith('/') ? page.substring(1) : page;
+    if (target === '' || target === 'home') target = 'home';
+
+    // 2. Skontroluj statické stránky (pages.json)
     const pageData = allPages.find(p => p.id === target);
     if (pageData) {
         if (updateHistory) history.pushState({page: target}, "", `/${target}`);
-        document.getElementById('app').innerHTML = `
+        app.innerHTML = `
             <div class="article-page-wrapper">
                 <article class="article-content">
                     <h1>${pageData.title}</h1>
@@ -13,18 +20,16 @@ async function showPage(page, updateHistory = true) {
             </div>`;
         return;
     }
-    const app = document.getElementById('app');
-    let target = page.startsWith('/') ? page.substring(1) : page;
-    if (target === '' || target === 'home') target = 'home';
 
-    // Tu voláme novú funkciu, ak nájdeme článok
+    // 3. Skontroluj články (articles.json)
     const article = allArticles.find(a => a.id === target);
     if (article) {
         if (updateHistory) history.pushState({page: target}, "", `/${target}`);
-        showArticle(target); // Voláme tvoju novú funkciu
+        showArticle(target);
         return;
     }
 
+    // 4. Ostatná logika (home, kalendar...)
     if (updateHistory) {
         history.pushState({page: target}, "", `/${target === 'home' ? '' : target}`);
     }
@@ -75,30 +80,23 @@ async function showPage(page, updateHistory = true) {
 
             for (const month in grouped) {
                 html += `<tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">${month}</td></tr>`;
-                // ... vo vnútri mapovania dát ...
-html += grouped[month].map(e => {
-    // Tu kontrolujeme, či je krajina SK, ak áno, priradíme triedu 'sk-event'
-    const jeSlovensko = e.country === 'SK' ? 'sk-event' : '';
-    
-    return `
-    <tr class="${jeSlovensko}" onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
-        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
-        <td>${e.date}</td>
-        <td style="font-weight: bold;">${e.name}</td>
-        
-        <!-- Tu je trik: Stĺpce Miesto a Info pridáme iba ak nie je mobil -->
-        <td class="desktop-only">${e.location}</td>
-        
-        <td><span class="badge">${e.type}</span></td>
-        
-        <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
-    </tr>`;
-}).join('');
+                html += grouped[month].map(e => {
+                    const jeSlovensko = e.country === 'SK' ? 'sk-event' : '';
+                    return `
+                    <tr class="${jeSlovensko}" onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
+                        <td>${e.date}</td>
+                        <td style="font-weight: bold;">${e.name}</td>
+                        <td class="desktop-only">${e.location}</td>
+                        <td><span class="badge">${e.type}</span></td>
+                        <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>`;
+                }).join('');
             }
             html += `</tbody></table></div>`;
             app.innerHTML = html;
         } else {
-            app.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
+            app.innerHTML = `<h2>Stránka nenájdená</h2><p style="text-align:center;">Ospravedlňujeme sa, ale požadovaná stránka neexistuje.</p>`;
         }
     } catch (e) {
         console.error("Chyba:", e);
