@@ -208,16 +208,15 @@ function showArticle(id) {
     const article = allArticles.find(a => a.id === id);
     if (!article) return;
     
-    let segments = article.body.split('\n\n'); 
-    let bodyHTML = "";
+    // Filtrovanie len vybraných článkov
+    const featuredArticles = allArticles.filter(a => a.isFeatured === true);
 
-    segments.forEach(segment => {
+    let bodyHTML = article.body.split('\n\n').map(segment => {
         if (segment.trim() === "[IMAGE_INSERT]") {
-            bodyHTML += `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
-        } else {
-            bodyHTML += `<p>${segment}</p>`;
+            return `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
         }
-    });
+        return `<p>${segment}</p>`;
+    }).join('');
 
     document.getElementById('app').innerHTML = `
         <div class="article-page-wrapper">
@@ -228,10 +227,14 @@ function showArticle(id) {
             </article>
             
             <aside class="sidebar">
-                <h3>Ďalšie články</h3>
-                ${allArticles.filter(a => a.id !== id).slice(0, 3).map(a => `
-                    <p><a href="/${a.id}" onclick="showPage('${a.id}'); return false;">${a.title}</a></p>
+                <h3>Vybrané články</h3>
+                ${featuredArticles.map(a => `
+                    <a href="#" onclick="showPage('${a.id}'); return false;">${a.title}</a>
                 `).join('')}
+                
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+                
+                <a href="#" class="btn-calendar" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
             </aside>
         </div>`;
 }
