@@ -667,3 +667,42 @@ h3 {
         grid-template-columns: 1fr;
     }
 }
+
+/* Dizajn bočnej lišty zladený s pätičkou */
+.sidebar {
+    background: #ffffff; /* Alebo farba tvojej pätičky */
+    padding: 20px;
+    border-top: 2px solid var(--primary-yellow); /* Prúžok ako v pätičke */
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: var(--main-black);
+}
+
+.sidebar a {
+    color: #555;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--primary-yellow);
+}
+
+/* Tlačidlo Kalendár akcií v bočnej lište */
+.sidebar .btn-calendar {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background-color: var(--primary-yellow);
+    color: var(--main-black);
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 4px;
+}
