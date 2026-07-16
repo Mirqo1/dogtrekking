@@ -97,10 +97,23 @@ html += grouped[month].map(e => {
             }
             html += `</tbody></table></div>`;
             app.innerHTML = html;
-        } else {
-            app.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
-        }
-    } catch (e) {
+} else {
+            // Skúsime hľadať v statických stránkach aj tu, ak sa náhodou dostal sem
+            const pageData = allPages.find(p => p.id === target);
+            if (pageData) {
+                app.innerHTML = `
+                    <div class="article-page-wrapper">
+                        <article class="article-content">
+                            <h1>${pageData.title}</h1>
+                            ${pageData.body}
+                            <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+                        </article>
+                        <aside class="sidebar">${getSidebarHTML()}</aside>
+                    </div>`;
+            } else {
+                app.innerHTML = "Stránka nebola nájdená.";
+            }
+        } catch (e) {
         console.error("Chyba:", e);
         app.innerHTML = "Chyba pri načítaní obsahu.";
     }
