@@ -1,4 +1,18 @@
 async function showPage(page, updateHistory = true) {
+    const pageData = allPages.find(p => p.id === target);
+    if (pageData) {
+        if (updateHistory) history.pushState({page: target}, "", `/${target}`);
+        document.getElementById('app').innerHTML = `
+            <div class="article-page-wrapper">
+                <article class="article-content">
+                    <h1>${pageData.title}</h1>
+                    ${pageData.body}
+                    <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+                </article>
+                <aside class="sidebar">${getSidebarHTML()}</aside>
+            </div>`;
+        return;
+    }
     const app = document.getElementById('app');
     let target = page.startsWith('/') ? page.substring(1) : page;
     if (target === '' || target === 'home') target = 'home';
@@ -95,6 +109,7 @@ html += grouped[month].map(e => {
 let currentPage = 0;
 const articlesPerPage = 2;
 let allArticles = [];
+let allPages = [];
 
 async function loadArticles() {
     try {
@@ -104,6 +119,15 @@ async function loadArticles() {
     } catch (e) {
         const list = document.getElementById('articles-list');
         if (list) list.innerHTML = "Nepodarilo sa načítať články.";
+    }
+}
+
+async function loadPages() {
+    try {
+        const res = await fetch('data/pages.json');
+        allPages = await res.json();
+    } catch (e) {
+        console.error("Chyba pri načítaní pages.json:", e);
     }
 }
 
@@ -179,7 +203,7 @@ function renderArticles() {
 }
 
 async function startApp() {
-    await loadArticles();
+    await Promise.all([loadArticles(), loadPages()]);
     const path = window.location.pathname.substring(1); 
     
     if (path.startsWith('page-')) {
