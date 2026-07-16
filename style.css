@@ -795,9 +795,21 @@ h3 {
     border: none;
 }
 
-/* Zabezpečíme, aby sa tlačidlo v sidebar správalo rovnako ako na úvodnej */
+/* Tlačidlo v sidebar nebude mať hover efekt a bude vyzerať rovnako */
 .sidebar .btn-yellow {
     display: inline-block;
-    margin-top: 15px;
-    text-align: center;
+    padding: 10px 20px;
+    background: var(--primary-yellow);
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    /* Zrušenie hover efektu špeciálne pre sidebar */
+    pointer-events: none; 
+}
+
+/* Ak chceš zachovať klikateľnosť, ale zrušiť vizuálnu zmenu pri hoveri: */
+.sidebar .btn-yellow:hover {
+    background: var(--primary-yellow);
+    transform: none;
 }
