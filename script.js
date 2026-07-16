@@ -268,3 +268,22 @@ function showArticle(id) {
 </aside>
         </div>`;
 }
+
+function getSidebarHTML() {
+    const featuredArticles = allArticles.filter(a => a.isFeatured === true);
+    return `
+        <h3>Vybrané články</h3>
+        ${featuredArticles.map(a => `
+            <a href="#" onclick="showPage('${a.id}'); return false;">${a.title}</a>
+        `).join('')}
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="#" class="btn-yellow" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
+        </div>
+
+        <div class="social-links" style="margin-top: 30px; text-align: center;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Sleduj nás na Facebooku</p>
+            <a href="https://www.facebook.com/dogtrekking.sk" target="_blank" style="color: var(--primary-yellow); font-weight: bold; text-decoration: none;">Stránka</a> / 
+            <a href="https://www.facebook.com/groups/95459999453" target="_blank" style="color: var(--primary-yellow); font-weight: bold; text-decoration: none;">Skupina</a>
+        </div>`;
+}
