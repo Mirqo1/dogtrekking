@@ -764,10 +764,6 @@ h3 {
     font-size: 15px;
 }
 
-.sidebar a:hover {
-    color: var(--primary-yellow);
-}
-
 /* Tlačidlo Kalendár v bočnej lište využívajúce tvoj existujúci štýl .btn-yellow */
 .sidebar .btn-calendar {
     display: block;
@@ -782,9 +778,6 @@ h3 {
     cursor: pointer;
 }
 
-.sidebar .btn-calendar:hover {
-    background-color: #dcb028; /* Voliteľné: stmavenie pri prejdení myšou */
-}
 
 /* Bočný panel - sivý podklad */
 .sidebar {
@@ -805,12 +798,4 @@ h3 {
     font-weight: bold;
     text-decoration: none;
     border: none;
-    /* Zrušenie hover efektu špeciálne pre sidebar */
-    /*pointer-events: none; */
-}
-
-/* Ak chceš zachovať klikateľnosť, ale zrušiť vizuálnu zmenu pri hoveri: */
-.sidebar .btn-yellow:hover {
-    background: var(--primary-yellow);
-    transform: none;
 }
