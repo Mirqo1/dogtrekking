@@ -114,6 +114,13 @@ async function showPage(page, updateHistory = true) {
         } else {
             app.innerHTML = `<h2>Stránka nenájdená</h2><p style="text-align:center;">Ospravedlňujeme sa, ale požadovaná stránka neexistuje.</p>`;
         }
+
+if (typeof gtag === 'function') {
+            gtag('config', 'G-JCH2DTKYBT', {
+                'page_path': '/' + target
+            });
+        }
+        
     } catch (e) {
         console.error("Chyba:", e);
         app.innerHTML = "Chyba pri načítaní obsahu.";
