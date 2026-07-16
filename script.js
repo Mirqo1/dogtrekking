@@ -83,13 +83,21 @@ async function showPage(page, updateHistory = true) {
                 html += `<tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">${month}</td></tr>`;
                 html += grouped[month].map(e => {
                     const jeSlovensko = e.country === 'SK' ? 'sk-event' : '';
+                    
+                    // PRIDAJ TÚTO LOGIKU TU:
+                    let typeClass = 'badge';
+                    if (e.type === 'DT') typeClass += ' badge-dt';
+                    else if (e.type === 'CC') typeClass += ' badge-cc';
+                    else if (e.type === 'DM') typeClass += ' badge-dm';
+                    else if (e.type === 'DT/CC') typeClass += ' badge-dtcc';
+
                     return `
                     <tr class="${jeSlovensko}" onclick="window.open('${e.url}', '_blank')" style="cursor:pointer;">
                         <td><img src="https://flagcdn.com/24x18/${e.country.toLowerCase()}.png" alt="${e.country}"></td>
                         <td>${e.date}</td>
                         <td style="font-weight: bold;">${e.name}</td>
                         <td class="desktop-only">${e.location}</td>
-                        <td><span class="badge">${e.type}</span></td>
+                        <td><span class="${typeClass}">${e.type}</span></td>
                         <td class="desktop-only"><a href="${e.url}" target="_blank" class="btn-link">Viac info</a></td>
                     </tr>`;
                 }).join('');
