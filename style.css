@@ -732,7 +732,7 @@ h3 {
 /* Dizajn boxu pre Facebook */
 .fb-box {
     background: #f4f4f4; /* Rovnaký podklad ako sidebar */
-    padding: 15px;
+    /*padding: 15px;*/
     border-radius: 8px;
     text-align: center;
 }
