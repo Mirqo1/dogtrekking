@@ -848,5 +848,5 @@ h3 {
     margin-top: 20px !important; /* Toto ti vytvorí tú 50px medzeru */
     display: inline-block;        /* Nutné, aby margin fungoval */
     padding-left: 50px !important;  /* Pôvodných 20 + 20 navyše */
-    padding-right: 50px !important; /* Pôvodných 20 + 20 navyše */
+    padding-right: 60px !important; /* Pôvodných 20 + 20 navyše */
 }
