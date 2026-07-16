@@ -847,4 +847,6 @@ h3 {
 .btn-back-nav {
     margin-top: 20px !important; /* Toto ti vytvorí tú 50px medzeru */
     display: inline-block;        /* Nutné, aby margin fungoval */
+    padding-left: 20px !important;  /* Pôvodných 20 + 20 navyše */
+    padding-right: 20px !important; /* Pôvodných 20 + 20 navyše */
 }
