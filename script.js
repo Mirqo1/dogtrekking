@@ -3,17 +3,11 @@ async function showPage(page, updateHistory = true) {
     let target = page.startsWith('/') ? page.substring(1) : page;
     if (target === '' || target === 'home') target = 'home';
 
+    // Tu voláme novú funkciu, ak nájdeme článok
     const article = allArticles.find(a => a.id === target);
     if (article) {
         if (updateHistory) history.pushState({page: target}, "", `/${target}`);
-        app.innerHTML = `
-            <article class="article-detail">
-                <h1>${article.title}</h1>
-                <p><em>${article.date}</em></p>
-                <div class="article-body">${article.body}</div>
-                <br>
-                <a href="/" onclick="showPage('home'); return false;">← Späť na zoznam</a>
-            </article>`;
+        showArticle(target); // Voláme tvoju novú funkciu
         return;
     }
 
@@ -209,3 +203,32 @@ window.addEventListener('popstate', (event) => {
         showPage(path, false);
     }
 });
+
+function showArticle(id) {
+    // Opravené z 'articles' na 'allArticles'
+    const article = allArticles.find(a => a.id === id);
+    if (!article) return;
+    
+    let htmlContent = `
+        <article class="article-detail">
+            <h1>${article.title}</h1>
+            <p><em>${article.date}</em></p>`;
+    
+    // Rozdelíme text na odseky
+    let segments = article.body.split('\n\n'); 
+
+    segments.forEach(segment => {
+        if (segment.trim() === "[IMAGE_INSERT]") {
+            htmlContent += `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
+        } else {
+            htmlContent += `<p>${segment}</p>`;
+        }
+    });
+
+    htmlContent += `
+        <br>
+        <a href="/" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+    </article>`;
+
+    document.getElementById('app').innerHTML = htmlContent;
+}
