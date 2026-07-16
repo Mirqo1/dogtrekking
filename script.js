@@ -84,63 +84,7 @@ html += grouped[month].map(e => {
             html += `</tbody></table></div>`;
             app.innerHTML = html;
         } else {
-            app.innerHTML = `<h1>Dogtrekking</h1>
-
-<h2>Čo je to dogtrekking?</h2>
-<p>Dogtrekking je extrémny vytrvalostný šport človeka a psa, pri ktorom sa prekonávajú vzdialenosti okolo 100 kilometrov v danom časovom limite. Neľakajte sa – dogtrekking je v skutočnosti turistika so psom. Teda aspoň poväčšinou.</p>
-
-<h3>Niekoľko faktov:</h3>
-<ul>
-    <li><b>1)</b> Pri dogtrekkingu je psovod a pes celý čas spojený...</li>
-    <li><b>2)</b> Jednotlivé podujatia môžu mať rôznu dĺžku trasy...</li>
-    <li><b>3)</b> Tiež poznáme rôzne MINI a MID akcie...</li>
-    <li><b>4)</b> Dogtrekking, ako každý poriadny šport má stanovenú povinnú výbavu...</li>
-</ul>
-
-<h2>Výbava</h2>
-<p>Ak sa plánujete dogtrekkingu venovať častejšie, možno by bolo vhodné postupne zaobstarať dobrú výbavu.</p>
-
-<!-- Sekcia výbavy podľa obrázka -->
-<div class="equipment-item">
-    <div class="eq-image"><img src="/img/opasok.jpg" alt="Opasok"></div>
-    <div class="eq-text">
-        <h3>Opasok</h3>
-        <p>Opasok slúži na rozloženie ťahu psa na spodnú časť chrbtice. V prednej časti opasku sa nachádza lánko alebo „oko“ pre uchytenie karabíny vodítka.</p>
-        <p class="price"><b>Cena: 22 €</b> / <a href="https://windog.sk" target="_blank">zakúpiť možné v e-shope windog.sk</a></p>
-    </div>
-</div>
-
-<div class="equipment-item">
-    <div class="eq-image"><img src="/img/sedak.jpg" alt="Sedák"></div>
-    <div class="eq-text">
-        <h3>Sedák</h3>
-        <p>Sedák má rovnakú funkciu ako opasok s tým rozdielom, že sedák má popruhy vedúce medzi nohami človeka.</p>
-        <p class="price"><b>Cena: 25 €</b> / <a href="https://windog.sk" target="_blank">zakúpiť možné v e-shope windog.sk</a></p>
-    </div>
-</div>
-
-<h3>2) Vodítko s amortizérom alebo rozdvojka pre 2 psov</h3>
-<div class="equipment-item">
-    <div class="eq-image"><img src="/img/voditko.jpg" alt="Vodítko"></div>
-    <div class="eq-text">
-        <h3>Vodítko s amortizérom</h3>
-        <p>Slúži na tlmenie ťahu psa. V prípade, že pes človeka prudko potiahne, vodítkom netrhne.</p>
-        <p class="price"><b>Cena: 10 €</b> / <a href="https://windog.sk" target="_blank">zakúpiť možné v e-shope windog.sk</a></p>
-    </div>
-</div>
-
-<div class="equipment-item">
-    <div class="eq-image"><img src="/img/rozdvojka.jpg" alt="Rozdvojka"></div>
-    <div class="eq-text">
-        <h3>Rozdvojka s amortizérom</h3>
-        <p>Slúži pre pripnutie 2 psov naraz. Oproti dvom vodítkam má tú výhodu, že psíky rozdvojku nezamotajú.</p>
-        <p class="price"><b>Cena: 17 €</b> / <a href="https://windog.sk" target="_blank">zakúpiť možné v e-shope windog.sk</a></p>
-    </div>
-</div>
-
-<!-- Zvyšok textu (postroje, lekárnička atď.) -->
-<h3>3) postroj pre psa</h3>
-<p>...</p>`;
+            app.innerHTML = `<h2>Čo je Dogtrekking</h2><p style="text-align:center;">Dogtrekking je vytrvalostný kynologický šport.</p>`;
         }
     } catch (e) {
         console.error("Chyba:", e);
