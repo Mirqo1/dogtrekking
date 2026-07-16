@@ -819,3 +819,28 @@ h3 {
     width: 150px;
     border-radius: 8px;
 }
+
+/* Základné štýly pre odznaky */
+.badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: inline-block;
+    color: #000;
+}
+
+/* Typ DT - žltá */
+.badge-dt { background: var(--primary-yellow); }
+
+/* Typ CC - sivá */
+.badge-cc { background: #cccccc; }
+
+/* Typ DM - modrá */
+.badge-dm { background: #87CEFA; }
+
+/* Kombinovaný typ DT/CC - delené pozadie */
+.badge-dtcc {
+    background: linear-gradient(to right, var(--primary-yellow) 50%, #cccccc 50%);
+    color: #000;
+}
