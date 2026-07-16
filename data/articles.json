@@ -9,6 +9,7 @@
     {
     "id": "809",
     "title": "Daky článok o dogtrekkingu",
+    "isFeatured": true,
     "date": "12.07.2026",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMIuXaQDcDN1_g_bdF_tO2kRKw9oTxN85zmHgi2oUQBo6IL8Db5VeOzMGM&s=10",
     "body": "Toto je text nového článku, ktorý som pridal na vrch zoznamu."
