@@ -15,7 +15,7 @@ async function showPage(page, updateHistory = true) {
                 <article class="article-content">
                     <h1>${pageData.title}</h1>
                     ${pageData.body}
-                    <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť</a>
+                    <a href="/" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
                 </article>
                 <aside class="sidebar">${getSidebarHTML()}</aside>
             </div>`;
@@ -257,7 +257,7 @@ function showArticle(id) {
             <article class="article-content">
                 <h1>${article.title}</h1>
                 ${bodyHTML}
-                <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť</a>
+                <a href="/" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
             </article>
             
             <!-- TU JE ZMENA: Namiesto dlhého vypisovania voláme funkciu -->
