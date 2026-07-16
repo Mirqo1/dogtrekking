@@ -205,30 +205,37 @@ window.addEventListener('popstate', (event) => {
 });
 
 function showArticle(id) {
-    // Opravené z 'articles' na 'allArticles'
     const article = allArticles.find(a => a.id === id);
     if (!article) return;
     
-    let htmlContent = `
-        <article class="article-detail">
-            <h1>${article.title}</h1>
-            <p><em>${article.date}</em></p>`;
-    
     // Rozdelíme text na odseky
     let segments = article.body.split('\n\n'); 
+    let bodyHTML = "";
 
     segments.forEach(segment => {
         if (segment.trim() === "[IMAGE_INSERT]") {
-            htmlContent += `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
+            // Vloží obrázok na miesto, kde v JSONe napíšeš [IMAGE_INSERT]
+            bodyHTML += `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
         } else {
-            htmlContent += `<p>${segment}</p>`;
+            // Vloží klasický odsek
+            bodyHTML += `<p>${segment}</p>`;
         }
     });
 
-    htmlContent += `
-        <br>
-        <a href="/" onclick="showPage('home'); return false;">← Späť na zoznam</a>
-    </article>`;
-
-    document.getElementById('app').innerHTML = htmlContent;
+    // Vykreslenie štruktúry s dvomi stĺpcami
+    document.getElementById('app').innerHTML = `
+        <div class="article-page-wrapper">
+            <article class="article-content">
+                <h1>${article.title}</h1>
+                ${bodyHTML}
+                <a href="/" class="btn-back" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+            </article>
+            
+            <aside class="sidebar">
+                <h3>Ďalšie články</h3>
+                ${allArticles.filter(a => a.id !== id).slice(0, 3).map(a => `
+                    <p><a href="/${a.id}" onclick="showPage('${a.id}'); return false;">${a.title}</a></p>
+                `).join('')}
+            </aside>
+        </div>`;
 }
