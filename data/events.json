@@ -1,7 +1,7 @@
 [
-  { "month": "Marec", "country": "CZ", "date": "26.03.-29.03.2026", "name": "Valašská Vlčica", "location": "Velehrad​", "type": "DT, CC, DM", "url": "https://www.yantarni.cz/dogtrekking" },
-  { "month": "Apríl", "country": "CZ", "date": "10.04.-12.04.2026", "name": "Dogtrekking Krajinou Břidlice 2026", "location": "Moravský Beroun", "type": "DT, CC", "url": "https://www.ledovastopa.cz/dtkb26/" },
-  { "month": "Apríl", "country": "CZ", "date": "23.04.-26.04.2026", "name": "Krušnohorský dogtrekking 2026", "location": "Jablonné v Podještědí", "type": "DM, DT", "url": "https://dogtrekking.estranky.cz/" },
+  { "month": "Marec", "country": "CZ", "date": "26.03.-29.03.2026", "name": "Valašská Vlčica", "location": "Velehrad​", "type": "DT", "url": "https://www.yantarni.cz/dogtrekking" },
+  { "month": "Apríl", "country": "CZ", "date": "10.04.-12.04.2026", "name": "Dogtrekking Krajinou Břidlice 2026", "location": "Moravský Beroun", "type": "DT", "url": "https://www.ledovastopa.cz/dtkb26/" },
+  { "month": "Apríl", "country": "CZ", "date": "23.04.-26.04.2026", "name": "Krušnohorský dogtrekking 2026", "location": "Jablonné v Podještědí", "type": "DT", "url": "https://dogtrekking.estranky.cz/" },
   { "month": "Máj", "country": "SK", "date": "01.05.-03.05.2026", "name": "Červenokamenský Dogtrekking", "location": "Častá", "type": "DT", "url": "https://www.mmdogmaraton.com/" },
   { "month": "Máj", "country": "CZ", "date": "14.05.-17.05.2026", "name": "Rudolf jede za Cimrmanem 2026", "location": "Střižovice", "type": "DT", "url": "https://www.postopachrudolfa.cz/" },
   { "month": "Máj", "country": "CZ", "date": "28.05.-31.05.2026", "name": "V srdci Česka", "location": "Žďárské vrchy", "type": "DT", "url": "https://slovackymusherklub.cz/" },
