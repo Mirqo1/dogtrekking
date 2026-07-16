@@ -236,25 +236,4 @@ function showArticle(id) {
                 </div>
             </aside>
         </div>`;
-
-    <div class="fb-sidebar-container" style="margin-top: 30px;">
-    <h3>Sleduj nás na Facebooku</h3>
-    
-    <!-- Stránka -->
-    <div class="fb-page" 
-         data-href="https://www.facebook.com/TVOJA_STRANKA" 
-         data-small-header="false" 
-         data-adapt-container-width="true" 
-         data-hide-cover="false" 
-         data-show-facepile="true">
-    </div>
-
-    <!-- Skupina -->
-    <div class="fb-group" 
-         data-href="https://www.facebook.com/groups/TVOJA_SKUPINA" 
-         data-width="280" 
-         data-show-social-context="true" 
-         data-show-metadata="false">
-    </div>
-</div>
 }
