@@ -60,5 +60,19 @@
 
     <!-- JS súbor, ktorý obsluhuje logiku stránky -->
     <script src="script.js"></script>
+<div id="cookie-banner" style="position:fixed; bottom:0; width:100%; background:#333; color:white; padding:15px; text-align:center; display:none; z-index:9999;">
+    Táto stránka používa cookies pre lepšie služby a personalizovanú reklamu. 
+    <button onclick="acceptCookies()" style="margin-left:20px; padding:5px 15px; background:#f2bd2c; border:none; cursor:pointer; font-weight:bold;">Súhlasím</button>
+</div>
+
+<script>
+    function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+    if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+</script>
 </body>
 </html>
