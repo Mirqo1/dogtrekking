@@ -613,3 +613,57 @@ h3 {
     padding: 20px;
     border-radius: 8px;
 }
+
+/* 1. Rozloženie na celú šírku */
+.article-page-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+    max-width: 1100px; /* Zladené s .navbar a main */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 2. Riadkovanie a text zladené s hero sekciou */
+.article-content {
+    line-height: 1.6; 
+    font-size: 16px;
+    color: #333;
+}
+
+.article-content p {
+    margin-bottom: 20px;
+}
+
+/* 3. Žlté tlačidlo "Späť" - štýl z .btn-yellow */
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-yellow);
+    color: var(--main-black);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 30px;
+    border: 2px solid var(--primary-yellow);
+    transition: background 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #dcb028;
+}
+
+/* Bočný panel */
+.sidebar {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+/* Responzivita pre článok */
+@media (max-width: 768px) {
+    .article-page-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
