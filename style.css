@@ -576,3 +576,40 @@ h3 {
     margin-top: 10px;
     letter-spacing: 0.5px;
 }
+
+/* Rozloženie článku na dva stĺpce */
+.article-page-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Hlavný stĺpec 1fr, bočný 300px */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.article-content {
+    line-height: 1.8; /* Väčšie riadkovanie */
+    font-size: 18px;
+}
+
+.article-content p {
+    margin-bottom: 20px; /* Medzery medzi odsekmi */
+}
+
+/* Štýl tlačidla "Späť" - zjednotenie s ostatnými tlačidlami */
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+
+/* Bočný panel */
+.sidebar {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
