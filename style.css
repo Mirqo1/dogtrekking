@@ -864,3 +864,31 @@ h3 {
         margin-top: 20px;
     }
 }
+
+@media (max-width: 600px) {
+    .hero-text {
+        padding: 0 20px; /* Pridá 20px medzeru z oboch strán */
+        box-sizing: border-box; /* Zabezpečí, že padding nezväčší šírku elementu */
+        text-align: center; /* Voliteľné: na mobile vyzerá zarovnanie na stred lepšie */
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column; /* Tlačidlá pôjdu pod seba, aby sa zmestili */
+        gap: 10px; /* Medzera medzi tlačidlami */
+        align-items: center; /* Zarovná tlačidlá na stred */
+    }
+
+    .hero-buttons a {
+        width: 100%; /* Tlačidlá budú mať plnú šírku dostupného priestoru */
+        max-width: 300px; /* Aby neboli príliš široké na veľkých mobiloch */
+        text-align: center;
+    }
+}
+
+body {
+    overflow-x: hidden; /* Zamedzí horizontálnemu skrolovaniu, ak niečo prečnieva */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
