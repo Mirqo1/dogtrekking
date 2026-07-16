@@ -226,14 +226,21 @@ function showArticle(id) {
             </article>
             
             <aside class="sidebar">
-                <h3>Vybrané články</h3>
-                ${featuredArticles.map(a => `
-                    <a href="#" onclick="showPage('${a.id}'); return false;">${a.title}</a>
-                `).join('')}
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="#" class="btn-yellow" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
-                </div>
-            </aside>
+    <h3>Vybrané články</h3>
+    ${featuredArticles.map(a => `
+        <a href="#" onclick="showPage('${a.id}'); return false;">${a.title}</a>
+    `).join('')}
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="#" class="btn-yellow" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
+    </div>
+
+    <!-- TOTO je tá nová časť pre Facebook -->
+    <div class="fb-box" style="margin-top: 30px;">
+        <h3>Sleduj nás na Facebooku</h3>
+        <a href="https://www.facebook.com/dogtrekking.sk" target="_blank" class="fb-link">Stránka</a>
+        <a href="https://www.facebook.com/groups/95459999453" target="_blank" class="fb-link">Skupina</a>
+    </div>
+</aside>
         </div>`;
 }
