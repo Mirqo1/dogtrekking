@@ -257,7 +257,7 @@ function showArticle(id) {
             <article class="article-content">
                 <h1>${article.title}</h1>
                 ${bodyHTML}
-                <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+                <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť</a>
             </article>
             
             <!-- TU JE ZMENA: Namiesto dlhého vypisovania voláme funkciu -->
