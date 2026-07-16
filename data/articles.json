@@ -1,32 +1,4 @@
 [
-    {
-    "id": "001",
-    "title": "Dalsi článok o dogtrekkingu",
-    "date": "13.07.2026",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXXDdY3PZrL3LFjDWFXrcMzwn035zdxd346kztTx6yW22gxOITL0GMjjk&s=10",
-    "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum."
-  },
-    {
-    "id": "809",
-    "title": "Daky článok o dogtrekkingu",
-    "date": "12.07.2026",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMIuXaQDcDN1_g_bdF_tO2kRKw9oTxN85zmHgi2oUQBo6IL8Db5VeOzMGM&s=10",
-    "body": "Toto je text nového článku, ktorý som pridal na vrch zoznamu."
-  },
-  {
-    "id": "asd",
-    "title": "Nový článok o dogtrekkingu",
-    "date": "11.07.2026",
-    "image": "https://media.cntraveller.com/photos/611bf0b8f6bd8f17556db5e4/1:1/w_2000,h_2000,c_limit/gettyimages-1146431497.jpg",
-    "body": "Toto je text nového článku, ktorý som pridal na vrch zoznamu."
-  },
-  {
-    "id": "ako-zacat-s-dogtrekkingom",
-    "title": "Starší článok",
-    "date": "10.07.2026",
-    "image": "img/dog1.jpg",
-    "body": "Obsah staršieho článku."
-  },
   {
   "id": "beh-a-dogtrekking",
   "title": "Beh a dogtrekking",
