@@ -806,7 +806,7 @@ h3 {
     text-decoration: none;
     border: none;
     /* Zrušenie hover efektu špeciálne pre sidebar */
-    pointer-events: none; 
+    /*pointer-events: none; */
 }
 
 /* Ak chceš zachovať klikateľnosť, ale zrušiť vizuálnu zmenu pri hoveri: */
