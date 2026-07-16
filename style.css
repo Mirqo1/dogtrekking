@@ -690,62 +690,6 @@ h3 {
     transition: color 0.3s;
 }
 
-.sidebar a:hover {
-    color: var(--primary-yellow);
-}
-
-/* Tlačidlo Kalendár akcií v bočnej lište */
-.sidebar .btn-calendar {
-    display: block;
-    text-align: center;
-    padding: 12px;
-    background-color: var(--primary-yellow);
-    color: var(--main-black);
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 20px;
-    border-radius: 4px;
-}
-
-/* Bočný panel - sivý podklad bez žltej čiary */
-.sidebar {
-    background: #f4f4f4; /* Jemne sivý podklad */
-    padding: 25px;
-    border-radius: 8px; /* Jemné zaoblenie, ak sa ti páči */
-    height: fit-content;
-    border: none; /* Odstránená žltá čiara */
-}
-
-.sidebar h3 {
-    font-size: 16px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    color: var(--main-black);
-    border-bottom: 1px solid #ddd; /* Jemné podčiarknutie nadpisu */
-    padding-bottom: 10px;
-}
-
-.sidebar a {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 12px;
-    font-size: 15px;
-}
-
-.sidebar a:hover {
-    color: var(--primary-yellow);
-}
-
-/* Bočný panel - sivý podklad */
-.sidebar {
-    background: #f4f4f4;
-    padding: 25px;
-    border-radius: 8px;
-    height: fit-content;
-    border: none;
-}
-
 .sidebar h3 {
     font-size: 16px;
     margin-bottom: 15px;
@@ -763,21 +707,6 @@ h3 {
     margin-bottom: 12px;
     font-size: 15px;
 }
-
-/* Tlačidlo Kalendár v bočnej lište využívajúce tvoj existujúci štýl .btn-yellow */
-.sidebar .btn-calendar {
-    display: block;
-    text-align: center;
-    padding: 10px 20px;
-    background-color: var(--primary-yellow);
-    color: var(--main-black);
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 20px;
-    border: none;
-    cursor: pointer;
-}
-
 
 /* Bočný panel - sivý podklad */
 .sidebar {
