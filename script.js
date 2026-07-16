@@ -15,7 +15,7 @@ async function showPage(page, updateHistory = true) {
                 <article class="article-content">
                     <h1>${pageData.title}</h1>
                     ${pageData.body}
-                    <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť na zoznam</a>
+                    <a href="/" class="btn-yellow" onclick="showPage('home'); return false;">← Späť</a>
                 </article>
                 <aside class="sidebar">${getSidebarHTML()}</aside>
             </div>`;
