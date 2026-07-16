@@ -824,11 +824,15 @@ h3 {
 .badge {
     padding: 2px 6px;
     border-radius: 4px;
-    font-size: 0.8em;
+    font-size: 0.75em;
     font-weight: bold;
-    display: inline-block;
     color: #000;
+    display: inline-block;
+    margin-right: 4px; /* Medzera medzi odznakmi */
+    margin-bottom: 2px; /* Odstup, ak by boli dva riadky */
 }
+
+/* Odstráň badge-dtcc, už ho nebudeš potrebovať */
 
 /* Typ DT - žltá */
 .badge-dt { background: var(--primary-yellow); }
@@ -838,9 +842,3 @@ h3 {
 
 /* Typ DM - modrá */
 .badge-dm { background: #87CEFA; }
-
-/* Kombinovaný typ DT/CC - delené pozadie */
-.badge-dtcc {
-    background: linear-gradient(to right, var(--primary-yellow) 50%, #cccccc 50%);
-    color: #000;
-}
