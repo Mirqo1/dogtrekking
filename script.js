@@ -208,21 +208,17 @@ function showArticle(id) {
     const article = allArticles.find(a => a.id === id);
     if (!article) return;
     
-    // Rozdelíme text na odseky
     let segments = article.body.split('\n\n'); 
     let bodyHTML = "";
 
     segments.forEach(segment => {
         if (segment.trim() === "[IMAGE_INSERT]") {
-            // Vloží obrázok na miesto, kde v JSONe napíšeš [IMAGE_INSERT]
             bodyHTML += `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
         } else {
-            // Vloží klasický odsek
             bodyHTML += `<p>${segment}</p>`;
         }
     });
 
-    // Vykreslenie štruktúry s dvomi stĺpcami
     document.getElementById('app').innerHTML = `
         <div class="article-page-wrapper">
             <article class="article-content">
