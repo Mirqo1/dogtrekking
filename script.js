@@ -231,7 +231,9 @@ function showArticle(id) {
                     <a href="#" onclick="showPage('${a.id}'); return false;">${a.title}</a>
                 `).join('')}
                 
-                <a href="#" class="btn-yellow" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="#" class="btn-yellow" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
+                </div>
             </aside>
         </div>`;
 }
