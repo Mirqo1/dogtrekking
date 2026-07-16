@@ -728,3 +728,28 @@ h3 {
     text-decoration: none;
     border: none;
 }
+
+/* Dizajn boxu pre Facebook */
+.fb-box {
+    background: #f4f4f4; /* Rovnaký podklad ako sidebar */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Štýl odkazov, aby vyzerali ako tlačidlá alebo pekné linky */
+.fb-link {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    background: white;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--main-black);
+    font-weight: bold;
+    border: 1px solid #ddd;
+}
+
+.fb-link:hover {
+    background: var(--primary-yellow);
+}
