@@ -709,12 +709,22 @@ h3 {
 }
 
 /* Bočný panel - sivý podklad */
+/* Tvoj existujúci sidebar doplnený o sticky pozíciu */
 .sidebar {
     background: #f4f4f4;
     padding: 25px;
     border-radius: 8px;
-    height: fit-content;
+    height: fit-content; /* Dôležité: musí mať výšku obsahu */
     border: none;
+    
+    /* Toto zabezpečí plávanie pri skrolovaní */
+    position: -webkit-sticky; /* Pre Safari */
+    position: sticky;
+    top: 20px; /* Vzdialenosť od vrchu pri prilepení */
+    
+    /* Aby sa panel nezlomil, ak je príliš dlhý */
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
 }
 
 /* Tlačidlo v sidebar nebude mať hover efekt a bude vyzerať rovnako */
