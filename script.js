@@ -1,5 +1,7 @@
 async function showPage(page, updateHistory = true) {
     const app = document.getElementById('app');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     
     // 1. Najprv musíme definovať target, aby sme ho mohli použiť
     let target = page.startsWith('/') ? page.substring(1) : page;
@@ -230,6 +232,9 @@ async function startApp() {
 startApp();
 
 window.addEventListener('popstate', (event) => {
+
+window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     const path = window.location.pathname.substring(1);
     if (!path || path === 'home') {
         showPage('home', false);
