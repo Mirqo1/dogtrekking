@@ -950,11 +950,3 @@ body {
 .footer-bottom a:hover {
     text-decoration: underline;
 }
-
-/* Pre mobilné zariadenia */
-@media (max-width: 600px) {
-    .footer-bottom {
-        flex-direction: column; /* Na mobile pôjdu prvky pod seba */
-        gap: 10px;
-    }
-}
