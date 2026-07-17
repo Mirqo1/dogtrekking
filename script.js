@@ -128,7 +128,7 @@ if (typeof gtag === 'function') {
 }
 
 let currentPage = 0;
-const articlesPerPage = 2;
+const articlesPerPage = 3;
 let allArticles = [];
 let allPages = [];
 
@@ -196,8 +196,8 @@ function renderArticles() {
     if (!container) return;
 
     const totalPages = Math.ceil(allArticles.length / 2);
-    const start = currentPage * 2;
-    const paginatedItems = allArticles.slice(start, start + 2);
+    const start = currentPage * articlesPerPage;
+    const paginatedItems = allArticles.slice(start, start + articlesPerPage);
 
     let contentHTML = "";
     paginatedItems.forEach(a => {
