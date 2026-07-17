@@ -978,8 +978,15 @@ body {
     padding: 20px 20px 20px 20px; 
 }
 
-/* Pridaj toto špecifické pravidlo pre footer, aby si mal kontrolu nad jeho horným odstupom */
+/* 1. Vrátime základný padding späť, aby sociálne siete neboli nalepené na hornom okraji */
 footer.footer-container {
-    padding-top: 5px !important; /* Zmenší odstup od obsahu nad ním */
-    margin-top: 5px !important;  /* Zmenší medzeru od sekcie s číselníkom */
+    padding-top: 20px !important; /* Vrátené späť pre dobrý vzhľad vnútorných prvkov */
+    padding-bottom: 20px !important;
+    margin-top: 5px !important;   /* Toto zabezpečí, že pätička bude blízko k číselníku */
+}
+
+/* 2. Aby sme odstránili tú veľkú medzeru, ktorú spôsobil pôvodný spoločný padding, 
+   zmenšíme marginy v samotnom obsahu pätičky */
+.footer-content {
+    margin-top: -10px; /* Toto "vtiahne" obsah pätičky vyššie */
 }
