@@ -134,7 +134,7 @@ let allPages = [];
 
 async function loadArticles() {
     try {
-        const res = await fetch('_articles/articles.json');
+        const res = await fetch('data/articles.json');
         allArticles = await res.json();
         renderArticles();
     } catch (e) {
