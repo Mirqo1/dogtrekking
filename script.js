@@ -128,7 +128,7 @@ if (typeof gtag === 'function') {
 }
 
 let currentPage = 0;
-const articlesPerPage = 3;
+const articlesPerPage = 3;        //zmenene z 2 kvoli docasnemu vypnutiu reklam v articles na homepage
 let allArticles = [];
 let allPages = [];
 
@@ -196,8 +196,8 @@ function renderArticles() {
     if (!container) return;
 
     const totalPages = Math.ceil(allArticles.length / 2);
-    const start = currentPage * articlesPerPage;
-    const paginatedItems = allArticles.slice(start, start + articlesPerPage);
+    const start = currentPage * articlesPerPage;                                        //zmenene 17.7. cca 7:58 kvoli docasnemu vypnutiu reklam v articles na homepage
+    const paginatedItems = allArticles.slice(start, start + articlesPerPage);            //zmenene 17.7. cca 7:58 kvoli docasnemu vypnutiu reklam v articles na homepage
 
     let contentHTML = "";
     paginatedItems.forEach(a => {
