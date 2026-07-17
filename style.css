@@ -922,3 +922,13 @@ body {
     margin: 0 !important;
     overflow: hidden !important;
 }
+
+.article-content ul {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.article-content li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
