@@ -935,21 +935,16 @@ body {
 
 .footer-bottom {
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 14px; /* Rovnaká veľkosť ako ostatný text */
     color: #333;
-    
-    /* Flexbox zabezpečí zobrazenie vedľa seba */
-    display: flex;
-    justify-content: center; /* Vycentrovanie všetkých prvkov */
-    align-items: center;
-    gap: 15px;               /* Medzera medzi prvkami */
-    flex-wrap: wrap;         /* Kľúčové: pri nedostatku miesta prvky zalomí na ďalší riadok */
+    text-align: center;
+    line-height: 1.8; /* Zabezpečí, aby mali riadky odstup pri zalomení na mobile */
 }
 
 .footer-bottom a {
     color: #333;
     text-decoration: none;
-    white-space: nowrap;     /* Zabezpečí, že názvy ako "Ochrana osobných údajov" sa neroztrhnú */
+    white-space: nowrap; /* Zabezpečí, aby sa linky nezalomili uprostred */
 }
 
 .footer-bottom a:hover {
