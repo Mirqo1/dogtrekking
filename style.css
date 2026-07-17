@@ -902,3 +902,11 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.article-content img {
+    max-width: 100%;    /* Obrázok nikdy nebude širší než článok */
+    height: auto;       /* Zachová pomer strán */
+    display: block;     /* Odstráni drobné medzery pod obrázkom */
+    margin: 20px auto;  /* Pridá odstup zhora/zdola a vycentruje ho */
+    border-radius: 8px; /* Jemné zaoblenie rohov, ak chceš */
+}
