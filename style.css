@@ -957,3 +957,16 @@ body {
         display: none;
     }
 }
+
+/* Zabezpečí, že všetky odkazy v pätičke budú mať farbu textu a nebudú podčiarknuté */
+.footer-bottom a {
+    color: #333 !important;      /* Vnucuje farbu textu (sivá/čierna) */
+    text-decoration: none !important; /* Odstráni podčiarknutie */
+    cursor: pointer;
+}
+
+/* Voliteľné: ak chceš, aby pri prejdení myšou trochu zmenili farbu alebo sa podčiarkli */
+.footer-bottom a:hover {
+    text-decoration: underline !important;
+    color: var(--primary-yellow) !important; /* Voliteľne sa zmenia na žltú pri hoveri */
+}
