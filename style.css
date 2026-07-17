@@ -971,24 +971,15 @@ body {
     color: var(--primary-yellow) !important; /* Voliteľne sa zmenia na žltú pri hoveri */
 }
 
-/* 1. Zmenšenie odstupu pod číselníkom */
-.pagination {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-top: 10px !important; /* Pôvodne si tam mal 30px, zmenšil som na 10px */
-    margin-bottom: 20px !important; /* Pridaj toto pre istotu, aby sa pätička netlačila na číselník */
-    font-size: 18px;
-    font-weight: bold;
-    color: #888;
+.navbar, main, footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    /* Zmeň padding tak, aby footer nemal zbytočne veľké odsadenie zhora */
+    padding: 20px 20px 20px 20px; 
 }
 
-/* 2. Zmenšenie horného okraja pätičky */
-.footer-container {
-    text-align: center;
-    padding: 20px 20px 10px 20px !important;
-    border-top: 1px solid #eee;
-    margin-top: 10px !important; /* Pôvodne si mal 40px, zmenil som na 10px */
+/* Pridaj toto špecifické pravidlo pre footer, aby si mal kontrolu nad jeho horným odstupom */
+footer.footer-container {
+    padding-top: 5px !important; /* Zmenší odstup od obsahu nad ním */
+    margin-top: 5px !important;  /* Zmenší medzeru od sekcie s číselníkom */
 }
