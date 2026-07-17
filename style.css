@@ -932,3 +932,34 @@ body {
     margin-bottom: 10px;
     line-height: 1.6;
 }
+
+/* Štýl pre spodnú časť pätičky */
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px; /* Zodpovedá veľkosti textu copyrightu */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Zabezpečí prechod do druhého riadku na mobile */
+    gap: 8px; /* Medzera medzi prvkami */
+}
+
+.footer-bottom a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Skrytie separátora na mobile, ak by to nevyzeralo dobre */
+@media (max-width: 600px) {
+    .footer-separator {
+        display: none;
+    }
+    .footer-bottom {
+        flex-direction: column; /* Na mobile všetko pod seba */
+        gap: 5px;
+    }
+}
