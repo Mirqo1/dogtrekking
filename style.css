@@ -933,33 +933,33 @@ body {
     line-height: 1.6;
 }
 
-/* Štýl pre spodnú časť pätičky */
 .footer-bottom {
     margin-top: 20px;
-    font-size: 14px; /* Zodpovedá veľkosti textu copyrightu */
+    font-size: 14px;
     color: #333;
+    
+    /* Flexbox zabezpečí zobrazenie vedľa seba */
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Zabezpečí prechod do druhého riadku na mobile */
-    gap: 8px; /* Medzera medzi prvkami */
+    justify-content: center; /* Vycentrovanie všetkých prvkov */
+    align-items: center;
+    gap: 15px;               /* Medzera medzi prvkami */
+    flex-wrap: wrap;         /* Kľúčové: pri nedostatku miesta prvky zalomí na ďalší riadok */
 }
 
 .footer-bottom a {
     color: #333;
     text-decoration: none;
+    white-space: nowrap;     /* Zabezpečí, že názvy ako "Ochrana osobných údajov" sa neroztrhnú */
 }
 
 .footer-bottom a:hover {
     text-decoration: underline;
 }
 
-/* Skrytie separátora na mobile, ak by to nevyzeralo dobre */
+/* Pre mobilné zariadenia */
 @media (max-width: 600px) {
-    .footer-separator {
-        display: none;
-    }
     .footer-bottom {
-        flex-direction: column; /* Na mobile všetko pod seba */
-        gap: 5px;
+        flex-direction: column; /* Na mobile pôjdu prvky pod seba */
+        gap: 10px;
     }
 }
