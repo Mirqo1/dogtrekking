@@ -967,26 +967,14 @@ body {
 
 /* Voliteľné: ak chceš, aby pri prejdení myšou trochu zmenili farbu alebo sa podčiarkli */
 .footer-bottom a:hover {
-    text-decoration: underline !important;
+    /*text-decoration: underline !important;*/
     color: var(--primary-yellow) !important; /* Voliteľne sa zmenia na žltú pri hoveri */
 }
 
 .navbar, main, footer {
     max-width: 1100px;
     margin: 0 auto;
-    /* Zmeň padding tak, aby footer nemal zbytočne veľké odsadenie zhora */
-    padding: 20px 20px 20px 20px; 
-}
-
-/* 1. Vrátime základný padding späť, aby sociálne siete neboli nalepené na hornom okraji */
-footer.footer-container {
-    padding-top: 20px !important; /* Vrátené späť pre dobrý vzhľad vnútorných prvkov */
-    padding-bottom: 20px !important;
-    margin-top: 5px !important;   /* Toto zabezpečí, že pätička bude blízko k číselníku */
-}
-
-/* 2. Aby sme odstránili tú veľkú medzeru, ktorú spôsobil pôvodný spoločný padding, 
-   zmenšíme marginy v samotnom obsahu pätičky */
-.footer-content {
-    margin-top: -10px; /* Toto "vtiahne" obsah pätičky vyššie */
+    /* Upravený padding: horný/dolný (20px) a bočný (20px) */
+    /* Ak chceš menšie odsadenie, zmeň 20px na napríklad 10px */
+    padding: 10px 20px; 
 }
