@@ -971,10 +971,24 @@ body {
     color: var(--primary-yellow) !important; /* Voliteľne sa zmenia na žltú pri hoveri */
 }
 
+/* Globálne nastavenie šírky (spoločné) */
 .navbar, main, footer {
     max-width: 1100px;
     margin: 0 auto;
-    /* Upravený padding: horný/dolný (20px) a bočný (20px) */
-    /* Ak chceš menšie odsadenie, zmeň 20px na napríklad 10px */
-    padding: 0px 20px; 
+}
+
+/* Hlavička - vrátime jej priestor */
+.navbar {
+    padding: 20px; 
+}
+
+/* Hlavný obsah - nastav podľa potreby */
+main {
+    padding: 20px;
+}
+
+/* Pätička - nastavíme ju kompaktnejšie */
+.footer-container {
+    padding: 150px 20px; /* Len 10px zhora/zdola, 20px po stranách */
+    margin-top: 5px;    /* Tesnejšie pod číselníkom */
 }
