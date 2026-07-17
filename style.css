@@ -910,3 +910,8 @@ body {
     margin: 20px auto;  /* Pridá odstup zhora/zdola a vycentruje ho */
     border-radius: 8px; /* Jemné zaoblenie rohov, ak chceš */
 }
+
+/*Docasne vypnutie reklamnej plochy v articles na homepage*/
+.ad-slot {
+    display: none !important;
+}
