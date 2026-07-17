@@ -196,8 +196,8 @@ function renderArticles() {
     if (!container) return;
 
     const totalPages = Math.ceil(allArticles.length / 2);
-    const start = currentPage * articlesPerPage;                                        //zmenene 17.7. cca 7:58 kvoli docasnemu vypnutiu reklam v articles na homepage
-    const paginatedItems = allArticles.slice(start, start + articlesPerPage);            //zmenene 17.7. cca 7:58 kvoli docasnemu vypnutiu reklam v articles na homepage
+    const start = currentPage * articlesPerPage;                                        //zmenene z const start = currentPage * 2; kvoli docasnemu vypnutiu reklam v articles na homepage
+    const paginatedItems = allArticles.slice(start, start + articlesPerPage);            //zmenene z const paginatedItems = allArticles.slice(start, start + 2); kvoli docasnemu vypnutiu reklam v articles na homepage
 
     let contentHTML = "";
     paginatedItems.forEach(a => {
