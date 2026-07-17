@@ -2,26 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dogtrekking Slovensko</title>
-    
-    <!-- Meta tagy -->
+    <!-- Meta tagy úplne hore, aby ich robot načítal ako prvé -->
     <meta property="og:title" content="Dogtrekking.sk - Oficiálny web slovenského dogtrekkingu">
     <meta property="og:description" content="Kalendár akcií, články a všetko, čo o dogtrekkingu potrebujete vedieť.">
     <meta property="og:image" content="https://dogtrekking.sk/img/dogtrekking_sk_preview.webp">
     <meta property="og:url" content="https://dogtrekking.sk/">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://dogtrekking.sk/">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Dogtrekking Slovensko</title>
 
     <script>
-        // Počkáme 500ms, aby mal robot čas na prečítanie tagov
-        setTimeout(function() {
-            var path = window.location.pathname;
-            sessionStorage.redirect = path;
-            location.replace("/");
-        }, 500);
+        // Presmerovanie
+        var path = window.location.pathname;
+        sessionStorage.redirect = path;
+        location.replace("/");
     </script>
 </head>
 <body>
-    <p>Presmerovávam...</p>
 </body>
 </html>
