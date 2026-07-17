@@ -208,13 +208,13 @@ function renderArticles() {
             </div>
         </a>`;
     });
-
-    if (paginatedItems.length > 0) {
-        contentHTML += `
-        <div class="card ad-slot">
-            <h3>Reklamný priestor</h3>
-        </div>`;
-    }
+//    Docasne zrusenie reklamy v articles na homepage
+//    if (paginatedItems.length > 0) {
+//       contentHTML += `
+//        <div class="card ad-slot">
+//            <h3>Reklamný priestor</h3>
+//        </div>`;
+//    }
 
     container.innerHTML = contentHTML + `
     <div class="pagination">
