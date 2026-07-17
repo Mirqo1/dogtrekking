@@ -257,11 +257,22 @@ function showArticle(id) {
     const article = allArticles.find(a => a.id === id);
     if (!article) return;
 
+    // Upravená logika v map
     let bodyHTML = article.body.split('\n\n').map(segment => {
-        if (segment.trim() === "[IMAGE_INSERT]") {
-            return `<img src="${article.image}" style="width:100%; margin: 20px 0; border-radius: 8px;">`;
+        const trimmed = segment.trim();
+
+        // 1. Ak je to špeciálny tag pre náhľadový obrázok
+        if (trimmed === "[IMAGE_INSERT]") {
+            return `<img src="${article.image}" alt="Náhľad" class="article-img">`;
         }
-        return `<p>${segment}</p>`;
+
+        // 2. Ak segment už začína HTML tagom (napr. <img ...>)
+        if (trimmed.startsWith('<')) {
+            return trimmed;
+        }
+
+        // 3. Všetko ostatné obalíme do <p>
+        return `<p>${trimmed}</p>`;
     }).join('');
 
     document.getElementById('app').innerHTML = `
@@ -271,10 +282,7 @@ function showArticle(id) {
                 ${bodyHTML}
                 <a href="/" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
             </article>
-            
-            <!-- TU JE ZMENA: Namiesto dlhého vypisovania voláme funkciu -->
             <aside class="sidebar">${getSidebarHTML()}</aside>
-            
         </div>`;
 }
 
