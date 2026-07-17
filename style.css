@@ -970,3 +970,25 @@ body {
     text-decoration: underline !important;
     color: var(--primary-yellow) !important; /* Voliteľne sa zmenia na žltú pri hoveri */
 }
+
+/* 1. Zmenšenie odstupu pod číselníkom */
+.pagination {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px; /* Pôvodne si tam mal 30px, zmenšil som na 10px */
+    margin-bottom: 20px; /* Pridaj toto pre istotu, aby sa pätička netlačila na číselník */
+    font-size: 18px;
+    font-weight: bold;
+    color: #888;
+}
+
+/* 2. Zmenšenie horného okraja pätičky */
+.footer-container {
+    text-align: center;
+    padding: 20px 20px 10px 20px;
+    border-top: 1px solid #eee;
+    margin-top: 10px; /* Pôvodne si mal 40px, zmenil som na 10px */
+}
