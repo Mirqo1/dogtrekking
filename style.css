@@ -938,20 +938,31 @@ body {
     font-size: 14px;
     color: #333;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Toto dovolí zalomenie, ak je málo miesta */
+    gap: 5px;
 }
 
-.footer-row-top {
-    margin-bottom: 5px; /* Priestor medzi riadkami */
-    font-weight: normal;
-}
-
-.footer-row-bottom a {
+.footer-bottom a {
     color: #333;
     text-decoration: none;
-    white-space: nowrap; /* Zabezpečí, že sa odkazy neroztrhnú */
-    padding: 0 5px;      /* Jemné odsadenie okolo zvislítok */
+    white-space: nowrap; /* Odkazy sa neroztrhnú */
 }
 
-.footer-row-bottom a:hover {
+.footer-bottom a:hover {
     text-decoration: underline;
+}
+
+/* Na mobiloch vynútime zlom */
+@media (max-width: 600px) {
+    .footer-bottom {
+        flex-direction: column; /* Vynúti stĺpec */
+        align-items: center;
+    }
+    
+    /* Skryjeme zvislítko pred prvým odkazom na mobile, ak by bolo navyše */
+    .footer-bottom .footer-links {
+        margin-top: 5px;
+    }
 }
