@@ -933,6 +933,7 @@ body {
     line-height: 1.6;
 }
 
+/* Základné štýly */
 .footer-bottom {
     margin-top: 20px;
     font-size: 14px;
@@ -940,29 +941,19 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Toto dovolí zalomenie, ak je málo miesta */
+    flex-wrap: wrap; /* Umožní zalomenie na mobile */
     gap: 5px;
 }
 
-.footer-bottom a {
-    color: #333;
-    text-decoration: none;
-    white-space: nowrap; /* Odkazy sa neroztrhnú */
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-/* Na mobiloch vynútime zlom */
+/* Mobilné zobrazenie */
 @media (max-width: 600px) {
     .footer-bottom {
-        flex-direction: column; /* Vynúti stĺpec */
-        align-items: center;
+        flex-direction: column; /* Vynúti dva riadky */
+        gap: 0;
     }
-    
-    /* Skryjeme zvislítko pred prvým odkazom na mobile, ak by bolo navyše */
-    .footer-bottom .footer-links {
-        margin-top: 5px;
+
+    /* Skryje zvislítko pred prvým odkazom ("O nás") v novom riadku */
+    .footer-links .separator:first-child {
+        display: none;
     }
 }
