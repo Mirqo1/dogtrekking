@@ -235,7 +235,7 @@ for (const p of pages) {
   writePage(p.id, {
     title: p.title,
     description: extractDescription(p.body ?? ""),
-    image: DEFAULT_IMAGE,
+    image: p.image ? absoluteUrl(p.image) : DEFAULT_IMAGE,
     url: `${SITE}/${p.id}`,
     type: "website",
   }, articlePageContent(p.body ?? "", p.title));
