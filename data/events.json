@@ -10,13 +10,16 @@
   { "month": "Júl", "country": "CZ", "date": "17.07.-19.07.2026", "name": "Stopou Strejdy Šeráka", "location": "Lipová lázně", "type": "DT", "url": "https://strejdaserak.cz/" },
   { "month": "Júl", "country": "CZ", "date": "17.07.-19.07.2026", "name": "Kružberský tesák", "location": "Kružberk", "type": "DT", "url": "https://www.tesakovastopa.cz" },
   { "month": "August", "country": "PL", "date": "08.08.2026", "name": "I Jura Night Dog Run", "location": "Katowice", "type": "CC", "url": "https://www.facebook.com/events/1589411222366735/" },
+{ "month": "August", "country": "PL", "date": "29.08.2026", "name": "Złoty Potok ", "location": "Złoty Potok ", "type": "DT", "url": "https://dogtrekking.pl/imprezy/zloty-potok/" },
   { "month": "August", "country": "SK", "date": "30.08.2026", "name": "Draždiak run", "location": "Bratislava", "type": "CC", "url": "https://www.terminovka.sk/podujatie/drazdiak-run" },
   { "month": "September", "country": "CZ", "date": "03.09.-06.09.2026", "name": "Fryštácký dogtrekking", "location": "Fryšták", "type": "DT", "url": "https://frystak.dogtrekking.info/" },
   { "month": "September", "country": "CZ", "date": "17.09.-20.09.2026", "name": "Dogtrekking po stopách Banshee", "location": "Varvažov", "type": "DT", "url": "https://www.dogtrekking-banshee.cz/" },
   { "month": "September", "country": "SK", "date": "26.09.2026", "name": "Fončorda", "location": "Banská Bystrica", "type": "DT, DM", "url": "https://www.terminovka.sk/podujatie/foncorda-dogmaraton-dogtrekking" },
   { "month": "September", "country": "SK", "date": "26.09.2026", "name": "MKTECH Kysuce Trail", "location": "Krásno nad Kysucou", "type": "CC", "url": "https://www.terminovka.sk/podujatie/mktech-krasnansky-horsky-polmaraton" },
+{ "month": "September", "country": "PL", "date": "26.09.2026", "name": "Mistrzostwa Polski Wisła", "location": "Wisła", "type": "DT", "url": "https://dogtrekking.pl/imprezy/wisla/" },
   { "month": "Október", "country": "CZ", "date": "01.10.-04.10.2026", "name": "Dogtrekking Za Šelmou", "location": "Mostek u Dvora Králové nad Labem", "type": "DT", "url": "https://www.dogtrek-selma.cz/" },
 { "month": "Október", "country": "SK", "date": "10.10.2026", "name": "9. ročník neoficiálneho dogtrekkingu v Nimnici", "location": "Nimnica", "type": "DT, CC", "url": "https://www.facebook.com/share/1ChviDFaH2/" },
   { "month": "Október", "country": "CZ", "date": "15.10.-18.10.2026", "name": "Dogtrekking Šlapanický vlk", "location": "Šlapanice", "type": "DT", "url": "https://slapanicky-vlk.kkslapanice.com/" },
+{ "month": "Október", "country": "PL", "date": "17.10.2026", "name": "Złoty Stok", "location": "Złoty Stok", "type": "DT", "url": "https://dogtrekking.pl/imprezy/zloty-stok/" },
   { "month": "December", "country": "SK", "date": "24.12.2026", "name": "Spoznaj Trebišov behom", "location": "Trebišov", "type": "CC", "url": "https://www.terminovka.sk/podujatie/vianocny-beh-spoznaj-trebicov-behom" }
 ]
