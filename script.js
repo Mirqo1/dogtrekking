@@ -1,3 +1,13 @@
+// Koreňová cesta webu — na dogtrekking.sk je to '', na GitHub Pages
+// projektovej stránke '/dogtrekking'. Odvodená z URL tohto skriptu,
+// takže funguje na oboch bez konfigurácie.
+const BASE = new URL('.', document.currentScript.src).pathname.replace(/\/$/, '');
+
+// Doplní BASE pred cesty začínajúce '/' (obrázky z data/*.json a pod.)
+function withBase(path) {
+    return path.startsWith('/') ? BASE + path : path;
+}
+
 async function showPage(page, updateHistory = true) {
     const app = document.getElementById('app');
 
@@ -5,19 +15,20 @@ async function showPage(page, updateHistory = true) {
     
     // 1. Najprv musíme definovať target, aby sme ho mohli použiť
     let target = page.startsWith('/') ? page.substring(1) : page;
-    if (target === '' || target === 'home') target = 'home';
+    target = target.replace(/\.html$/, '');
+    if (target === '' || target === 'home' || target === 'index') target = 'home';
 
     console.log("Aktuálny target:", target);
     // 2. Skontroluj statické stránky (pages.json)
     const pageData = allPages.find(p => p.id === target);
     if (pageData) {
-        if (updateHistory) history.pushState({page: target}, "", `/${target}`);
+        if (updateHistory) history.pushState({page: target}, "", `${BASE}/${target}`);
         app.innerHTML = `
             <div class="article-page-wrapper">
                 <article class="article-content">
                     <h1>${pageData.title}</h1>
                     ${pageData.body}
-                    <a href="/" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
+                    <a href="${BASE}/" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
                 </article>
                 <aside class="sidebar">${getSidebarHTML()}</aside>
             </div>`;
@@ -27,14 +38,14 @@ async function showPage(page, updateHistory = true) {
     // 3. Skontroluj články (articles.json)
     const article = allArticles.find(a => a.id === target);
     if (article) {
-        if (updateHistory) history.pushState({page: target}, "", `/${target}`);
+        if (updateHistory) history.pushState({page: target}, "", `${BASE}/${target}`);
         showArticle(target);
         return;
     }
 
     // 4. Ostatná logika (home, kalendar...)
     if (updateHistory) {
-        history.pushState({page: target}, "", `/${target === 'home' ? '' : target}`);
+        history.pushState({page: target}, "", `${BASE}/${target === 'home' ? '' : target}`);
     }
 
     app.innerHTML = "Načítavam...";
@@ -47,11 +58,11 @@ async function showPage(page, updateHistory = true) {
                         <h2 class="hero-subtitle">Slovensko</h2>
                         <p>Dogtrekking je extrémny vytrvalostný šport človeka a psa, pri ktorom sa prekonávajú vzdialenosti okolo 100 kilometrov v danom časovom limite. Neľakajte sa – dogtrekking je v skutočnosti turistika so psom. Teda aspoň poväčšinou.</p>
                         <div class="hero-buttons">
-                            <a href="/o-dogtrekkingu" onclick="showPage('o-dogtrekkingu'); return false;" class="btn-white">O dogtrekkingu</a>
-                            <a href="/kalendar" onclick="showPage('kalendar'); return false;" class="btn-yellow">Kalendár akcií</a>
+                            <a href="${BASE}/o-dogtrekkingu" onclick="showPage('o-dogtrekkingu'); return false;" class="btn-white">O dogtrekkingu</a>
+                            <a href="${BASE}/kalendar" onclick="showPage('kalendar'); return false;" class="btn-yellow">Kalendár akcií</a>
                         </div>
                     </div>
-                    <div class="hero-image"><img src="/img/dogtrekking_background_home_02.webp" alt="Dogtrekking background"></div>
+                    <div class="hero-image"><img src="${BASE}/img/dogtrekking_background_home_02.webp" alt="Dogtrekking background"></div>
                 </section>
                 <div class="articles-grid" id="articles-list">Načítavam články...</div>`;
             
@@ -59,7 +70,7 @@ async function showPage(page, updateHistory = true) {
             else renderArticles();
 
         } else if (target === 'kalendar') {
-            const res = await fetch('data/events.json');
+            const res = await fetch(`${BASE}/data/events.json`);
             const data = await res.json();
             const grouped = data.reduce((acc, event) => {
                 (acc[event.month] = acc[event.month] || []).push(event);
@@ -134,7 +145,7 @@ let allPages = [];
 
 async function loadArticles() {
     try {
-        const res = await fetch('data/articles.json');
+        const res = await fetch(`${BASE}/data/articles.json`);
         allArticles = await res.json();
         renderArticles();
     } catch (e) {
@@ -145,7 +156,7 @@ async function loadArticles() {
 
 async function loadPages() {
     try {
-        const res = await fetch('data/pages.json');
+        const res = await fetch(`${BASE}/data/pages.json`);
         allPages = await res.json();
         console.log("Stránky načítané:", allPages); // TU PRIDAJ TOTO
     } catch (e) {
@@ -176,8 +187,8 @@ function filterArticles() {
 
     // Zobrazenie výsledkov vyhľadávania (bez pagination)
     container.innerHTML = filtered.map(a => `
-        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
-            <div class="card" style="background-image: url('${a.image}');">
+        <a href="${BASE}/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
+            <div class="card" style="background-image: url('${withBase(a.image)}');">
                 <h3>${a.title}</h3>
             </div>
         </a>`
@@ -186,7 +197,7 @@ function filterArticles() {
 
 window.changePage = function(direction) {
     currentPage += direction;
-    const newPath = (currentPage === 0) ? '/' : `/page-${currentPage + 1}`;
+    const newPath = (currentPage === 0) ? `${BASE}/` : `${BASE}/page-${currentPage + 1}`;
     history.pushState({page: 'home', pageNum: currentPage + 1}, "", newPath);
     renderArticles();
 };
@@ -195,15 +206,15 @@ function renderArticles() {
     const container = document.getElementById('articles-list');
     if (!container) return;
 
-    const totalPages = Math.ceil(allArticles.length / 2);
+    const totalPages = Math.ceil(allArticles.length / articlesPerPage);
     const start = currentPage * articlesPerPage;                                        //zmenene z const start = currentPage * 2; kvoli docasnemu vypnutiu reklam v articles na homepage
     const paginatedItems = allArticles.slice(start, start + articlesPerPage);            //zmenene z const paginatedItems = allArticles.slice(start, start + 2); kvoli docasnemu vypnutiu reklam v articles na homepage
 
     let contentHTML = "";
     paginatedItems.forEach(a => {
         contentHTML += `
-        <a href="/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
-            <div class="card" style="background-image: url('${a.image}');">
+        <a href="${BASE}/${a.id}" class="card-link" onclick="showPage('${a.id}'); return false;">
+            <div class="card" style="background-image: url('${withBase(a.image)}');">
                 <h3>${a.title}</h3>
             </div>
         </a>`;
@@ -224,9 +235,16 @@ function renderArticles() {
     </div>`;
 }
 
+// Cesta stránky bez BASE prefixu (na github.io je v pathname aj názov repa)
+function currentPath() {
+    let p = window.location.pathname;
+    if (BASE && p.startsWith(BASE)) p = p.substring(BASE.length);
+    return p.replace(/^\//, '');
+}
+
 async function startApp() {
     await Promise.all([loadArticles(), loadPages()]);
-    const path = window.location.pathname.substring(1); 
+    const path = currentPath();
     
     if (path.startsWith('page-')) {
         currentPage = parseInt(path.replace('page-', '')) - 1;
@@ -241,8 +259,8 @@ startApp();
 window.addEventListener('popstate', (event) => {
 
 window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    const path = window.location.pathname.substring(1);
+
+    const path = currentPath();
     if (!path || path === 'home') {
         showPage('home', false);
     } else if (path.startsWith('page-')) {
@@ -263,7 +281,7 @@ function showArticle(id) {
 
         // 1. Ak je to špeciálny tag pre náhľadový obrázok
         if (trimmed === "[IMAGE_INSERT]") {
-            return `<img src="${article.image}" alt="Náhľad" class="article-img">`;
+            return `<img src="${withBase(article.image)}" alt="Náhľad" class="article-img">`;
         }
 
         // 2. Ak segment už začína HTML tagom (napr. <img ...>)
@@ -280,7 +298,7 @@ function showArticle(id) {
             <article class="article-content">
                 <h1>${article.title}</h1>
                 ${bodyHTML}
-                <a href="/" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
+                <a href="${BASE}/" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
             </article>
             <aside class="sidebar">${getSidebarHTML()}</aside>
         </div>`;

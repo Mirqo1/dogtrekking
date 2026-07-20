@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="icon" href="img/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogtrekking Slovensko</title>
     
     <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -22,13 +21,18 @@
       })();
     </script>
 
-    <!-- Open Graph meta tagy -->
+    <!-- SEO:START -->
+    <title>Dogtrekking Slovensko</title>
+    <link rel="canonical" href="https://dogtrekking.sk/">
+    <meta name="description" content="Kalendár akcií, články a všetko, čo o dogtrekkingu potrebujete vedieť.">
     <meta property="og:title" content="Dogtrekking.sk - Oficiálny web slovenského dogtrekkingu">
     <meta property="og:description" content="Kalendár akcií, články a všetko, čo o dogtrekkingu potrebujete vedieť.">
     <meta property="og:image" content="https://dogtrekking.sk/img/dogtrekking_sk_preview.webp">
     <meta property="og:url" content="https://dogtrekking.sk/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <!-- SEO:END -->
+    
     
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCH2DTKYBT"></script>
@@ -44,7 +48,7 @@
 <body>
 
     <header class="navbar">
-<div class="logo" onclick="window.location.href='/'; return false;" style="cursor:pointer;">
+<div class="logo" onclick="window.location.href='./'; return false;" style="cursor:pointer;">
             <span class="yellow">DOG</span><span class="black">TREKKING</span><span class="yellow">.SK</span>
         </div>
         
@@ -54,10 +58,10 @@
 </div>
     </header>
 
-    <!-- Hlavná časť, do ktorej JS vkladá obsah -->
-    <main id="app">
-        <!-- Obsah sa načíta automaticky po spustení script.js -->
-    </main>
+    <!-- Hlavná časť, do ktorej JS vkladá obsah.
+         Medzi značky CONTENT:START/END vloží generate-pages.mjs
+         predrenderovaný obsah (pre scrapery a načítanie bez JS). -->
+    <main id="app"><!-- CONTENT:START --><!-- CONTENT:END --></main>
 
 <footer class="footer-container">
     <div class="footer-content">

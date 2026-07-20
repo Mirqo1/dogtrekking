@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <!-- Meta tagy úplne hore, aby ich robot načítal ako prvé -->
-    <meta property="og:title" content="Dogtrekking.sk - Oficiálny web slovenského dogtrekkingu">
-    <meta property="og:description" content="Kalendár akcií, články a všetko, čo o dogtrekkingu potrebujete vedieť.">
-    <meta property="og:image" content="https://dogtrekking.sk/img/dogtrekking_sk_preview.webp">
-    <meta property="og:url" content="https://dogtrekking.sk/">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Dogtrekking Slovensko</title>
-
+  <head>
     <script>
-        // Presmerovanie
-        var path = window.location.pathname;
-        sessionStorage.redirect = path;
-        location.replace("/");
+      var path = window.location.pathname;
+      // Na GitHub Pages projektovej stránke je koreň webu /<nazov-repa>/,
+      // na vlastnej doméne (dogtrekking.sk) je to /.
+      var base = window.location.hostname.endsWith("github.io")
+        ? "/" + path.split("/")[1] + "/"
+        : "/";
+      sessionStorage.redirect = path;
+      location.replace(base);
     </script>
-</head>
-<body>
-</body>
+  </head>
 </html>
