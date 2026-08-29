@@ -22,14 +22,15 @@
     </script>
 
     <!-- SEO:START -->
-    <title>Dogtrekking Slovensko</title>
-    <link rel="canonical" href="https://dogtrekking.sk/">
-    <meta name="description" content="Kalendár akcií, články a všetko, čo o dogtrekkingu potrebujete vedieť.">
-    <meta property="og:title" content="Dogtrekking.sk - Oficiálny web slovenského dogtrekkingu">
-    <meta property="og:description" content="Kalendár akcií, články a všetko, čo o dogtrekkingu potrebujete vedieť.">
+    <title>O nás | Dogtrekking.sk</title>
+    <link rel="canonical" href="https://dogtrekking.sk/o-nas">
+    <meta name="description" content="Vitajte na oficiálnom webe slovenského dogtrekkingu! Sme nadšenci, ktorí veria, že najlepším spoločníkom na túrach v slovenských horách je práve pes. Cieľom…">
+    <meta property="og:title" content="O nás">
+    <meta property="og:description" content="Vitajte na oficiálnom webe slovenského dogtrekkingu! Sme nadšenci, ktorí veria, že najlepším spoločníkom na túrach v slovenských horách je práve pes. Cieľom…">
     <meta property="og:image" content="https://dogtrekking.sk/img/dogtrekking_sk_preview.webp">
-    <meta property="og:url" content="https://dogtrekking.sk/">
+    <meta property="og:url" content="https://dogtrekking.sk/o-nas">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dogtrekking.sk">
     <meta name="twitter:card" content="summary_large_image">
     <!-- SEO:END -->
     
@@ -62,39 +63,28 @@
          Medzi značky CONTENT:START/END vloží generate-pages.mjs
          predrenderovaný obsah (pre scrapery a načítanie bez JS). -->
     <main id="app"><!-- CONTENT:START -->
-                <section class="hero">
-                    <div class="hero-text">
-                        <h1 class="hero-title">Dogtrekking</h1>
-                        <h2 class="hero-subtitle">Slovensko</h2>
-                        <p>Dogtrekking je extrémny vytrvalostný šport človeka a psa, pri ktorom sa prekonávajú vzdialenosti okolo 100 kilometrov v danom časovom limite. Neľakajte sa – dogtrekking je v skutočnosti turistika so psom. Teda aspoň poväčšinou.</p>
-                        <div class="hero-buttons">
-                            <a href="o-dogtrekkingu" onclick="showPage('o-dogtrekkingu'); return false;" class="btn-white">O dogtrekkingu</a>
-                            <a href="kalendar" onclick="showPage('kalendar'); return false;" class="btn-yellow">Kalendár akcií</a>
-                        </div>
-                    </div>
-                    <div class="hero-image"><img src="img/dogtrekking_background_home_02.webp" alt="Dogtrekking background"></div>
-                </section>
-                <div class="articles-grid" id="articles-list">
-        <a href="rozdiel-medzi-dogtrekkingom-a-canicrossom" class="card-link" onclick="showPage('rozdiel-medzi-dogtrekkingom-a-canicrossom'); return false;">
-            <div class="card" style="background-image: url('img/PSX_20260829_064131-ezgif.com-jpg-to-webp-converter.webp');">
-                <h3>Rozdiel medzi dogtrekkingom a canicrossom</h3>
-            </div>
-        </a>
-        <a href="dogtrekking-sk-je-spat" class="card-link" onclick="showPage('dogtrekking-sk-je-spat'); return false;">
-            <div class="card" style="background-image: url('img/Dogtrekking_back_preview_01.webp');">
-                <h3>Dogtrekking.sk je späť</h3>
-            </div>
-        </a>
-        <a href="beh-a-dogtrekking" class="card-link" onclick="showPage('beh-a-dogtrekking'); return false;">
-            <div class="card" style="background-image: url('img/Dogtrekking_Osrblie_preview_01.webp');">
-                <h3>Beh a dogtrekking</h3>
-            </div>
-        </a>
-    <div class="pagination">
-        <button onclick="changePage(-1)" disabled>&lt;</button>
-        <span class="page-info">1 / 1</span>
-        <button onclick="changePage(1)" disabled>&gt;</button>
-    </div></div><!-- CONTENT:END --></main>
+        <div class="article-page-wrapper">
+            <article class="article-content">
+                <h1>O nás</h1>
+                <p>Vitajte na oficiálnom webe slovenského dogtrekkingu!</p><p>Sme nadšenci, ktorí veria, že najlepším spoločníkom na túrach v slovenských horách je práve pes. Cieľom tohto portálu je prinášať prehľad o dogtrekkingových podujatiach, praktické rady pre začiatočníkov aj skúsených kynológov a tipy na trasy, ktoré môžete zdolať so svojím štvornohým parťákom.</p><h2>Naša misia</h2><p>Budujeme komunitu ľudí, ktorí milujú pohyb v prírode, rešpektujú les a zároveň chcú zdieľať radostné chvíle so svojím psom. Veríme, že zodpovedný prístup k dogtrekkingu robí z každého výletu nezabudnuteľný zážitok.</p><p>Ak máte nápad na spoluprácu, chcete pridať podujatie do nášho kalendára alebo sa len chcete niečo opýtať, neváhajte nás kontaktovať na <strong>info@dogtrekking.sk</strong>.</p>
+                <a href="./" class="btn-yellow btn-back-nav" onclick="showPage('home'); return false;">← Späť</a>
+            </article>
+            <aside class="sidebar">
+        <h3>Vybrané články</h3>
+        
+            <a href="beh-a-dogtrekking" onclick="showPage('beh-a-dogtrekking'); return false;">Beh a dogtrekking</a>
+        
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="kalendar" class="btn-yellow" onclick="showPage('kalendar'); return false;">Kalendár akcií</a>
+        </div>
+
+        <div class="social-links" style="margin-top: 30px; text-align: center;">
+        <p style="font-weight: bold; margin-bottom: 5px;">Sleduj nás na Facebooku</p>
+        <a href="https://www.facebook.com/dogtrekking.sk" target="_blank" class="fb-link">Stránka</a>
+        <a href="https://www.facebook.com/groups/95459999453" target="_blank" class="fb-link">Skupina</a>
+    </div></aside>
+        </div><!-- CONTENT:END --></main>
 
 <footer class="footer-container">
     <div class="footer-content">
