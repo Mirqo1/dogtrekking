@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- SCRIPT PRE ZACHYTENIE URL PRI REFRESHI -->
+    <script>
+      (function(){
+        // Ak sme boli presmerovaní z 404.html, obnovíme pôvodnú cestu
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != "/") {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+
+    <!-- SEO:START -->
+    <title>Kalendár akcií | Dogtrekking.sk</title>
+    <link rel="canonical" href="https://dogtrekking.sk/kalendar">
+    <meta name="description" content="Kalendár dogtrekkingových akcií na Slovensku a v okolitých krajinách — dátumy, miesta a odkazy na prihlasovanie.">
+    <meta property="og:title" content="Kalendár akcií">
+    <meta property="og:description" content="Kalendár dogtrekkingových akcií na Slovensku a v okolitých krajinách — dátumy, miesta a odkazy na prihlasovanie.">
+    <meta property="og:image" content="https://dogtrekking.sk/img/dogtrekking_sk_preview.webp">
+    <meta property="og:url" content="https://dogtrekking.sk/kalendar">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dogtrekking.sk">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- SEO:END -->
+    
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCH2DTKYBT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JCH2DTKYBT');
+</script>
+
+</head>
+<body>
+
+    <header class="navbar">
+<div class="logo" onclick="window.location.href='./'; return false;" style="cursor:pointer;">
+            <span class="yellow">DOG</span><span class="black">TREKKING</span><span class="yellow">.SK</span>
+        </div>
+        
+        <!-- Vyhľadávanie vpravo -->
+<div class="search-box">
+    <input type="text" id="search-bar" placeholder="Vyhľadávanie..." oninput="filterArticles()">
+</div>
+    </header>
+
+    <!-- Hlavná časť, do ktorej JS vkladá obsah.
+         Medzi značky CONTENT:START/END vloží generate-pages.mjs
+         predrenderovaný obsah (pre scrapery a načítanie bez JS). -->
+    <main id="app"><!-- CONTENT:START --><h2>Kalendár akcií</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Krajina</th>
+                            <th>Dátum</th>
+                            <th>Názov</th>
+                            <th class="desktop-only">Miesto</th>
+                            <th>Typ</th>
+                            <th class="desktop-only">Info</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">Marec</td></tr>
+                    <tr class="" onclick="window.open('https://www.yantarni.cz/dogtrekking', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>26.03.-29.03.2026</td>
+                        <td style="font-weight: bold;">Valašská Vlčica</td>
+                        <td class="desktop-only">Velehrad​</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.yantarni.cz/dogtrekking" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">Apríl</td></tr>
+                    <tr class="" onclick="window.open('https://www.ledovastopa.cz/dtkb26/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>10.04.-12.04.2026</td>
+                        <td style="font-weight: bold;">Dogtrekking Krajinou Břidlice 2026</td>
+                        <td class="desktop-only">Moravský Beroun</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.ledovastopa.cz/dtkb26/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://dogtrekking.estranky.cz/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>23.04.-26.04.2026</td>
+                        <td style="font-weight: bold;">Krušnohorský dogtrekking 2026</td>
+                        <td class="desktop-only">Jablonné v Podještědí</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://dogtrekking.estranky.cz/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">Máj</td></tr>
+                    <tr class="sk-event" onclick="window.open('https://www.mmdogmaraton.com/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/sk.png" alt="SK"></td>
+                        <td>01.05.-03.05.2026</td>
+                        <td style="font-weight: bold;">Červenokamenský Dogtrekking</td>
+                        <td class="desktop-only">Častá</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.mmdogmaraton.com/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://www.postopachrudolfa.cz/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>14.05.-17.05.2026</td>
+                        <td style="font-weight: bold;">Rudolf jede za Cimrmanem 2026</td>
+                        <td class="desktop-only">Střižovice</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.postopachrudolfa.cz/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://slovackymusherklub.cz/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>28.05.-31.05.2026</td>
+                        <td style="font-weight: bold;">V srdci Česka</td>
+                        <td class="desktop-only">Žďárské vrchy</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://slovackymusherklub.cz/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="sk-event" onclick="window.open('https://dogtrekking.fatranskyvlcko.sk/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/sk.png" alt="SK"></td>
+                        <td>30.05.2026</td>
+                        <td style="font-weight: bold;">Fatranský Vĺčko</td>
+                        <td class="desktop-only">Turčianske Jaseno</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://dogtrekking.fatranskyvlcko.sk/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">Jún</td></tr>
+                    <tr class="" onclick="window.open('https://www.canisterapie.net/dogtrekking/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>18.06..-21.06.2026</td>
+                        <td style="font-weight: bold;">Zde jsou lvi</td>
+                        <td class="desktop-only">Zámek Hošťálkovy</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.canisterapie.net/dogtrekking/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">Júl</td></tr>
+                    <tr class="" onclick="window.open('https://strejdaserak.cz/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>17.07.-19.07.2026</td>
+                        <td style="font-weight: bold;">Stopou Strejdy Šeráka</td>
+                        <td class="desktop-only">Lipová lázně</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://strejdaserak.cz/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://www.tesakovastopa.cz', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>17.07.-19.07.2026</td>
+                        <td style="font-weight: bold;">Kružberský tesák</td>
+                        <td class="desktop-only">Kružberk</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.tesakovastopa.cz" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">August</td></tr>
+                    <tr class="" onclick="window.open('https://www.facebook.com/events/1589411222366735/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/pl.png" alt="PL"></td>
+                        <td>08.08.2026</td>
+                        <td style="font-weight: bold;">I Jura Night Dog Run</td>
+                        <td class="desktop-only">Katowice</td>
+                        <td><span class="badge badge-cc">CC</span></td>
+                        <td class="desktop-only"><a href="https://www.facebook.com/events/1589411222366735/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://dogtrekking.pl/imprezy/zloty-potok/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/pl.png" alt="PL"></td>
+                        <td>29.08.2026</td>
+                        <td style="font-weight: bold;">Złoty Potok </td>
+                        <td class="desktop-only">Złoty Potok </td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://dogtrekking.pl/imprezy/zloty-potok/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="sk-event" onclick="window.open('https://www.terminovka.sk/podujatie/drazdiak-run', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/sk.png" alt="SK"></td>
+                        <td>30.08.2026</td>
+                        <td style="font-weight: bold;">Draždiak run</td>
+                        <td class="desktop-only">Bratislava</td>
+                        <td><span class="badge badge-cc">CC</span></td>
+                        <td class="desktop-only"><a href="https://www.terminovka.sk/podujatie/drazdiak-run" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">September</td></tr>
+                    <tr class="" onclick="window.open('https://frystak.dogtrekking.info/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>03.09.-06.09.2026</td>
+                        <td style="font-weight: bold;">Fryštácký dogtrekking</td>
+                        <td class="desktop-only">Fryšták</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://frystak.dogtrekking.info/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://www.dogtrekking-banshee.cz/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>17.09.-20.09.2026</td>
+                        <td style="font-weight: bold;">Dogtrekking po stopách Banshee</td>
+                        <td class="desktop-only">Varvažov</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.dogtrekking-banshee.cz/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="sk-event" onclick="window.open('https://www.terminovka.sk/podujatie/foncorda-dogmaraton-dogtrekking', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/sk.png" alt="SK"></td>
+                        <td>26.09.2026</td>
+                        <td style="font-weight: bold;">Fončorda</td>
+                        <td class="desktop-only">Banská Bystrica</td>
+                        <td><span class="badge badge-dt">DT</span> <span class="badge badge-dm">DM</span></td>
+                        <td class="desktop-only"><a href="https://www.terminovka.sk/podujatie/foncorda-dogmaraton-dogtrekking" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="sk-event" onclick="window.open('https://www.terminovka.sk/podujatie/mktech-krasnansky-horsky-polmaraton', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/sk.png" alt="SK"></td>
+                        <td>26.09.2026</td>
+                        <td style="font-weight: bold;">MKTECH Kysuce Trail</td>
+                        <td class="desktop-only">Krásno nad Kysucou</td>
+                        <td><span class="badge badge-cc">CC</span></td>
+                        <td class="desktop-only"><a href="https://www.terminovka.sk/podujatie/mktech-krasnansky-horsky-polmaraton" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://dogtrekking.pl/imprezy/wisla/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/pl.png" alt="PL"></td>
+                        <td>26.09.2026</td>
+                        <td style="font-weight: bold;">Mistrzostwa Polski Wisła</td>
+                        <td class="desktop-only">Wisła</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://dogtrekking.pl/imprezy/wisla/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">Október</td></tr>
+                    <tr class="" onclick="window.open('https://www.dogtrek-selma.cz/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>01.10.-04.10.2026</td>
+                        <td style="font-weight: bold;">Dogtrekking Za Šelmou</td>
+                        <td class="desktop-only">Mostek u Dvora Králové nad Labem</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://www.dogtrek-selma.cz/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="sk-event" onclick="window.open('https://www.facebook.com/share/1ChviDFaH2/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/sk.png" alt="SK"></td>
+                        <td>10.10.2026</td>
+                        <td style="font-weight: bold;">9. ročník neoficiálneho dogtrekkingu v Nimnici</td>
+                        <td class="desktop-only">Nimnica</td>
+                        <td><span class="badge badge-dt">DT</span> <span class="badge badge-cc">CC</span></td>
+                        <td class="desktop-only"><a href="https://www.facebook.com/share/1ChviDFaH2/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://slapanicky-vlk.kkslapanice.com/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/cz.png" alt="CZ"></td>
+                        <td>15.10.-18.10.2026</td>
+                        <td style="font-weight: bold;">Dogtrekking Šlapanický vlk</td>
+                        <td class="desktop-only">Šlapanice</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://slapanicky-vlk.kkslapanice.com/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr>
+                    <tr class="" onclick="window.open('https://dogtrekking.pl/imprezy/zloty-stok/', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/pl.png" alt="PL"></td>
+                        <td>17.10.2026</td>
+                        <td style="font-weight: bold;">Złoty Stok</td>
+                        <td class="desktop-only">Złoty Stok</td>
+                        <td><span class="badge badge-dt">DT</span></td>
+                        <td class="desktop-only"><a href="https://dogtrekking.pl/imprezy/zloty-stok/" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr><tr><td colspan="6" style="background:#f4f4f4; font-weight:bold;">December</td></tr>
+                    <tr class="sk-event" onclick="window.open('https://www.terminovka.sk/podujatie/vianocny-beh-spoznaj-trebicov-behom', '_blank')" style="cursor:pointer;">
+                        <td><img src="https://flagcdn.com/24x18/sk.png" alt="SK"></td>
+                        <td>24.12.2026</td>
+                        <td style="font-weight: bold;">Spoznaj Trebišov behom</td>
+                        <td class="desktop-only">Trebišov</td>
+                        <td><span class="badge badge-cc">CC</span></td>
+                        <td class="desktop-only"><a href="https://www.terminovka.sk/podujatie/vianocny-beh-spoznaj-trebicov-behom" target="_blank" class="btn-link">Viac info</a></td>
+                    </tr></tbody></table></div><!-- CONTENT:END --></main>
+
+<footer class="footer-container">
+    <div class="footer-content">
+        <div class="social-links">
+            <p>Sleduj nás na Facebooku:</p>
+            <a href="https://www.facebook.com/dogtrekking.sk" target="_blank">Stránka</a> | 
+            <a href="https://www.facebook.com/groups/95459999453" target="_blank">Skupina</a>
+        </div>
+        
+<div class="footer-bottom">
+    <span>&copy; 2026 Oficiálny web slovenského dogtrekkingu</span>
+    <span class="footer-links">
+        <span class="separator">&nbsp;|&nbsp;</span><a href="#" onclick="showPage('o-nas'); return false;">O nás</a>
+        <span class="separator">&nbsp;|&nbsp;</span><a href="mailto:info@dogtrekking.sk">Kontakt</a>
+        <span class="separator">&nbsp;|&nbsp;</span><a href="#" onclick="showPage('privacy'); return false;">Ochrana osobných údajov</a>
+    </span>
+</div>
+    </div>
+</footer>
+
+    <!-- JS súbor, ktorý obsluhuje logiku stránky -->
+    <script src="script.js"></script>
+<div id="cookie-banner" style="position:fixed; bottom:0; width:100%; background:#333; color:white; padding:15px; text-align:center; display:none; z-index:9999;">
+    Táto stránka používa cookies pre lepšie služby a personalizovanú reklamu. 
+    <button onclick="acceptCookies()" style="margin-left:20px; padding:5px 15px; background:#f2bd2c; border:none; cursor:pointer; font-weight:bold;">Súhlasím</button>
+</div>
+
+<script>
+    function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+    if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+</script>
+</body>
+</html>

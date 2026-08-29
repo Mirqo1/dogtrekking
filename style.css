@@ -984,6 +984,10 @@ body {
     background: #fff;
 }
 
+.dt-equip-item--text {
+    grid-template-columns: 1fr;
+}
+
 .dt-equip-image {
     width: 180px;
     height: 140px;
